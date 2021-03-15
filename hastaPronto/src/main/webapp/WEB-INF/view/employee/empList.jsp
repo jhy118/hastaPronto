@@ -16,6 +16,6 @@
 		<th>주소</th>		
 	</tr>
 </table>
-<a href="empForm">직원등록</a>
+<a href="empRegist">직원등록</a>
 </body>
 </html>

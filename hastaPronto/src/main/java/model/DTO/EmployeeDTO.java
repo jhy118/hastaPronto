@@ -1,13 +1,27 @@
-package command;
+package model.DTO;
 
-public class EmployeeCommand {
+import java.util.Date;
+
+public class EmployeeDTO {
+	String empNo;
 	String empId;
+	String empPw;
 	String empName;
 	String empPh;
 	String empEmail;
 	String empAddr;
-	String empBirth;
+	Date empBirth;
 	String empAccount;
+	String depNo;
+	String empRegist;
+
+	public String getEmpNo() {
+		return empNo;
+	}
+
+	public void setEmpNo(String empNo) {
+		this.empNo = empNo;
+	}
 
 	public String getEmpId() {
 		return empId;
@@ -15,6 +29,14 @@ public class EmployeeCommand {
 
 	public void setEmpId(String empId) {
 		this.empId = empId;
+	}
+
+	public String getEmpPw() {
+		return empPw;
+	}
+
+	public void setEmpPw(String empPw) {
+		this.empPw = empPw;
 	}
 
 	public String getEmpName() {
@@ -49,11 +71,11 @@ public class EmployeeCommand {
 		this.empAddr = empAddr;
 	}
 
-	public String getEmpBirth() {
+	public Date getEmpBirth() {
 		return empBirth;
 	}
 
-	public void setEmpBirth(String empBirth) {
+	public void setEmpBirth(Date empBirth) {
 		this.empBirth = empBirth;
 	}
 
@@ -63,6 +85,22 @@ public class EmployeeCommand {
 
 	public void setEmpAccount(String empAccount) {
 		this.empAccount = empAccount;
+	}
+
+	public String getDepNo() {
+		return depNo;
+	}
+
+	public void setDepNo(String depNo) {
+		this.depNo = depNo;
+	}
+
+	public String getEmpRegist() {
+		return empRegist;
+	}
+
+	public void setEmpRegist(String empRegist) {
+		this.empRegist = empRegist;
 	}
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="../emp/empList">직원</a>
+	<a href="<c:url value='emp/empRegist'/>">직원</a>
 </body>
 </html>
