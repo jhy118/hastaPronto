@@ -1,5 +1,6 @@
 package controller.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -8,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.MemberCommand;
+import service.member.MemberRegistService;
 import validator.MemberCommandValidator;
 
 @Controller
 @RequestMapping("mem")
 public class MemberController {
+	@Autowired
+	MemberRegistService memberRegistService;
 	
 	@RequestMapping(value = "memRegist", method = RequestMethod.POST)
 	public String memRegist(@ModelAttribute(value = "memCommand") MemberCommand memCommand,
@@ -21,6 +25,7 @@ public class MemberController {
 		if(errors.hasErrors()) {
 			return "member/memForm";
 		}
+		memberRegistService.execute(memCommand, model);
 		return "";
 	}	
 }

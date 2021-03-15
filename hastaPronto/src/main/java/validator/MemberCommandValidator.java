@@ -4,6 +4,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import command.MemberCommand;
+
 public class MemberCommandValidator implements Validator{
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -11,6 +13,13 @@ public class MemberCommandValidator implements Validator{
 	}
 	@Override
 	public void validate(Object target, Errors errors) {
+		MemberCommand check = (MemberCommand) target;
+		if(!check.getMemPw().isEmpty()) {
+			if(!check.isMemPwEqualsMemPwCon()) {
+				errors.rejectValue("memPwCon", "nomatch");
+			}
+		}
+		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "memId", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "memPw", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "memPwCon", "required");
