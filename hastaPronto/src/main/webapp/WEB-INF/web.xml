@@ -29,6 +29,8 @@
   			classpath:context.xml
   			classpath:employee.xml
   			classpath:main.xml
+  			classpath:mybatis-config.xml
+  			classpath:jdbc.xml
   		</param-value>
   	</init-param>
   </servlet>

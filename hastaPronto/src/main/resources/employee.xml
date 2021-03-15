@@ -4,4 +4,5 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.employee.EmployeeController"/>
 	<bean class="service.employee.EmployeeRegistService"/>
+	<bean class="repository.employee.EmployeeRepository"/>
 </beans>
