@@ -19,7 +19,7 @@
 	<context:annotation-config />
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames" >
+		<property name="basenames">
 			<list>
 				<value>message.error</value>
 			</list>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="mappers.employee.employeeMapper">
+<sql id="baseColumn">
+	EMP_NO, EMP_ID, EMP_PW, EMP_NAME, EMP_PH, EMP_EMAIL, EMP_ADDR, EMP_BIRTH, EMP_ACCOUNT, DEP_NO, EMP_REGIST
+</sql>
+<sql id="empNoSub">
+	select nvl(max(emp_no), 0) + 1 from employees
+</sql>
+  <insert id="insertEmployee" parameterType="emp">
+  	insert into employees(<include refid="baseColumn"/>)
+  	values((<include refid="empNoSub"/>), #{empId}, #{empPw}, #{empName}, #{empPh}, #{empEmail}, #{empAddr},
+  	#{empBirth}, #{empAccount}, null, sysdate)
+  </insert>
+  
+</mapper>
