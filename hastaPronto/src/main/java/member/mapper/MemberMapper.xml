@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.mapper.MemberMapper">
+	<sql id="baseColumn">
+		USER_ID, USER_PASSWORD, USER_NAME, USER_PH, USER_EMAIL,
+		USER_ADDR, USER_BIRTH, USER_GENDER, USER_REGIST
+	</sql>
+	<insert id="insertMember" parameterType="member.mapper.MemberMapper">
+		insert into users (<include refid="baseColumn" />)
+	values(#{userId},#{userPassword},#{userName},#{userPh},#{userEmail},
+			#{userAddr},#{userBirth},#{userGender}.sysdate)
+	</insert>
+</mapper>
