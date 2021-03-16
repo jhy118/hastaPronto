@@ -3,4 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.main.MainController"/>
+	<bean class="controller.main.LoginController"/>
+	<bean class="service.main.LoginService" id="loginService"/>
+	<bean class="repository.main.LoginRepository" id="loginRepository"/>
 </beans>

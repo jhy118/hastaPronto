@@ -23,8 +23,8 @@
   		from (select <include refid="baseColumn"/> 
   			from employees
   			<where>
-  				<if test="empNo != null">
-  					emp_no = #{empNo}
+  				<if test="empId != null">
+  					emp_id = #{empId}
   				</if>
   			</where>
   			order by emp_regist desc))

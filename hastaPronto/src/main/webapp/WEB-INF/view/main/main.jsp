@@ -11,5 +11,9 @@
 	<a href="<c:url value='emp/empList'/>">직원</a><br />
 	<a href="<c:url value='mem/memRegist'/>">회원</a><br />
 	<a href="<c:url value='man/memList'/>">회원리스트</a><br />
+=======
+	<a href="<c:url value='mem/memRegist'/>">회원</a><br/>
+	<a href="<c:url value='login/login'/>">로그인</a>
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 </body>
 </html>

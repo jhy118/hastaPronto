@@ -17,7 +17,7 @@
 		<th>주소</th>		
 	</tr>
 	<c:forEach items="${lists}" var="list" varStatus="status">
-	<tr onclick="javascript:location.href='<c:url value="emp/empDetail/${list.empId}"/>'">
+	<tr onclick="javascript:location.href='<c:url value="/emp/empDetail/${list.empId}"/>'">
 		<th>${status.count}</th>
 		<th>${list.empNo}</th>
 		<th>${list.empName}</th>
