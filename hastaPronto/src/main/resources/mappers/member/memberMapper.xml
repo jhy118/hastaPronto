@@ -31,7 +31,7 @@
 		select *
 		from ( select ROWNUM RN, <include refid="baseColumn" />
 			from (select <include refid="baseColumn" />
-				from member
+				from users
 				<trim prefix="WHERE" prefixOverrides="AND | OR">
 					<if test="userId != null">
 						user_id = #{userId}
@@ -40,7 +40,7 @@
 				order by user_regist DESC))
 				<trim prefix="where" prefixOverrides="and | or">
 					<if test="startEndPageDTO != null">
-						RN BETWEEN #{startEndPageDTO.startPage} AND #{startEndPageDTO.endPage}
+						RN BETWEEN #{startEndPageDTO.startRow} AND #{startEndPageDTO.endRow}
 					</if>
 				</trim>
 	</select>

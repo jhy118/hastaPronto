@@ -15,7 +15,7 @@ public class MemberListController {
 	MemberListService memberListService; 
 	@RequestMapping("memList")
 	public String memList(
-			@RequestParam(value="page", defaultValue = "1") Model model, Integer page) {
+			@RequestParam(value="page", defaultValue = "1") Integer page, Model model ) {
 		memberListService.execute(model, page);
 		return "member/memList";
 	}
