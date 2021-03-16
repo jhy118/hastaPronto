@@ -18,6 +18,17 @@ public class MemberController {
 	@Autowired
 	MemberRegistService memberRegistService;
 	
+	@RequestMapping(value = "memList", method = RequestMethod.GET)
+	public String memList() {
+		return "member/memList";
+	}
+	      
+	@RequestMapping(value = "memRegist", method = RequestMethod.GET)
+	public String memForm(Model model) {
+		model.addAttribute("memCommand", new MemberCommand());
+		return "member/memForm";
+	}
+	
 	@RequestMapping(value = "memRegist", method = RequestMethod.POST)
 	public String memRegist(@ModelAttribute(value = "memCommand") MemberCommand memCommand,
 			Errors errors, Model model) {
@@ -26,6 +37,6 @@ public class MemberController {
 			return "member/memForm";
 		}
 		memberRegistService.execute(memCommand, model);
-		return "";
+		return "member/memList";
 	}	
 }

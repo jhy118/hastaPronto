@@ -25,8 +25,8 @@
 			<tr>
 				<th>비밀번호 확인</th>
 				<td>
-					<form:password path="memPwCon" id="userPwCon" />
-					<form:errors path="userPwCon" />
+					<form:password path="memPwCon" id="memPwCon" />
+					<form:errors path="memPwCon" />
 				</td>
 			</tr>
 			<tr>
@@ -63,6 +63,10 @@
 					<form:radiobutton path="memGender" id="memGender" value="F" />
 					여
 				</td>
+			</tr>
+			<tr>
+				<th colspan="2"><input type="submit" value="회원등록">
+				<input type="button" value="목록" onclick="javascript:location.href='memList'"></th>
 			</tr>
 		</table>
 	</form:form>
