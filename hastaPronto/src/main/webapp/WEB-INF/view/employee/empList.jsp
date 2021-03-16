@@ -25,6 +25,10 @@
 		<th>${list.empAddr}</th>
 	</tr>
 	</c:forEach>
+	<tr>
+		<th colspan="5"><%@include file="../include/includePage.jsp" %>
+		</th>
+	</tr>
 </table>
 <a href="empRegist">직원등록</a>
 </body>

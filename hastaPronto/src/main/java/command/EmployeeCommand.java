@@ -8,6 +8,15 @@ public class EmployeeCommand {
 	String empAddr;
 	String empBirth;
 	String empAccount;
+	String depNo;
+
+	public String getDepNo() {
+		return depNo;
+	}
+
+	public void setDepNo(String depNo) {
+		this.depNo = depNo;
+	}
 
 	public String getEmpId() {
 		return empId;
