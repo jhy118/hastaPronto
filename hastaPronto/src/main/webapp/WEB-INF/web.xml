@@ -32,6 +32,7 @@
   			classpath:mybatis-config.xml
   			classpath:jdbc.xml
   			classpath:member.xml
+  			classpath:memlist.xml
   		</param-value>
   	</init-param>
   </servlet>
