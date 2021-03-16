@@ -20,6 +20,7 @@
 			<th>${dto.userId }</th>
 			<th>${dto.userAddr }</th></tr>
 		</c:forEach>
+		
 	</table>
 	<a href="memRegist">직원등록</a>
 </body>

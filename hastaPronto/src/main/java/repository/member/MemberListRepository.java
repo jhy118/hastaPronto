@@ -12,9 +12,9 @@ public class MemberListRepository {
 	private SqlSession sqlSession;
 	private final String namespace = "mappers.member.memberMapper";
 	String statement;
-	public List<MemberDTO> getMemList(){
+	public List<MemberDTO> getMemList(MemberDTO memberDTO){
 		statement = namespace + ".selectMember";
-		return sqlSession.selectList(statement);
+		return sqlSession.selectList(statement, memberDTO);
 	}
 	public Integer getMemCount() {
 		statement = namespace + ".selectCount";
