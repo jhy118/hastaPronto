@@ -3,6 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.employee.EmployeeController"/>
-	<bean class="service.employee.EmployeeRegistService"/>
-	<bean class="repository.employee.EmployeeRepository"/>
+	<bean class="service.employee.EmployeeRegistService" id="employeeRegistService"/>
+	<bean class="service.employee.EmployeeListService" id="employeeListService"/>
+	<bean class="repository.employee.EmployeeRepository" id="employeeRepository"/>
 </beans>

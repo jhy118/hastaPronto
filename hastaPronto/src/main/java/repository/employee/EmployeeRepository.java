@@ -1,5 +1,7 @@
 package repository.employee;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,6 +19,14 @@ public class EmployeeRepository {
 	public Integer insertEmployee(EmployeeDTO employeeDTO) {
 		statement = namespace + ".insertEmployee";
 		return sqlSession.insert(statement, employeeDTO);
+	}
+	public List<EmployeeDTO> getEmployees(EmployeeDTO employeeDTO) {
+		statement = namespace + ".getEmployees";
+		return sqlSession.selectList(statement, employeeDTO);
+	}
+	public Integer getEmployeesCount() {
+		statement = namespace + ".getEmployeesCount";
+		return sqlSession.selectOne(statement);
 	}
 	
 }

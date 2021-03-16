@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -22,7 +23,7 @@ public class EmployeeRegistService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 
-	public void excute(EmployeeCommand empCommand, Model model) {
+	public void excute(EmployeeCommand empCommand, Model model) throws Exception {
 		EmployeeDTO employeeDTO = new EmployeeDTO();
 		employeeDTO.setEmpAccount(empCommand.getEmpAccount());
 		employeeDTO.setEmpAddr(empCommand.getEmpAddr());

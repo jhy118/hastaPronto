@@ -14,6 +14,15 @@ public class EmployeeDTO {
 	String empAccount;
 	String depNo;
 	String empRegist;
+	StartEndPageDTO startEndPageDTO;
+
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 
 	public String getEmpNo() {
 		return empNo;
