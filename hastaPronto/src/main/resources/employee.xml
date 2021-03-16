@@ -5,5 +5,7 @@
 	<bean class="controller.employee.EmployeeController"/>
 	<bean class="service.employee.EmployeeRegistService" id="employeeRegistService"/>
 	<bean class="service.employee.EmployeeListService" id="employeeListService"/>
+	<bean class="service.employee.EmployeeDetailService" id="employeeDetailService"/>
+	<bean class="service.employee.EmployeeModifyService" id="employeeModifyService"/>
 	<bean class="repository.employee.EmployeeRepository" id="employeeRepository"/>
 </beans>

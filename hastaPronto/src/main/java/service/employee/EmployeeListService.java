@@ -31,7 +31,7 @@ public class EmployeeListService {
 		model.addAttribute("count", count);
 		
 		PageAction pageAction = new PageAction();
-		pageAction.page(model, limitPage, limit, limitPage, limitPage, "empList?");
+		pageAction.page(model, count, limit, limitPage, page, "empList?");
 	}
 
 }
