@@ -18,7 +18,7 @@
    <c:forEach items="${list}" var="dto" varStatus="status">
 	   <tr>
 	      <th>${status.count}</th>
-	      <th>${dto.annSubject}</th>
+	      <th><a href="annDetail?annNo=${dto.annNo}">${dto.annSubject}</a></th>
 	      <th>${dto.empId}</th>
 	      <th>${dto.annDate}</th>
 	      <th>${dto.readCount}</th>

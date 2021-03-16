@@ -7,4 +7,5 @@
 	<bean id="annRepository" class="repository.announcement.AnnRepository" />
 	<bean id="annListService" class="service.announcement.AnnListService" />
 	<bean id="annService" class="service.announcement.AnnService" />
+	<bean id="annDetailService" class="service.announcement.AnnDetailService" />
 </beans>
