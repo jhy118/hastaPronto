@@ -44,15 +44,7 @@ public class MemberRegistService {
 		memberDTO.setUserName(memCommand.getMemName());
 		
 		memberDTO.setUserPh(memCommand.getMemPh());
-		System.out.println("1"+memberDTO.getUserEmail());
-		System.out.println("2"+memberDTO.getUserGender());
-		System.out.println("3"+memberDTO.getUserId());
-		System.out.println("4"+memberDTO.getUserName());
-		System.out.println("5"+memberDTO.getUserPh());
 		memberDTO.setUserPassword(bCryptPasswordEncoder.encode(memCommand.getMemPw()));
-		
-		System.out.println("6"+memberDTO.getUserBirth());
-		System.out.println("7"+memberDTO.getUserAddr());
 		memberRepository.insertMember(memberDTO);
 		  
 	}
