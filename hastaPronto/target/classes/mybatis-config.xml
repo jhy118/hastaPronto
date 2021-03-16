@@ -4,5 +4,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="model.DTO.EmployeeDTO" alias="emp"/>
+		<typeAlias type="model.DTO.AuthInfo" alias="auth"/>
 	</typeAliases>
 </configuration>
