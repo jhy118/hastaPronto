@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="<c:url value='emp/empList'/>">직원</a>
+	<a href="<c:url value='emp/empList'/>">직원</a><br />
+	<a href="<c:url value='mem/memRegist'/>">회원</a>
 </body>
 </html>
