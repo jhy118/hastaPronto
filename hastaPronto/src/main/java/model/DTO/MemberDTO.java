@@ -13,8 +13,15 @@ public class MemberDTO {
 	Date userBirth;
 	String userGender;
 	Timestamp userRegist;
+	StartEndPageDTO startEndPageDTO;
 	
 	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public MemberDTO() {
 	}
 	public MemberDTO(String userId, String userPassword, String userName, String userPh, String userEmail,

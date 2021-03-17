@@ -20,6 +20,10 @@
 			<th>${dto.userId }</th>
 			<th>${dto.userAddr }</th></tr>
 		</c:forEach>
+		<tr><th colspan="4">
+		<%@include file="../include/includePage.jsp" %>
+		</th>
+		</tr>
 	</table>
 	<a href="memRegist">직원등록</a>
 </body>

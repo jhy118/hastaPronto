@@ -11,11 +11,6 @@
 		values(#{userId},#{userPassword},#{userName},#{userPh},#{userEmail},
 			#{userAddr},#{userBirth},#{userGender},sysdate)
 	</insert>
-	<select id="selectMember" resultMap="baseMember">
-		select <include refid="baseColumn" />
-		from users
-		order by user_regist desc
-	</select>
 	<resultMap type="model.DTO.MemberDTO" id="baseMember">
 		<constructor>
 			<idArg column="USER_ID" javaType="string"/>
@@ -30,6 +25,23 @@
 		</constructor>
 	</resultMap>
 	<select id="selectCount" resultType="int">
-		select count(*) from users
+		select count(*) from users  
+	</select>
+	<select id="selectMember" resultMap="baseMember" parameterType="model.DTO.MemberDTO">
+		select *
+		from ( select ROWNUM RN, <include refid="baseColumn" />
+			from (select <include refid="baseColumn" />
+				from users
+				<trim prefix="WHERE" prefixOverrides="AND | OR">
+					<if test="userId != null">
+						user_id = #{userId}
+					</if>
+				</trim>
+				order by user_regist DESC))
+				<trim prefix="where" prefixOverrides="and | or">
+					<if test="startEndPageDTO != null">
+						RN BETWEEN #{startEndPageDTO.startRow} AND #{startEndPageDTO.endRow}
+					</if>
+				</trim>
 	</select>
 </mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.announcement.annMapper">
+   <sql id="announcement">
+      ANN_NO, ANN_SUBJECT, ANN_DATE, ANN_CONTENT, EMP_ID, ANN_PW, 
+      READ_COUNT, ANN_STOREDFILENAME, ANN_ORIGINALFILENAME, ANN_FILESIZE
+   </sql>
+   <insert id="insertAnn" parameterType="ann">
+      insert into ANNOUNCEMENT (<include refid="announcement" />)
+      values(board_seq.nextval, #{annSubject}, SYSDATE, #{annContent},
+      #{empId}, #{annPw}, 0, null, null, null)
+   </insert>
+   <resultMap type="ann" id="annResult">
+   		<id column="ANN_NO" jdbcType="VARCHAR" property="annNo"/>
+   		<result column="ANN_SUBJECT" jdbcType="VARCHAR" property="annSubject" />
+   		<result column="ANN_DATE" jdbcType="TIMESTAMP" property="annDate" />
+   		<result column="ANN_CONTENT" jdbcType="VARCHAR" property="annContent" />
+   		<result column="EMP_ID" jdbcType="VARCHAR" property="empId" />
+   		<result column="ANN_PW" jdbcType="VARCHAR" property="annPw" />
+   		<result column="READ_COUNT" jdbcType="BIGINT" property="readCount" />
+   </resultMap>
+   <select id="getCount" resultType="int">
+   		select count(*) from ANNOUNCEMENT
+   </select>
+   <select id="getAnnList" parameterType="ann" resultMap="annResult">
+   		select *
+   		from ( select rownum rn, <include refid="announcement" />
+   			from (select <include refid="announcement" />
+   					from ANNOUNCEMENT
+   					<where>
+   						<if test="annNo != null">
+   							ANN_NO = #{annNo}
+   						</if>
+   					</where>
+   				)
+   			)
+   		<if test="startEndPageDTO != null">
+   		where rn between #{startEndPageDTO.startRow}
+   			and #{startEndPageDTO.endRow}
+   		</if>
+   </select>
+</mapper>
