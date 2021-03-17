@@ -23,12 +23,14 @@
 		<tr>
 			<th>부서</th>
 			<td>
-			<c:if test="#{emp.depNo} != null">
-			${emp.depNo}
+			<c:if test="${emp.depNo == null}">
+			미정
 			</c:if>
-			<c:if test="#{emp.depNo} == null">
-			하핫
-			</c:if>
+			<c:forEach items="${deptList }" var="dept">
+				<c:if test="${emp.depNo == dept.depNo }">
+					${dept.depName }
+				</c:if>
+			</c:forEach>
 			</td>
 		</tr>
 		<tr>
@@ -66,6 +68,6 @@
 	</table>
 	<button onclick="javascript:location.href='<c:url value="/emp/empModify/${emp.empId}"/>';">수정하기</button>
 	<button onclick="javascript:deleteEmp()">삭제하기</button>
-	<button onclick="javascript:history.back();">뒤로가기</button>
+	<button onclick="javascript:location.href='<c:url value="/emp/empList" />';">뒤로가기</button>
 </body>
 </html>
