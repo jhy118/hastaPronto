@@ -44,4 +44,21 @@
 					</if>
 				</trim>
 	</select>
+	<update id="updateMember" parameterType="model.DTO.MemberDTO">
+		update users
+		<trim prefix="set" suffixOverrides=",">
+			USER_PH = #{userPh},
+			USER_EMAIL = #{userEmail},
+			USER_ADDR = #{userAddr}
+		</trim>
+		where user_id = #{userId}
+	</update>
+	<delete id="deleteMember" parameterType="string">
+		delete from users
+		<where>
+			<if test="value != null">
+				user_id = #{userId}
+			</if>
+		</where>
+	</delete>
 </mapper>
