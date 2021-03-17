@@ -7,8 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	function delete(){
-		alert('gggg');
+	function deleteEmp(){
+		if(confirm('정말로 삭제하시겠습니까?')){
+			location.href='<c:url value="/emp/empDelete/${emp.empId}"/>';
+		}
 	}
 </script>
 </head>
@@ -63,7 +65,7 @@
 		</tr>
 	</table>
 	<button onclick="javascript:location.href='<c:url value="/emp/empModify/${emp.empId}"/>';">수정하기</button>
-	<button onclick="delete()">삭제하기</button>
+	<button onclick="javascript:deleteEmp()">삭제하기</button>
 	<button onclick="javascript:history.back();">뒤로가기</button>
 </body>
 </html>

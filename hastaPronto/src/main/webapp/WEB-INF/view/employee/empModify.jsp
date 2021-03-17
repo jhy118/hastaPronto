@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form:form action="../empModifyAction" method="post" modelAttribute="empCommand">
-	<input type="hidden" value="${emp.empId}">
+	<input type="hidden" value="${emp.empId}" name="empId">
 		<table border="1">
 			<tr>
 				<th>사번</th>
@@ -47,7 +47,7 @@
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="text" value="${emp.empEmail}" name="empEmail">
+				<td><input type="email" value="${emp.empEmail}" name="empEmail">
 				<td>
 			</tr>
 			<tr>
