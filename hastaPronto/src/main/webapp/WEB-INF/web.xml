@@ -33,6 +33,8 @@
   			classpath:jdbc.xml
   			classpath:member.xml
   			classpath:memlist.xml
+  			classpath:announcement.xml
+  			classpath:department.xml
   		</param-value>
   	</init-param>
   </servlet>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="mappers.department.departmentMapper">
+	<sql id="baseColumn">
+		dep_no, dep_name, dep_addr, dep_ph
+	</sql>
+	<sql id="renamedBaseColumn">
+		dep_no depNo, dep_name depName, dep_addr depAddr, dep_ph depPh
+	</sql>
+	<sql id="depNoCon">
+		select nvl(max(dep_no),0) + 10 from department
+	</sql>
+	<insert id="insertDepartment">
+		insert into department(<include refid="baseColumn"/>)
+		values((<include refid="depNoCon"/>), #{depName}, #{depAddr}, #{depPh})
+	</insert>
+	<select id="getDepartments" parameterType="dep" resultType="dep">
+		select * 
+		from (select rownum rn, <include refid="renamedBaseColumn"/>
+			from (select <include refid="baseColumn"/>
+				from department
+				<where>
+					<if test="depNo != null">
+						dep_no = #{depNo}
+					</if>
+				</where>
+				order by dep_no asc))
+		<where>
+			<if test="startEndPageDTO != null">
+				rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
+			</if>
+		</where>
+	</select>
+	<select id="getDepartmentsCount" resultType="integer">
+		select count(*)
+		from department
+	</select>
+	<update id="updateDepartment" parameterType="dep" >
+		update department
+		set dep_name = #{depName}, dep_addr = #{depAddr}, dep_ph = #{depPh}
+		where dep_no = #{depNo}
+	</update>
+	<delete id="deleteDepartment" parameterType="string">
+		delete from department
+		where dep_no = #{depNo}	
+	</delete>
+</mapper>

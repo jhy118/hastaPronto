@@ -38,4 +38,13 @@
   	select count(*)
   	from employees
   </select>
+  <update id="updateEmployee" parameterType="emp">
+  	update employees
+  	set dep_no = #{depNo}, emp_ph = #{empPh}, emp_addr = #{empAddr}, emp_email = #{empEmail}
+  	where emp_id = #{empId}
+  </update>
+  <delete id="deleteEmployee" parameterType="string">
+  	delete from employees 
+  	where emp_id = #{empId}
+  </delete>
 </mapper>

@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.department.DepartmentController"/>
+	<bean class="service.department.DepartmentRegistService" id="departmentRegistService"/>
+	<bean class="service.department.DepartmentListService" id="departmentListService"/>
+	<bean class="service.department.DepartmentDetailService" id="departmentDetailService"/>
+	<bean class="service.department.DepartmentModifyService" id="departmentModifyService"/>
+	<bean class="service.department.DepartmentDeleteService" id="departmentDeleteService"/>
+	<bean class="repository.department.DepartmentRepository" id="departmentRepository"/>
+</beans>
