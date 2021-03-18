@@ -25,5 +25,9 @@ public class OsRepository {
 		statement = namespace + ".listCount";
 		return sqlSession.selectOne(statement);
 	}
+	public List<OsDTO> osUpdate(OsDTO osDTO) {
+		statement = namespace + ".osUpdate";
+		return sqlSession.selectList(statement, osDTO);		
+	} 
 
 }

@@ -8,6 +8,16 @@ public class OsCommand {
 	String repName;
 	String osTel;
 	String osEmail;
+	
+	String osNo;
+	public String getOsNo() {
+		return osNo;
+	}
+	public void setOsNo(String osNo) {
+		this.osNo = osNo;
+	}
+	
+	
 	public String getOsName() {
 		return osName;
 	}

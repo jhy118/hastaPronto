@@ -7,4 +7,6 @@
 	<bean class="service.outsourcing.OutsourcingService" id="outsourcingService"/>
 	<bean class="repository.outsourcing.OsRepository" />
 	<bean class="service.outsourcing.OsListService" />
+	<bean class="service.outsourcing.OsDetailService" />
+	<bean class="service.outsourcing.OsUpdateService" />
 </beans>

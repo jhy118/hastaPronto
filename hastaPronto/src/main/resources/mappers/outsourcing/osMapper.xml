@@ -38,4 +38,30 @@
 	<select id="listCount" resultType="int">
 		select count(*) from OUTSOURCING
 	</select>
+	<update id="osUpdate" parameterType="os">
+			update OUTSOURCING
+			set 
+				 OS_NAME = #{osName}, 
+				 BS_LICENSE = #{bsLicense}, 
+				 OS_ADDR = #{osAddr}, 
+				 OS_BUSINESSNAME = #{osBusinessName}, 
+				 REP_NAME = #{repName}, 
+				 OS_TEL = #{osTel}, 
+				 OS_EMAIL = #{osEmail}
+			 where OS_NO = #{osNo}
+	</update>
+	
+<!-- 	<update id="osUpdate" parameterType="model.DTO.OsDTO"> -->
+<!-- 		update users -->
+<!-- 		<trim prefix="set" suffixOverrides=","> -->
+<!-- 			 OS_NAME = #{osName},  -->
+<!-- 				 BS_LICENSE = #{bsLicense},  -->
+<!-- 				 OS_ADDR = #{osAddr},  -->
+<!-- 				 OS_BUSINESSNAME = #{osBusinessName},  -->
+<!-- 				 REP_NAME = #{repName},  -->
+<!-- 				 OS_TEL = #{osTel},  -->
+<!-- 				 OS_EMAIL = #{osEmail} -->
+<!-- 		</trim> -->
+<!-- 		where osNo = #{osNo} -->
+<!-- 	</update> -->
 </mapper>
