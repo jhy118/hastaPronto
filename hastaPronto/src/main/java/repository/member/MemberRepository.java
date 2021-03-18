@@ -19,4 +19,8 @@ public class MemberRepository {
 		statement = namespace + ".insertMember";
 		return sqlSession.insert(statement, memberDTO);
 	}
+	public Integer updateMember(MemberDTO memberDTO) {
+		statement = namespace + ".updateMember";
+		return sqlSession.update(statement, memberDTO);
+	}
 }

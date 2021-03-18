@@ -35,6 +35,7 @@
   			classpath:memlist.xml
   			classpath:announcement.xml
   			classpath:outsourcing.xml
+  			classpath:department.xml
   		</param-value>
   	</init-param>
   </servlet>

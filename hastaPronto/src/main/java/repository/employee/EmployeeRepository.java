@@ -28,5 +28,13 @@ public class EmployeeRepository {
 		statement = namespace + ".getEmployeesCount";
 		return sqlSession.selectOne(statement);
 	}
+	public Integer updateEmployee(EmployeeDTO employeeDTO) {
+		statement = namespace + ".updateEmployee";
+		return sqlSession.update(statement, employeeDTO);
+	}
+	public int deleteEmployee(String empId) {
+		statement = namespace + ".deleteEmployee";
+		return sqlSession.update(statement, empId);
+	}
 	
 }

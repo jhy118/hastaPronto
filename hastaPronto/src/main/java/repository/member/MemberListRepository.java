@@ -20,4 +20,8 @@ public class MemberListRepository {
 		statement = namespace + ".selectCount";
 		return sqlSession.selectOne(statement);
 	}
+	public Integer deleteMember(String userId) {
+		statement = namespace + ".deleteMember";
+		return sqlSession.update(statement, userId);
+	}
 }

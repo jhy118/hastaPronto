@@ -7,4 +7,10 @@
 		class="service.list.MemberListService"/>
 	<bean id = "memberListRepository" 
 		class="repository.member.MemberListRepository"/>
+	<bean id = "memberDetailService" 
+		class="service.list.MemberDetailService"/>
+	<bean id = "memberModifyService" 
+		class="service.list.MemberModifyService"/>
+	<bean id = "memberDeleteService" 
+		class="service.list.MemberDeleteService"/>
 </beans>
