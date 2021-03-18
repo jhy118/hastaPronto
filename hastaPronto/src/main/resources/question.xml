@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.question.QuestionController"/>
+	<bean class="service.question.QuestionRegistService" id="questionRegistService"/>
+	<bean class="repository.question.QuestionRepository" id="questionRepository"/>
+	<bean class="service.question.QuestionListService" id="questionListService"/>
+	<bean class="service.question.QuestionDetailService" id="questionDetailService"/>
+	<bean class="service.question.QuestionModifyService" id="questionModifyService"/>
+	<bean class="service.question.QuestionDeleteService" id="questionDeleteService"/>
+</beans>
