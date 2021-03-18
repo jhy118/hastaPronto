@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.question.questionMapper">
+	<sql id="baseColumn">
+	QNA_NO, QNA_SUBJECT, QNA_WRITER, QNA_CONTENT, QNA_REGIST, QNA_PW, USER_ID, IP_ADDR
+	</sql>
+	<sql id="baseColumn1">
+	QNA_NO qnaNo, QNA_SUBJECT qnaSubject, QNA_WRITER qnaWriter, QNA_CONTENT qnaContent, QNA_REGIST qnaRegist, QNA_PW qnaPw, USER_ID userId, IP_ADDR ipAddr
+	</sql>
+	<sql id="qnaNoMaker">
+		select nvl(max(qna_no), 0) + 1 from qna
+	</sql>
+	
+	<insert id="insertQuestion" parameterType="model.DTO.QuestionDTO">
+		insert into qna(<include refid="baseColumn" />)
+		values((<include refid="qnaNoMaker"/>), #{qnaSubject}, #{qnaWriter},#{qnaContent}, sysdate, #{qnaPw}, #{userId}, #{ipAddr})
+	</insert>
+	<select id="selectQuestion" parameterType="model.DTO.QuestionDTO" resultType="model.DTO.QuestionDTO">
+		select * from (select ROWNUM RN, <include refid="baseColumn1" />
+					from (select <include refid="baseColumn" />
+				from qna
+				<trim prefix="WHERE" prefixOverrides="AND | OR">
+					<if test="qnaNo != null">
+						QNA_NO = #{qnaNo}
+					</if>
+				</trim>
+				order by QNA_REGIST DESC))
+		<where>
+			<if test="startEndPageDTO != null" >
+				rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
+			</if>
+		</where>
+	</select>
+	<select id="questionCount" resultType="integer">
+		select count(*) from qna
+	</select>
+	<update id="updateQuestion" parameterType="model.DTO.QuestionDTO">
+		update qna
+		<trim prefix="set" suffixOverrides=",">
+			QNA_SUBJECT = #{qnaSubject},
+			QNA_CONTENT = #{qnaContent}
+		</trim>
+		<where>
+			QNA_NO = #{qnaNo}
+		</where>
+	</update>
+	<delete id="deleteQuestion" parameterType="string">
+		delete from qna
+		<where>
+			<if test="value != null">
+				QNA_NO = #{qnaNo}
+			</if>
+		</where>
+	</delete>
+<!-- 	<resultMap type="model.DTO.QuestionDTO" id="questionSelect"> -->
+<!-- 		<id column="QNA_NO" jdbcType="VARCHAR" property="qnaNo" /> -->
+<!-- 		<result column="QNA_SUBJECT" jdbcType="VARCHAR" property="qnaSubject"/> -->
+<!-- 		<result column="QNA_WRITER" jdbcType="VARCHAR" property="qnaWriter"/> -->
+<!-- 		<result column="QNA_CONTENT" jdbcType="VARCHAR" property="qnaContent"/> -->
+<!-- 		<result column="QNA_REGIST" jdbcType="TIMESTAMP" property="qnaRegist"/> -->
+<!-- 		<result column="QNA_PW" jdbcType="VARCHAR" property="qnaPw"/> -->
+<!-- 		<result column="USER_ID" jdbcType="VARCHAR" property="userId"/> -->
+<!-- 		<result column="IP_ADDR" jdbcType="VARCHAR" property="ipAddr"/> -->
+<!-- 	</resultMap> -->
+</mapper>

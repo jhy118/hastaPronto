@@ -25,6 +25,6 @@
 		</th>
 		</tr>
 	</table>
-	<a href="memRegist">직원등록</a>
+	<a href="memRegist">회원등록</a>
 </body>
 </html>
