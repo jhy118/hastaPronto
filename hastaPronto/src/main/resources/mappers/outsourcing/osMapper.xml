@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.outsourcing.osMapper">
+	<sql id="outsourcing">
+		OS_NO, OS_NAME, BS_LICENSE, OS_ADDR, OS_BUSINESSNAME, REP_NAME, OS_TEL, OS_EMAIL
+	</sql>
+	<insert id="insertOs" parameterType="os">
+		insert into OUTSOURCING (<include refid="outsourcing" />)
+		values(board_seq.nextval, #{osName}, #{bsLicense},#{osAddr},#{osBusinessName},#{repName},#{osTel},#{osEmail})
+	</insert>
+	<resultMap type="os" id="osResult">
+		<id column="OS_NO" jdbcType="VARCHAR" property="osNo"/>
+   		<result column="OS_NAME" jdbcType="VARCHAR" property="osName" />
+   		<result column="BS_LICENSE" jdbcType="VARCHAR" property="bsLicense" />
+   		<result column="OS_ADDR" jdbcType="VARCHAR" property="osAddr" />
+   		<result column="OS_BUSINESSNAME" jdbcType="VARCHAR" property="osBusinessName" />
+   		<result column="REP_NAME" jdbcType="VARCHAR" property="repName" />
+   		<result column="OS_TEL" jdbcType="VARCHAR" property="osTel" />
+   		<result column="OS_EMAIL" jdbcType="VARCHAR" property="osEmail" />
+	</resultMap>
+	<select id="getOsList" parameterType="os" resultMap="osResult">
+		select * 
+			from (select rownum rn, <include refid="outsourcing" />
+				from(select <include refid="outsourcing" />
+					from OUTSOURCING
+					<where>
+						<if test="osNo != null">
+							os_no = #{osNo}
+						</if>
+					</where>
+				)
+		)
+		<if test="startEndPageDTO != null">
+			where rn between #{startEndPageDTO.startRow}	and #{startEndPageDTO.endRow}
+		</if>
+	</select>
+	<select id="listCount" resultType="int">
+		select count(*) from OUTSOURCING
+	</select>
+</mapper>
