@@ -12,7 +12,8 @@
 	<a href="<c:url value='mem/memRegist'/>">회원</a><br />
 	<a href="<c:url value='man/memList'/>">회원리스트</a><br />
 	<a href="<c:url value='mem/memRegist'/>">회원</a><br/>
-	<a href="<c:url value='login/login'/>">로그인</a>
-	<a href="<c:url value='ann/annList'/>">공지사항</a>
+	<a href="<c:url value='login/login'/>">로그인</a><br >
+	<a href="<c:url value='ann/annList'/>">공지사항</a><br >
+	<a href="<c:url value='outsourcing/osList'/>">협력업체</a>
 </body>
 </html>
