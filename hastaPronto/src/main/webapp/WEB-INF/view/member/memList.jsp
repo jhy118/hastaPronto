@@ -17,7 +17,7 @@
 		<c:forEach items="${memList }" var="dto" varStatus="status">
 		<tr><th>${status.count }</th>
 			<th>${dto.userName }</th>
-			<th>${dto.userId }</th>
+			<th><a href="memberInfo?userId=${dto.userId }">${dto.userId }</a></th>
 			<th>${dto.userAddr }</th></tr>
 		</c:forEach>
 		<tr><th colspan="4">
