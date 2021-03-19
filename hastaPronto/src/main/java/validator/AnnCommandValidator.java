@@ -13,6 +13,5 @@ public class AnnCommandValidator implements Validator{
    public void validate(Object target, Errors errors) {
       ValidationUtils.rejectIfEmpty(errors, "annSubject", "required");
       ValidationUtils.rejectIfEmpty(errors, "annContent", "required");
-      ValidationUtils.rejectIfEmpty(errors, "annPw", "required");
    }
 }

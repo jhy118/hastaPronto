@@ -15,7 +15,7 @@
    <tr>
       <th>글번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th>
    </tr>
-   <c:forEach items="${list}" var="dto" varStatus="status">
+   <c:forEach items="${list}" var="dto" varStatus="status">  
 	   <tr>
 	      <th>${status.count}</th>
 	      <th><a href="annDetail?annNo=${dto.annNo}">${dto.annSubject}</a></th>
@@ -23,11 +23,12 @@
 	      <th>${dto.annDate}</th>
 	      <th>${dto.readCount}</th>
 	   </tr>
-   </c:forEach>
-</c:if>   
+	</c:forEach>
+</c:if>
+</table>
 <c:if test="${count <= 0}">
 	공지글이 없습니다.<br />   
 </c:if>   
-</table>
+<%@ include file="../include/includePage.jsp" %><br />
 </body>
 </html>

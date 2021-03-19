@@ -8,11 +8,10 @@ public class AnnDTO {
 	 Timestamp annDate;
 	 String annContent;
 	 String empId;
-	 String annPw;
 	 Integer readCount;
-	 //   String annStoredFileName;
-	 //   String annOriginalFileName;
-	 //   String annFileSize;
+    String annStoredFileName;
+    String annOriginalFileName;
+    String annFileSize;
 	StartEndPageDTO startEndPageDTO;
 	public StartEndPageDTO getStartEndPageDTO() {
 		return startEndPageDTO;
@@ -50,16 +49,28 @@ public class AnnDTO {
 	public void setEmpId(String empId) {
 		this.empId = empId;
 	}
-	public String getAnnPw() {
-		return annPw;
-	}
-	public void setAnnPw(String annPw) {
-		this.annPw = annPw;
-	}
 	public Integer getReadCount() {
 		return readCount;
 	}
 	public void setReadCount(Integer readCount) {
 		this.readCount = readCount;
+	}
+	public String getAnnStoredFileName() {
+		return annStoredFileName;
+	}
+	public void setAnnStoredFileName(String annStoredFileName) {
+		this.annStoredFileName = annStoredFileName;
+	}
+	public String getAnnOriginalFileName() {
+		return annOriginalFileName;
+	}
+	public void setAnnOriginalFileName(String annOriginalFileName) {
+		this.annOriginalFileName = annOriginalFileName;
+	}
+	public String getAnnFileSize() {
+		return annFileSize;
+	}
+	public void setAnnFileSize(String annFileSize) {
+		this.annFileSize = annFileSize;
 	}
 }

@@ -24,4 +24,17 @@ public class AnnRepository {
 	   statement = namespace + ".getCount";
 	   return sqlSession.selectOne(statement);
    }
+   public Integer updateAnn(AnnDTO annDTO) {
+      statement = namespace + ".updateAnn";
+      return sqlSession.update(statement, annDTO);
+   }
+   public Integer deleteAnn(String annNo) {
+      statement = namespace + ".deleteAnn";
+      return sqlSession.delete(statement, annNo);
+   }
+   public Integer updateReadCount(String annNo) {
+	  statement = namespace + ".updateReadCount";
+	  return sqlSession.update(statement, annNo);
+   }
+
 }
