@@ -16,9 +16,18 @@
 전화번호: ${os.osTel }<br >
 이메일 : ${os.osEmail }<br >
  =====================================> <br >
-   &nbsp; &nbsp;  &nbsp; &nbsp;
+   &nbsp; &nbsp;
  <a href="../outsourcing/osModify/${os.osNo}"> [수정] </a>
+  &nbsp; &nbsp;
+   <a href="javascript:osDelete();" > [삭제] </a>
   &nbsp; &nbsp;
   <a onclick="javascript:location.href='osList'" > [목록] </a>
 </body>
 </html>
+<script type="text/javascript">
+	function osDelete(){
+		if(confirm("등록된 사업체를 정말로 삭제하시겠습니까?" + "(삭제시 저장된 모든 파일도 함께 삭제됩니다.)")){
+			location.href="osDelete/${os.osNo}";
+		}
+	}
+</script>

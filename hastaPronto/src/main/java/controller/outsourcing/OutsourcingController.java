@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.OsCommand;
+import service.outsourcing.OsDeleteService;
 import service.outsourcing.OsDetailService;
 import service.outsourcing.OsListService;
 import service.outsourcing.OsUpdateService;
@@ -29,6 +30,16 @@ public class OutsourcingController {
 	OsDetailService osDetailService;
 	@Autowired
 	OsUpdateService osUpdateService;
+	@Autowired
+	OsDeleteService osDeleteService;
+	
+	@RequestMapping("osDelete/{osNo}")
+	public String osDelete(
+			@PathVariable(value="osNo") String osNo) {
+		osDeleteService.execute(osNo);
+		return "redirect:/outsourcing/osList";
+	}
+	
 	@RequestMapping("osModify/{osNo}")
 	public String osModify(
 			@PathVariable(value="osNo") String osNo, Model model) {

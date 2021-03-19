@@ -64,4 +64,8 @@
 <!-- 		</trim> -->
 <!-- 		where osNo = #{osNo} -->
 <!-- 	</update> -->
+	<delete id="osDelete" parameterType="String">
+		delete from OUTSOURCING
+		where os_no = #{osNo}
+	</delete>
 </mapper>

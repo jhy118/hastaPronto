@@ -28,6 +28,10 @@ public class OsRepository {
 	public List<OsDTO> osUpdate(OsDTO osDTO) {
 		statement = namespace + ".osUpdate";
 		return sqlSession.selectList(statement, osDTO);		
+	}
+	public Integer osDelete(String osNo) {
+		statement = namespace + ".osDelete";
+		return sqlSession.delete(statement, osNo);
 	} 
 
 }
