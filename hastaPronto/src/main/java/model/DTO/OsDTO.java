@@ -1,7 +1,5 @@
 package model.DTO;
 
-import java.util.List;
-
 public class OsDTO {
 	String osNo;
 	String osName;
