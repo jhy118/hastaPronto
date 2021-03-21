@@ -8,7 +8,7 @@
 <title>annModify.jsp</title>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script>
-	function fileDelete(strFile, orgFile, fileSize, btn){
+	function fileDelete(strFile, orgFile, fileSize, btn, cFile){
 		$.ajax({
 			type:"post",
 			url:"../fileDel",
@@ -17,7 +17,7 @@
 				"annFileSize":fileSize},
 			success:function(result){
 				if(result.trim()=="1"){
-					$(btn).val("삭제 취소");
+					$(cFile).remove();
 				}else{
 					$(btn).val("삭제");
 				}
@@ -49,12 +49,12 @@
 	         			value="${fn:split(ann.annFileSize, '`')}" />
 	         	<c:forTokens items="${ann.annOriginalFileName}" var="org"
 	         			delims="`" varStatus="idx">
-	         		<a href="<c:url value='/ann/upload/${store[idx.index]}' />" >
+	         		<a class="file${idx.index}" href="<c:url value='/ann/upload/${store[idx.index]}' />" >
 	         			${org}</a>
-	         		<input type="button" value="삭제" onclick="return fileDelete(
+	         		<input class="file${idx.index}" type="button" value="삭제" onclick="return fileDelete(
 	         				'${store[idx.index]}',
 	         				'${org}',
-	         				'${fileSizes[idx.index]}',this);"><br />
+	         				'${fileSizes[idx.index]}',this, '.file${idx.index}');"><br />
 	         	</c:forTokens>
 	         </td>
 	      </tr>

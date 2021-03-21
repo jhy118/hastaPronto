@@ -8,5 +8,6 @@
 		<typeAlias type="model.DTO.AnnDTO" alias="ann"/>
 		<typeAlias type="model.DTO.OsDTO" alias="os"/>
 		<typeAlias type="model.DTO.DepartmentDTO" alias="dep"/>
+		<typeAlias type="model.DTO.ApplicantDTO" alias="app"/>
 	</typeAliases>
 </configuration>
