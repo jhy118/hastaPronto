@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.AnswerCommand;
+import service.answer.AnswerDetailService;
 import service.answer.AnswerRegistService;
 import validator.AnswerCommandValidator;
 
@@ -21,6 +22,8 @@ import validator.AnswerCommandValidator;
 public class AnswerController {
 	@Autowired
 	AnswerRegistService answerRegistService;
+	@Autowired
+	AnswerDetailService answerDetailService;
 	
 	@RequestMapping(value = "answerRegist" , method = RequestMethod.GET)
 	public String answerRegist(
@@ -47,7 +50,7 @@ public class AnswerController {
 	public String answerDetail(
 			@RequestParam(value = "qnaNo") String qnaNo, Model model) {
 		
-			
+		answerDetailService.execute(qnaNo, model);
 		return "answer/answerDetail";
 	}
 }
