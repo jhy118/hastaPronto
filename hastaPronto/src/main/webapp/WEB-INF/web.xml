@@ -37,6 +37,7 @@
   			classpath:outsourcing.xml
   			classpath:department.xml
   			classpath:question.xml
+  			classpath:applicant.xml
   			classpath:answer.xml
   		</param-value>
   	</init-param>
