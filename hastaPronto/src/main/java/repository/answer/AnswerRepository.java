@@ -16,4 +16,9 @@ public class AnswerRepository {
 		return sqlSession.insert(statement, answerDTO);
 	}
 	
+	public Integer selectAnswer(AnswerDTO answerDTO) {
+		statement = namespace + ".selectAnswer";
+		return sqlSession.selectOne(statement, answerDTO);
+	}
+	
 }

@@ -31,7 +31,7 @@ public class AnswerController {
 		answer.setUserId(userId);
 		model.addAttribute("answer", answer);
 		return "answer/answerForm";
-	}
+			}
 	@RequestMapping(value = "answerRegistPro", method = RequestMethod.POST)
 	public String answerRegistPro(
 			@ModelAttribute(value = "answer") AnswerCommand answerCommand, Errors errors, HttpSession httpSession) {
@@ -41,5 +41,13 @@ public class AnswerController {
 			}
 		answerRegistService.execute(answerCommand, errors, httpSession);
 		return "redirect:/answer/answer";
+			}
+	
+	@RequestMapping(value = "answerDetail", method = RequestMethod.GET)
+	public String answerDetail(
+			@RequestParam(value = "qnaNo") String qnaNo, Model model) {
+		
+			
+		return "answer/answerDetail";
 	}
 }
