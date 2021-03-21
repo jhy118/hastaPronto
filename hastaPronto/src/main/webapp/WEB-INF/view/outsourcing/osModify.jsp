@@ -17,6 +17,33 @@
 	대표자이름: <input type="text" name="repName" value="${os.repName }" /> <br >
 	전화번호: <input type="text" name="osTel" value="${os.osTel }" /> <br >
 	이메일 : <input type="text" name="osEmail" value="${os.osEmail }" /><br >
+<!-- 	this를 쓰기위해 jquery사용 -->
+	<script src="https://code.jquery.com/jquery-latest.osFile"></script>
+	<script type="text/javascript" src="<c:url value='/outsourcing/jquery.form.osFile' />"></script>
+<!-- jason  :{키:값, 키:값, ...} -->
+	<script>
+		function fileDelete(osStrfile, osOrgfile, osFilesize, btn){
+			$.ajax({
+				type:"post",
+				url:"fileDel",
+				dateType:"text",
+				data:{"osOriginalfilename":osOrgfile, "osStorefilename":osStrfile, "osFilesize":osFilesize },
+				success:
+						function(result) {
+							alert(result);
+							if(result.trim()=="1"){
+								$(btn).text("삭제 취소");
+							} else{
+								$(btn).text("삭제");
+							}
+						},
+							error : function(){
+								alert('Error');
+								return;
+							}
+			});
+		}
+	</script>
 	<input type="submit" value="수정" />
 </form>
 </body>

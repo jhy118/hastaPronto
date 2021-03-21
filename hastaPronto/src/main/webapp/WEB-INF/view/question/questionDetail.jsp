@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "../include/include.jsp" %>
@@ -17,7 +16,10 @@
 		<tr><td>문의 등록일</td><td>${questionWeb.qnaRegist}</td></tr>
 		<tr><td colspan="2"><input type="button" value="수정" onclick="javascript:location.href='questionModify?qnaNo=${questionWeb.qnaNo}'">
 							<input type="button" value="뒤로가기" onclick="javascript:history.back();">
-							<input type="button" value="문의 삭제" onclick="javascript:location.href='questionDelete?qnaNo=${questionWeb.qnaNo}'"/></td></tr>
-	</table>
+							<input type="button" value="문의 삭제" 
+							onclick="javascript:location.href='questionDelete?qnaNo=${questionWeb.qnaNo}'"/></td></tr>
+		<tr><td><input type = "button" value="문의 답변" 
+							onclick="javascript:location.href='../answer/answerRegist?qnaNo=${questionWeb.qnaNo}&userId=${questionWeb.userId}'"></td></tr>
+	</table>    
 </body>
 </html>

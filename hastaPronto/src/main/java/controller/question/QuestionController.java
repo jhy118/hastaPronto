@@ -43,6 +43,7 @@ public class QuestionController {
 		model.addAttribute("question", new QuestionCommand());
 		return "question/questionForm";
 	}
+	
 	@RequestMapping(value = "questionRegistPro" , method = RequestMethod.POST)
 	public String questionRegistPro(  
 			@ModelAttribute(value = "question")  QuestionCommand questionCommand, Errors errors, HttpServletRequest httpServletRequest) {
