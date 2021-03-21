@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.answer.answerMapper">
+	<sql id="baseColumn">
+		ANS_NO, ANS_CONTENT, ANS_REGIST, USER_ID, QNA_NO, EMP_ID, ANS_SUBJECT
+	</sql>
+	<sql id="ansNoMaker">
+		select nvl(max(ans_no), 0) + 1 from answer
+	</sql>
+	
+	<insert id="insertAnswer" parameterType="model.DTO.AnswerDTO">
+		insert into answer(<include refid="baseColumn" />)
+		values((<include refid="ansNoMaker" />), #{ansContent}, sysdate, #{userId}, #{qnaNo}, #{empId}, #{ansSubject})
+	</insert>
+</mapper>
