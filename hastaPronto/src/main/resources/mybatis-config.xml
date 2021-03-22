@@ -7,5 +7,6 @@
 		<typeAlias type="model.DTO.AuthInfo" alias="auth"/>
 		<typeAlias type="model.DTO.AnnDTO" alias="ann"/>
 		<typeAlias type="model.DTO.DepartmentDTO" alias="dep"/>
+		<typeAlias type="model.DTO.NoticeDTO" alias="noti"/>
 	</typeAliases>
 </configuration>

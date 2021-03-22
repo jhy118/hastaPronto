@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.notice.noticeMapper">
+	<sql id="baseColumn">
+	NOTICE_NO, NOTICE_NAME, NOTICE_DATE, START_DATE, END_DATE, NOTICE_CONTENT, ANNOUNCE_DATE, EMP_ID,
+	READ_COUNT, NOTICE_ORIGINALFILENAME, NOTICE_STOREFILENAME, NOTICE_FILESIZE
+	</sql>
+	<sql id="renamedColumn">
+	NOTICE_NO noticeNo, NOTICE_NAME noticeName, NOTICE_DATE noticeDate, START_DATE startDate, END_DATE endDate, 
+	NOTICE_CONTENT noticeContent, ANNOUNCE_DATE announceDate, EMP_ID empId,	READ_COUNT readCount, 
+	NOTICE_ORIGINALFILENAME noticeOriginalFileName, NOTICE_STOREFILENAME noticeStoreFileName, NOTICE_FILESIZE noticeFileSize
+	</sql>
+	<sql id="noticeNoMaker">
+		select nvl(max(notice_no),0) + 1 from notice
+	</sql>
+	<insert id="insertNotice" parameterType="noti">
+		insert into notice(<include refid="baseColumn"/>)
+		values((<include refid="noticeNoMaker"/>), #{noticeName}, sysdate, #{startDate}, #{endDate}, 
+		#{noticeContent}, #{announceDate}, #{empId}, 0, 
+		<if test="noticeOriginalFileName != null">
+		    #{noticeOriginalFileName}, 
+		    #{noticeStoreFileName}, 
+		    #{noticeFileSize}
+		</if>
+		<if test="noticeOriginalFileName == null">
+		    null, null, null
+		</if>
+		)
+	</insert>
+	<select id="getNoticeList" parameterType="noti" resultType="noti">
+		select *
+		from (select rownum rn, <include refid="renamedColumn"/>
+			from (select <include refid="baseColumn"/>
+				from notice
+				<where>
+					<if test="noticeNo != null">
+						notice_no = #{noticeNo}
+					</if>
+				</where>
+				order by notice_date desc
+				))
+		<where>
+			<if test="startEndPageDTO != null">
+				rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
+			</if>
+		</where>
+	</select>
+	<select id = "getNoticeCount" resultType="integer">
+		select count(*) from notice
+	</select>
+	<update id="updateReadCount" parameterType="string">
+		update notice
+		set read_count = read_count + 1
+		where notice_no = #{noticeNo}
+	</update>
+</mapper>
