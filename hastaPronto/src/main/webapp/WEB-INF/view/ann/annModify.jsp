@@ -8,7 +8,7 @@
 <title>annModify.jsp</title>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script>
-	function fileDelete(strFile, orgFile, fileSize, btn){
+	function fileDelete(strFile, orgFile, fileSize, btn, cFile){
 		$.ajax({
 			type:"post",
 			url:"../fileDel",
@@ -17,16 +17,37 @@
 				"annFileSize":fileSize},
 			success:function(result){
 				if(result.trim()=="1"){
-					$(btn).val("삭제 취소");
+					$(cFile).remove();
 				}else{
 					$(btn).val("삭제");
 				}
 			},
 			error : function(){
 				alert('에러가 나왔습니다.');
-				return;
+				return false;
 			}
 		});
+	}
+	
+	function imgDelete(imgfile, btn, cImg){
+		imageFile = {
+				type:"post",
+				url:"../imgDel",
+				dataType:"text",
+				data:{"imgfile":imgfile},
+				success:function(result){
+					if(result.trim()=="1"){
+						$(cImg).remove();
+					}else{
+						$(btn).val("삭제");
+					}
+				},
+				error : function(){
+					alert('에러가 나왔습니다.');
+					return false;
+				}
+		};
+		$.ajax(imageFile);
 	}
 </script>
 </head>
@@ -49,29 +70,45 @@
 	         			value="${fn:split(ann.annFileSize, '`')}" />
 	         	<c:forTokens items="${ann.annOriginalFileName}" var="org"
 	         			delims="`" varStatus="idx">
-	         		<a href="<c:url value='/ann/upload/${store[idx.index]}' />" >
+	         		<a class="file${idx.index}" href="<c:url value='/ann/upload/${store[idx.index]}' />" >
 	         			${org}</a>
-	         		<input type="button" value="삭제" onclick="return fileDelete(
+	         		<input class="file${idx.index}" type="button" value="삭제" onclick="return fileDelete(
 	         				'${store[idx.index]}',
 	         				'${org}',
-	         				'${fileSizes[idx.index]}',this);"><br />
+	         				'${fileSizes[idx.index]}',this, '.file${idx.index}');"><br />
 	         	</c:forTokens>
 	         </td>
 	      </tr>
-      </c:if>
-      <c:if test="${ann.annOriginalFileName == null}">      
+      </c:if>      
 		  <tr>
-		      <th>파일</th>
+		      <th>파일 추가</th>
 		      <td>
 		      	<input type="file" name="report" multiple="multiple" />
 		      </td>
 	      </tr>
+      <c:if test="${ann.annImg != null}">
+      	<tr>
+      		<th>사진</th>
+      		<td>
+      			<c:forTokens items="${ann.annImg}" delims="`" var="img" varStatus="idx">
+      				<img src="../upload/${img}" class="img${idx.index}" width="50" height="25" />
+      				
+      				<input class="img${idx.index}" type="button" value="삭제" 
+      					onclick="imgDelete('${img}',this, '.img${idx.index}');" />
+      			</c:forTokens>
+      		</td>
+      	</tr>
       </c:if>
-   
+	      <tr>
+	    		<th>사진 추가</th>
+	    		<td>
+	    			<input type="file" name="annImg" multiple="multiple" />
+	    		</td>
+	      </tr>
       <tr><th>내용</th>
          <td><textarea rows="30" cols="50" name="annContent">${ann.annContent}</textarea>
-         </td></tr>
-       
+         </td>
+      </tr> 
       <tr><th>등록일</th>
          <td>${ann.annDate}</td></tr>
    </table>

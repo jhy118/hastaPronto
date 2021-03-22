@@ -19,6 +19,7 @@ import service.announcement.AnnListService;
 import service.announcement.AnnModifyService;
 import service.announcement.AnnService;
 import service.announcement.FileDelService;
+import service.announcement.ImgDelService;
 import validator.AnnCommandValidator;
 
 @Controller
@@ -36,6 +37,8 @@ public class AnnController {
    AnnDelService annDelService;
    @Autowired
    FileDelService fileDelService;
+   @Autowired
+   ImgDelService imgDelService;
    @RequestMapping(value="annList", method=RequestMethod.GET)
    public String noticeList(
          @RequestParam(value="page", defaultValue="1") Integer page,
@@ -88,9 +91,13 @@ public class AnnController {
 	   fileDelService.execute(fileInfo, session, model);
 	   return "ann/fileDel";
    }
-   
-   
-   
+   @RequestMapping("imgDel")
+   public String imgDel(
+		   @RequestParam(value="imgfile") String imgfile,
+		   Model model, HttpSession session) {
+	   imgDelService.imgDel(imgfile, model, session);
+	   return "ann/imgDel";
+   }
    
    
    
