@@ -8,4 +8,7 @@
 	<bean id="annListService" class="service.announcement.AnnListService" />
 	<bean id="annService" class="service.announcement.AnnService" />
 	<bean id="annDetailService" class="service.announcement.AnnDetailService" />
+	<bean id="annModifyService" class="service.announcement.AnnModifyService" />
+	<bean id="annDelService" class="service.announcement.AnnDelService" />
+	<bean id="fileDelService" class="service.announcement.FileDelService" />
 </beans>

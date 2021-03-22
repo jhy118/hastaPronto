@@ -9,7 +9,7 @@
 </head>
 <body>
 <form:form action="annRegist" name="frm" method="post"
-   modelAttribute="annCommand">
+   modelAttribute="annCommand" enctype="multipart/form-data">
 <table border="1">
    <tr>
       <th>제목</th>
@@ -19,20 +19,15 @@
       </td>
    </tr>
    <tr>
-      <th>내용</th>
+      <th>파일</th>
       <td>
-         <form:textarea rows="30" cols="50" path="annContent"></form:textarea>
+      	<input type="file" name="report" multiple="multiple" />
       </td>
    </tr>
    <tr>
-      <th>파일</th>
-      <td></td>
-   </tr>
-   <tr>
-      <th>비밀번호</th>
+      <th>내용</th>
       <td>
-         <input type="password" name="annPw" />
-         <form:errors path="annPw" />
+         <form:textarea rows="30" cols="50" path="annContent"></form:textarea>
       </td>
    </tr>
 </table>
