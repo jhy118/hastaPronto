@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.applicant.applicantMapper">
+	<sql id = "baseColumn" >
+	APP_NO, APP_PH, APP_PW, APP_NAME, APP_ADDR, APP_EMAIL, APP_BIRTH,
+	APP_GENDER, SELF_INTRODUCTION
+	</sql>
+	<sql id = "appNoMaker">
+		select nvl(max(app_no), 0) + 1 from applicant
+	</sql>
+	<insert id="insertApplicant" parameterType="app">
+		insert into applicant(<include refid="baseColumn"/>)
+		values((<include refid="appNoMaker"/>), #{appPh}, #{appPw}, #{appName},
+		#{appAddr}, #{appEmail},#{appBirth},#{appGender},#{selfIntroduction})
+	</insert>
+	<insert id="insertNotiAppRel" parameterType="string">
+		insert into notice_application(APP_NO, NOTICE_NO)
+		values((select max(app_no) from applicant), #{noticeNo})
+	</insert>
+</mapper>

@@ -9,4 +9,5 @@
 	<bean class="service.outsourcing.OsListService" />
 	<bean class="service.outsourcing.OsDetailService" />
 	<bean class="service.outsourcing.OsUpdateService" />
+	<bean class="service.outsourcing.OsDeleteService" />
 </beans>
