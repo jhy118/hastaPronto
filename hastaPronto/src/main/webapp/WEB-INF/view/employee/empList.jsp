@@ -6,18 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.lg:hover {
+	background: lightgray;
+}
+</style>
 </head>
 <body>
 <table border="1">
 	<tr>
 		<th>번호</th>
 		<th>사번</th>		
-		<th>이름</th>		
-		<th>입사일</th>		
-		<th>주소</th>		
+		<th>이름</th>
+		<th>입사일</th>
+		<th>주소</th>	
 	</tr>
 	<c:forEach items="${lists}" var="list" varStatus="status">
-	<tr onclick="javascript:location.href='<c:url value="/emp/empDetail/${list.empId}"/>'">
+	<tr class="lg" onclick="javascript:location.href='<c:url value="/emp/empDetail/${list.empId}"/>'">
 		<th>${status.count}</th>
 		<th>${list.empNo}</th>
 		<th>${list.empName}</th>

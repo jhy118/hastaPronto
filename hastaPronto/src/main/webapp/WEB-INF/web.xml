@@ -36,6 +36,7 @@
   			classpath:announcement.xml
   			classpath:outsourcing.xml
   			classpath:department.xml
+  			classpath:notice.xml
   			classpath:question.xml
   			classpath:applicant.xml
   			classpath:answer.xml
