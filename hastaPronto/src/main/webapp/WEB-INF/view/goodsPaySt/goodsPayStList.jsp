@@ -14,7 +14,7 @@
 		<option value="${dto.osNo}">${dto.osName}</option>
 	</c:forEach>
 </select>
-<c:if test="${osNo.getcount > 0}">
+<c:if test="${osName.getcount > 0}">
 <table border="1">
 	<tr><th>대금지급번호</th><th>품목이름</th><th>대금지급날짜</th></tr>
 	<c:forEach items="${list}" var="dto" varStatus="status">
@@ -28,7 +28,7 @@
 </table>
 </c:if>
 <c:if test="${osNo.getcount <= 0}">
-	공지글이 없습니다.<br />   
+	 없습니다.<br />   
 </c:if>   
 <%@ include file="../include/includePage.jsp" %><br />
 </body>
