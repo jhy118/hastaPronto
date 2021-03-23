@@ -40,6 +40,7 @@
   			classpath:question.xml
   			classpath:applicant.xml
   			classpath:answer.xml
+  			classpath:osemp.xml
   		</param-value>
   	</init-param>
   </servlet>
