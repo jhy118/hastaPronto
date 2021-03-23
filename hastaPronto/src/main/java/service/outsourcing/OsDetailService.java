@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import model.DTO.OsDTO;
+import model.DTO.OsFileDTO;
 import repository.outsourcing.OsRepository;
 
 public class OsDetailService {
@@ -16,6 +17,11 @@ public class OsDetailService {
 		osDTO.setOsNo(osNo);
 		List<OsDTO> list = osRepository.getOsList(osDTO);
 		model.addAttribute("os", list.get(0));
+		
+		OsFileDTO osFileDTO = new OsFileDTO();
+		osFileDTO.setOsFilenum(osNo);
+		List<OsFileDTO> lists = osRepository.getOsFileList(osFileDTO);
+		model.addAttribute("osFile", lists.get(0));
+		
 	}
-	
 }

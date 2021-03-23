@@ -49,6 +49,14 @@
 				 OS_EMAIL = #{osEmail}
 			 where OS_NO = #{osNo}
 	</update>
+	<update id="osFileUpdate" parameterType="osFile">
+			update OS_FILE
+			set 
+				 OS_ORIGINALFILENAME = #{osOriginalfilename}, 
+				 OS_STOREDFILENAME = #{osStorefilename}, 
+				 OS_FILESIZE = #{osFilesize}
+			 where OS_FILENUM = #{osFilenum}
+	</update>
 	
 <!-- 	<update id="osUpdate" parameterType="model.DTO.OsDTO"> -->
 <!-- 		update users -->

@@ -20,9 +20,9 @@ public class ApplicantCommandValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "appName", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "appEmail", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "appAddr", "required");
-//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "appBirth", "required");
-//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "selfIntroduction", "required");
-//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "appGender", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "appBirth", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "selfIntroduction", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "appGender", "required");
 		ApplicantCommand appCommand = (ApplicantCommand) target;
 		if (!appCommand.appPwisEqualsAppPwCon()) {
 			errors.rejectValue("appPwCon", "nomatch");
