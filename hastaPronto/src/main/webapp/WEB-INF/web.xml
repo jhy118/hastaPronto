@@ -40,6 +40,8 @@
   			classpath:question.xml
   			classpath:applicant.xml
   			classpath:answer.xml
+  			classpath:goodsPaySt.xml
+  			classpath:wedding.xml
   		</param-value>
   	</init-param>
   </servlet>

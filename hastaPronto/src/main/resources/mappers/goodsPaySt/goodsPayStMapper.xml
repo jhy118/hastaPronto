@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.goodsPaySt.goodsPayStMapper">
+   <sql id="goodsPaySt">
+      GOODS_PAY_NO, ORDER_CONTENT, ALL_PAYMENT, DET_CONTENT,
+      PAYMENT_DATE, OS_NO, EMP_ID
+   </sql>
+   <sql id="goodsPaySt1">
+      GOODS_PAY_NO goodsPayNo, ORDER_CONTENT orderContent, 
+      ALL_PAYMENT allPayment, DET_CONTENT detContent,
+      PAYMENT_DATE paymentDate, OS_NO osNo, EMP_ID empId
+   </sql>
+   <insert id="payStInsert" parameterType="billSt">
+   		insert into GOODS_PAY_ST(<include refid = "goodsPaySt" />)
+   		values(board_seq.nextval, #{orderContent}, #{allPayment}, #{detContent},
+   		SYSDATE, #{osNo}, #{empId})
+   </insert>
+   <select id="getCount" resultType="int">
+   		select count(*) from GOODS_PAY_ST
+   </select>
+   <select id="getGoodsPayStList" parameterType="billSt" resultType="billSt">
+   		select *
+   		from ( select rownum rn, <include refid="goodsPaySt1" />
+   			from (select <include refid="goodsPaySt" />
+   					from GOODS_PAY_ST
+   					<where>
+   						<if test="goodsPayNo != null">
+   							GOODS_PAY_NO = #{goodsPayNo}
+   						</if>
+   					</where>
+   					order by GOODS_PAY_NO ASC
+   				)
+   			)
+   		<if test="startEndPageDTO != null">
+   		where rn between #{startEndPageDTO.startRow}
+   			and #{startEndPageDTO.endRow}
+   		</if>
+   </select>
+</mapper>

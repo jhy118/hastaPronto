@@ -29,8 +29,7 @@
 							os_no = #{osNo}
 						</if>
 					</where>
-				)
-		)
+					order by os_no asc))
 		<if test="startEndPageDTO != null">
 			where rn between #{startEndPageDTO.startRow}	and #{startEndPageDTO.endRow}
 		</if>
