@@ -1,6 +1,9 @@
 package command;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class OsCommand {
+	String osNo;
 	String osName;
 	String bsLicense;
 	String osAddr;
@@ -8,15 +11,21 @@ public class OsCommand {
 	String repName;
 	String osTel;
 	String osEmail;
+
+	MultipartFile[] report;
+	public MultipartFile[] getReport() {
+		return report;
+	}
+	public void setReport(MultipartFile[] report) {
+		this.report = report;
+	}
 	
-	String osNo;
 	public String getOsNo() {
 		return osNo;
 	}
 	public void setOsNo(String osNo) {
 		this.osNo = osNo;
 	}
-	
 	
 	public String getOsName() {
 		return osName;

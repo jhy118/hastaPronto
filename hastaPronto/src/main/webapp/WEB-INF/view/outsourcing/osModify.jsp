@@ -1,50 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ include file="../include/include.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-<form action="../osModifyPro" name="frm" method="post">
-	<input type="hidden" name="osNo" value="${os.osNo }" />
-	업체이름 : <input type="text" name="osName" value="${os.osName }" /><br >
-	사업자등록번호 : <input type="text" name="bsLicense" value="${os.bsLicense }" /><br >
-	업체주소 : <input type="text" name="osAddr" value="${os.osAddr }" /><br >
-	사업분류이름: <input type="text" name="osBusinessName" value="${os.osBusinessName }" /><br >
-	대표자이름: <input type="text" name="repName" value="${os.repName }" /> <br >
-	전화번호: <input type="text" name="osTel" value="${os.osTel }" /> <br >
-	이메일 : <input type="text" name="osEmail" value="${os.osEmail }" /><br >
-<!-- 	this를 쓰기위해 jquery사용 -->
-	<script src="https://code.jquery.com/jquery-latest.osFile"></script>
-	<script type="text/javascript" src="<c:url value='/outsourcing/jquery.form.osFile' />"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <!-- jason  :{키:값, 키:값, ...} -->
 	<script>
-		function fileDelete(osStrfile, osOrgfile, osFilesize, btn){
+		function fileDelete(osStrfile, osOrgfile, osFilesize, btn, osFile){
 			$.ajax({
 				type:"post",
-				url:"fileDel",
+				url:"../osFileDelete",
 				dateType:"text",
 				data:{"osOriginalfilename":osOrgfile, "osStorefilename":osStrfile, "osFilesize":osFilesize },
-				success:
-						function(result) {
-							alert(result);
-							if(result.trim()=="1"){
-								$(btn).text("삭제 취소");
-							} else{
-								$(btn).text("삭제");
-							}
-						},
-							error : function(){
-								alert('Error');
-								return;
-							}
+				success:function(result){
+					if(result.trim()=="1"){
+						$(osFile).remove();
+					}else{
+						$(btn).val("삭제");
+					}
+				},
+				error : function(){
+					alert('Error.');
+					return;
+				}
 			});
 		}
 	</script>
+</head>
+<body>
+<form:form action="../osModifyPro" name="frm" method="post" modelAttribute="os" enctype="multipart/form-data">
+	<input type="hidden" name="osNo" value="${os.osNo }" />
+	업체이름 : <form:input path="osName" /><br >
+	사업자등록번호 : <form:input path="bsLicense" /><br >
+	업체주소 : <form:input path="osAddr" /><br >
+	사업분류이름: <form:input path="osBusinessName" /><br >
+	대표자이름: <form:input path="repName" /> <br >
+	전화번호: <form:input path="osTel" /> <br >
+	이메일 : <form:input path="osEmail" /><br >
+<!-- 	this를 쓰기위해 jquery사용 -->
+<!-- 	<script src="https://code.jquery.com/jquery-latest.osFile"></script> -->
+<%-- 	<script type="text/javascript" src="<c:url value='/outsourcing/jquery.form.osFile' />"></script> --%>
+
+	<c:if test="${osFile.osOriginalfilename != null}">	
+	파일 : <br >
+	<input type="file" name="report" multiple="multiple" /><br>
+		<c:set var="store" value="${fn:split(osFile.osStorefilename, '`')}" />
+		<c:set var="osFilesize" value="${fn:split(osFile.osFilesize, '`')}" />
+		<c:forTokens items="${osFile.osOriginalfilename}" var="org" delims="`" varStatus="idx">
+		 <a class="osFile${idx.index}" href="<c:url value='outsourcing/osFile/${store[idx.index]}' />" > ${org}</a>
+		 <input class="osFile${idx.index}" type="button" value="삭제" onclick="return fileDelete('${store[idx.index]}', '${org}', '${osFilesize[idx.index]}',this, '.osFile${idx.index}');"> <br />
+		</c:forTokens>
+ 	</c:if>
+   <c:if test="${osFile.osOriginalfilename == null}">     
+		<input type="file" name="report" multiple="multiple" />
+   </c:if>
+      <br >
 	<input type="submit" value="수정" />
-</form>
+	<input type="button" value="뒤로가기" 
+      onclick="javascript:location.href='../osDetail?osNo='+${os.osNo}"/>
+</form:form>
 </body>
 </html>

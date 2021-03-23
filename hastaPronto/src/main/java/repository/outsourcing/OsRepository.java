@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import model.DTO.OsDTO;
+import model.DTO.OsFileDTO;
 
 public class OsRepository {
 	@Autowired
@@ -29,9 +30,22 @@ public class OsRepository {
 		statement = namespace + ".osUpdate";
 		return sqlSession.selectList(statement, osDTO);		
 	}
+	
 	public Integer osDelete(String osNo) {
 		statement = namespace + ".osDelete";
 		return sqlSession.delete(statement, osNo);
-	} 
+	}
+	public Integer insertOsFile(OsFileDTO osFileDTO) {
+		statement = namespace + ".insertOsFile";
+		return sqlSession.update(statement, osFileDTO);		
+	}
+	public List<OsFileDTO> getOsFileList(OsFileDTO osFileDTO){
+		statement = namespace + ".getOsFileList";
+		return sqlSession.selectList(statement, osFileDTO);		
+	}
+	public List<OsFileDTO> osFileUpdate(OsFileDTO osFileDTO) {
+		statement = namespace + ".osFileUpdate";
+		return sqlSession.selectList(statement, osFileDTO);		
+	}
 
 }
