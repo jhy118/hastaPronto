@@ -50,11 +50,16 @@ public class NoticeController {
 		String path = noticeRegistService.execute(noticeCommand, httpSession);
 		return path;
 	}
-	
+
 	@RequestMapping(value = "noticeDetail/{id}", method = RequestMethod.GET)
-	public String noticeDetail(@PathVariable(value="id")String noticeNo, Model model) {
+	public String noticeDetail(@PathVariable(value = "id") String noticeNo, Model model) {
 		noticeDetailService.execute(noticeNo, model);
 		noticeDetailService.upCount(noticeNo);
 		return "notice/noticeDetail";
+	}
+
+	public String noticeModify(@PathVariable(value = "id") String noticeNo, Model model) {		
+		noticeDetailService.execute(noticeNo, model);
+		return "notice/noticeModify";
 	}
 }

@@ -6,6 +6,10 @@
 	APP_NO, APP_PH, APP_PW, APP_NAME, APP_ADDR, APP_EMAIL, APP_BIRTH,
 	APP_GENDER, SELF_INTRODUCTION
 	</sql>
+	<sql id = "renamedBaseColumn" >
+	APP_NO appNo, APP_PH appPh, APP_PW appPw, APP_NAME appName, APP_EMAIL appEmail, APP_ADDR appAddr, 
+	APP_BIRTH appBirth,	APP_GENDER appGender, SELF_INTRODUCTION selfIntroduction
+	</sql>
 	<sql id = "appNoMaker">
 		select nvl(max(app_no), 0) + 1 from applicant
 	</sql>
@@ -18,4 +22,56 @@
 		insert into notice_application(APP_NO, NOTICE_NO)
 		values((select max(app_no) from applicant), #{noticeNo})
 	</insert>
+	<resultMap type="app" id="appMap">
+		<id column="APP_NO" jdbcType="VARCHAR" property="appNo"/>
+		<result column="APP_PH" jdbcType="VARCHAR" property="appPh"/>
+		<result column="APP_PW" jdbcType="VARCHAR" property="appPw"/>
+		<result column="APP_NAME" jdbcType="VARCHAR" property="appName"/>
+		<result column="APP_ADDR" jdbcType="VARCHAR" property="appAddr"/>
+		<result column="APP_EMAIL" jdbcType="VARCHAR" property="appEmail"/>
+		<result column="APP_BIRTH" jdbcType="TIMESTAMP" property="appBirth"/>
+		<result column="APP_GENDER" jdbcType="VARCHAR" property="appGender"/>
+		<result column="SELF_INTRODUCTION" jdbcType="VARCHAR" property="selfIntroduction"/>
+	</resultMap>
+	<select id="getApplicant" parameterType="noti" resultMap="appMap">
+		select * 
+		from (select rownum rn, <include refid="baseColumn"/>
+			from (select <include refid="baseColumn"/>
+				from applicant join notice_application
+				using(app_no)
+					<where>
+						<if test="noticeNo != 0">
+							notice_no = #{noticeNo}
+						</if>
+					</where>
+				order by app_no))
+		<where>
+			<if test="startEndPageDTO != null">
+				rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
+			</if>
+		</where>
+	</select>
+	<select id="countApplicant" parameterType="integer" resultType="integer">
+		select count(*) 
+		from applicant join notice_application using(app_no)
+		<if test="value != 0">
+		where notice_no = #{noticeNo}
+		</if>
+	</select>
+	<select id="getOneApplicant" parameterType="app" resultType="app">
+		select <include refid="renamedBaseColumn"/>
+		from applicant 
+		where 
+		<if test="appNo != null">
+		app_no = #{appNo}
+		</if>
+		<if test="appEmail != null">
+		app_email = #{appEmail}
+		</if>
+	</select>
+	<update id="updateApplicant" parameterType="app">
+		update applicant
+		set app_ph = #{appPh}, app_addr = #{appAddr}, self_introduction = #{selfIntroduction}
+		where app_no = #{appNo}
+	</update>
 </mapper>

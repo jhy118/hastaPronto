@@ -38,7 +38,12 @@
 						notice_no = #{noticeNo}
 					</if>
 				</where>
+				<if test="startEndPageDTO != null">				
 				order by notice_date desc
+				</if>
+				<if test="startEndPageDTO == null">
+				order by notice_no asc
+				</if>
 				))
 		<where>
 			<if test="startEndPageDTO != null">

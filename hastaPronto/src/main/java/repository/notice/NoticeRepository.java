@@ -33,4 +33,9 @@ public class NoticeRepository {
 		return sqlSession.update(statement, noticeNo);
 	}
 
+	public List<Integer> getNoticeNo() {
+		statement = namespace + ".getNoticeNo";
+		return sqlSession.selectList(statement);
+	}
+
 }
