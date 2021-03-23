@@ -1,8 +1,7 @@
 package command;
 
-import java.util.Date;
-
 public class ApplicantCommand {
+	String appNo;
 	String appPh;
 	String appPw;
 	String appPwCon;
@@ -12,6 +11,14 @@ public class ApplicantCommand {
 	String appBirth;
 	String appGender;
 	String selfIntroduction;
+	
+	public String getAppNo() {
+		return appNo;
+	}
+
+	public void setAppNo(String appNo) {
+		this.appNo = appNo;
+	}
 
 	public String getAppPwCon() {
 		return appPwCon;
