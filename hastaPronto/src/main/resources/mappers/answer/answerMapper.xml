@@ -5,12 +5,29 @@
 	<sql id="baseColumn">
 		ANS_NO, ANS_CONTENT, ANS_REGIST, USER_ID, QNA_NO, EMP_ID, ANS_SUBJECT
 	</sql>
+	<sql id="baseColumn1">
+		ANS_NO ansNo, ANS_CONTENT ansContent, ANS_REGIST ansRegist, USER_ID userId, QNA_NO qnaNo, EMP_ID empId, ANS_SUBJECT ansSubject
+	</sql>    
 	<sql id="ansNoMaker">
-		select nvl(max(ans_no), 0) + 1 from answer
+		select nvl(max(ans_no), 0) + 1 from answer    
 	</sql>
-	
+	       
 	<insert id="insertAnswer" parameterType="model.DTO.AnswerDTO">
 		insert into answer(<include refid="baseColumn" />)
 		values((<include refid="ansNoMaker" />), #{ansContent}, sysdate, #{userId}, #{qnaNo}, #{empId}, #{ansSubject})
 	</insert>
+	<select id="selectAnswer" parameterType="model.DTO.AnswerDTO" resultType="model.DTO.AnswerDTO">
+		select <include refid="baseColumn1"/> from answer   
+		where qna_no = #{qnaNo}   
+	</select>
+	<update id="updateAnswer" parameterType="model.DTO.AnswerDTO">
+		update answer
+		<trim prefix="set" suffixOverrides=",">
+			ANS_SUBJECT = #{ansSubject},
+			ANS_CONTENT = #{ansContent}
+		</trim>
+		<where>
+			QNA_NO = #{qnaNo}
+		</where>
+	</update>
 </mapper>

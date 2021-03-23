@@ -18,8 +18,14 @@
 							<input type="button" value="뒤로가기" onclick="javascript:history.back();">
 							<input type="button" value="문의 삭제" 
 							onclick="javascript:location.href='questionDelete?qnaNo=${questionWeb.qnaNo}'"/></td></tr>
+		<c:if test="${authInfo.loginId == ann.empId}">
 		<tr><td><input type = "button" value="문의 답변" 
 							onclick="javascript:location.href='../answer/answerRegist?qnaNo=${questionWeb.qnaNo}&userId=${questionWeb.userId}'"></td></tr>
+		</c:if>
+		<tr><td><input type="button" value="답변보기" onclick="javascript:location.href='../answer/answerDetail?qnaNo=${questionWeb.qnaNo}'"></td></tr>
 	</table>    
 </body>
 </html>
+
+
+

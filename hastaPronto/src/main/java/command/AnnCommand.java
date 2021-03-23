@@ -7,7 +7,8 @@ public class AnnCommand {
 	String annContent;
 	String annNo;
 	MultipartFile[] report;
-
+	MultipartFile[] annImg;
+	
 	public MultipartFile[] getReport() {
 		return report;
 	}
@@ -38,5 +39,13 @@ public class AnnCommand {
 
 	public void setAnnContent(String annContent) {
 		this.annContent = annContent;
+	}
+
+	public MultipartFile[] getAnnImg() {
+		return annImg;
+	}
+
+	public void setAnnImg(MultipartFile[] annImg) {
+		this.annImg = annImg;
 	}
 }
