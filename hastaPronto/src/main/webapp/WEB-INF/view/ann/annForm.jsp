@@ -25,6 +25,12 @@
       </td>
    </tr>
    <tr>
+      <th>그림</th>
+      <td>
+      	<input type="file" name="annImg" multiple="multiple" />
+      </td>
+   </tr>
+   <tr>
       <th>내용</th>
       <td>
          <form:textarea rows="30" cols="50" path="annContent"></form:textarea>

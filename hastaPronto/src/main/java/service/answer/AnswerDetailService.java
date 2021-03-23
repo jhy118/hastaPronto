@@ -13,8 +13,8 @@ public class AnswerDetailService {
 	AnswerRepository answerRepository;
 	public void execute(String qnaNo, Model model) {
 		AnswerDTO answerDTO = new AnswerDTO();
-		answerDTO.setAnsNo(qnaNo);
-//		answerDTO = answerRepository.selectAnswer(answerDTO);
+		answerDTO.setQnaNo(qnaNo);
+		answerDTO = answerRepository.selectAnswer(answerDTO);
 		model.addAttribute("answer" , answerDTO);
 		
 		

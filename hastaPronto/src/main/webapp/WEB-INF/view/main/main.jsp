@@ -16,9 +16,7 @@
 	<a href="<c:url value='ann/annList'/>">공지사항</a><br>
 	<a href="<c:url value='notice/notice'/>">공고</a><br>
 	<a href="<c:url value='question/question'/>">문의사항</a><br />
-	<a href="<c:url value='apc/applicant'/>">지원자목록</a>
-	<c:if test="${authInfo.grade == 'emp' }">
-		<a href="<c:url value='outsourcing/osList'/>">협력업체</a>
-	</c:if>
+	<a href="<c:url value='apc/applicant'/>">지원자목록</a><br >
+	<a href="<c:url value='outsourcing/osList'/>">협력업체</a>
 </body>
 </html>

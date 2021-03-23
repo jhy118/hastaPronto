@@ -26,14 +26,41 @@
 					from OUTSOURCING
 					<where>
 						<if test="osNo != null">
-							os_no = #{osNo}
+							OS_NO = #{osNo}
 						</if>
 					</where>
 				)
 		)
-		<if test="startEndPageDTO != null">
-			where rn between #{startEndPageDTO.startRow}	and #{startEndPageDTO.endRow}
-		</if>
+	</select>
+	
+	<sql id="outsourcingFile">
+		OS_FILENUM, OS_ORIGINALFILENAME, OS_STOREDFILENAME, OS_FILESIZE
+	</sql>
+	<sql id = "osFileNo">
+		select max(os_no) from OUTSOURCING
+	</sql>
+	<insert id="insertOsFile" parameterType="osFile">
+		insert into OS_FILE (<include refid="outsourcingFile" />)
+		values((<include refid="osFileNo"/>), #{osOriginalfilename}, #{osStorefilename},#{osFilesize})
+	</insert>
+	<resultMap type="osFile" id="osFileResult">
+		<id column="OS_FILENUM" jdbcType="VARCHAR" property="osFilenum"/>
+   		<result column="OS_ORIGINALFILENAME" jdbcType="VARCHAR" property="osOriginalfilename" />
+   		<result column="OS_STOREDFILENAME" jdbcType="VARCHAR" property="osStorefilename" />
+   		<result column="OS_FILESIZE" jdbcType="VARCHAR" property="osFilesize" />
+	</resultMap>
+	<select id="getOsFileList" parameterType="osFile" resultMap="osFileResult">
+		select * 
+			from (select rownum rn, <include refid="outsourcingFile" />
+				from(select <include refid="outsourcingFile" />
+					from OS_FILE
+					<where>
+						<if test="osFilenum != null">
+							OS_FILENUM = #{osFilenum}
+						</if>
+					</where>
+				)
+		)
 	</select>
 	<select id="listCount" resultType="int">
 		select count(*) from OUTSOURCING
@@ -49,6 +76,14 @@
 				 OS_TEL = #{osTel}, 
 				 OS_EMAIL = #{osEmail}
 			 where OS_NO = #{osNo}
+	</update>
+	<update id="osFileUpdate" parameterType="osFile">
+			update OS_FILE
+			set 
+				 OS_ORIGINALFILENAME = #{osOriginalfilename}, 
+				 OS_STOREDFILENAME = #{osStorefilename}, 
+				 OS_FILESIZE = #{osFilesize}
+			 where OS_FILENUM = #{osFilenum}
 	</update>
 	
 <!-- 	<update id="osUpdate" parameterType="model.DTO.OsDTO"> -->
@@ -68,4 +103,5 @@
 		delete from OUTSOURCING
 		where os_no = #{osNo}
 	</delete>
+	
 </mapper>

@@ -6,4 +6,5 @@
 	<bean class="service.answer.AnswerRegistService" id="answerRegistService"/>
 	<bean class="repository.answer.AnswerRepository" id="answerRepository"/>
 	<bean class="service.answer.AnswerDetailService" id="answerDetailService"/>
+	<bean class="service.answer.AnswerModifyService" id="answerModifyService"/>
 </beans>

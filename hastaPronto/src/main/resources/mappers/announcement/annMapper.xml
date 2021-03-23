@@ -4,12 +4,25 @@
 <mapper namespace="mappers.announcement.annMapper">
    <sql id="announcement">
       ANN_NO, ANN_SUBJECT, ANN_DATE, ANN_CONTENT, EMP_ID, 
-      READ_COUNT, ANN_STOREDFILENAME, ANN_ORIGINALFILENAME, ANN_FILESIZE
+      READ_COUNT, ANN_IMG, ANN_STOREDFILENAME, ANN_ORIGINALFILENAME, ANN_FILESIZE
+   </sql>
+   <sql id="announcement1">
+      ANN_NO annNo, ANN_SUBJECT annSubject, ANN_DATE annDate, ANN_CONTENT annContent, 
+      EMP_ID empId, READ_COUNT readCount, ANN_IMG annImg,
+      ANN_STOREDFILENAME annStoredFileName, 
+      ANN_ORIGINALFILENAME annOriginalFileName, 
+      ANN_FILESIZE annFileSize
    </sql>
    <insert id="insertAnn" parameterType="ann">
       insert into ANNOUNCEMENT (<include refid="announcement" />)
       values(board_seq.nextval, #{annSubject}, SYSDATE, #{annContent},
-      #{empId}, 0, 
+      #{empId}, 0,
+      <if test="annImg != ''">
+      		#{annImg},
+      </if>
+      <if test="annImg == ''">
+      		null,
+      </if>
       <if test="annOriginalFileName != ''">
       		#{annStoredFileName}, 
       		#{annOriginalFileName}, 
@@ -20,23 +33,12 @@
       </if>
       )
    </insert>
-   <resultMap type="ann" id="annResult">
-   		<id column="ANN_NO" jdbcType="VARCHAR" property="annNo"/>
-   		<result column="ANN_SUBJECT" jdbcType="VARCHAR" property="annSubject" />
-   		<result column="ANN_DATE" jdbcType="TIMESTAMP" property="annDate" />
-   		<result column="ANN_CONTENT" jdbcType="VARCHAR" property="annContent" />
-   		<result column="EMP_ID" jdbcType="VARCHAR" property="empId" />
-   		<result column="READ_COUNT" jdbcType="BIGINT" property="readCount" />
-   		<result column="ANN_STOREDFILENAME" jdbcType="VARCHAR" property="annStoredFileName" />
-   		<result column="ANN_ORIGINALFILENAME" jdbcType="VARCHAR" property="annOriginalFileName" />
-   		<result column="ANN_FILESIZE" jdbcType="VARCHAR" property="annFileSize" />
-   </resultMap>
    <select id="getCount" resultType="int">
    		select count(*) from ANNOUNCEMENT
    </select>
-   <select id="getAnnList" parameterType="ann" resultMap="annResult">
+   <select id="getAnnList" parameterType="ann" resultType="ann">
    		select *
-   		from ( select rownum rn, <include refid="announcement" />
+   		from ( select rownum rn, <include refid="announcement1" />
    			from (select <include refid="announcement" />
    					from ANNOUNCEMENT
    					<where>
@@ -44,6 +46,7 @@
    							ANN_NO = #{annNo}
    						</if>
    					</where>
+   					order by ann_date DESC
    				)
    			)
    		<if test="startEndPageDTO != null">
@@ -55,10 +58,23 @@
          update ANNOUNCEMENT
          set ANN_SUBJECT = #{annSubject}, 
          	 ANN_CONTENT = #{annContent},
+         	 <if test="annStoredFileName != null">
          	 ANN_STOREDFILENAME = #{annStoredFileName},
          	 ANN_ORIGINALFILENAME = #{annOriginalFileName},
-         	 ANN_FILESIZE = #{annFileSize}
-         where EMP_ID = #{empId} and ANN_NO = #{annNo}
+         	 ANN_FILESIZE = #{annFileSize},
+         	 </if>
+         	 <if test="annStoredFileName == null">
+         	 ANN_STOREDFILENAME = null,
+         	 ANN_ORIGINALFILENAME = null,
+         	 ANN_FILESIZE = null,
+         	 </if>
+         	 <if test="annImg != null">
+         	 ANN_IMG = #{annImg}
+         	 </if>
+         	 <if test="annImg == null">
+         	 ANN_IMG = null
+         	 </if>
+         where ANN_NO = #{annNo}
    </update>
    <delete id="deleteAnn" parameterType="string">
          delete from ANNOUNCEMENT
