@@ -33,7 +33,8 @@
 			<td><c:set value="${fn:split(notice.noticeOriginalFileName, '`')}" var="originalFileName" /> 
 				<c:set value="${fn:split(notice.noticeStoreFileName, '`')}" var="storeFileName" />
 				<c:forTokens items="${notice.noticeFileSize}" delims="`" var="fileSize" varStatus="status">
-					<a href="../upload/${storeFileName[status.index]}">${originalFileName[status.index]} (${fileSize}Byte)</a><br />
+					<a href="../fileDown?sfileName=${storeFileName[status.index]}&ofileName=${originalFileName[status.index]}">
+					${originalFileName[status.index]} (${fileSize}Byte)</a><br />
 				</c:forTokens>
 				</td>
 		</tr>

@@ -10,6 +10,6 @@
 	<bean id="annDetailService" class="service.announcement.AnnDetailService" />
 	<bean id="annModifyService" class="service.announcement.AnnModifyService" />
 	<bean id="annDelService" class="service.announcement.AnnDelService" />
-	<bean id="fileDelService" class="service.announcement.FileDelService" />
+	<bean id="fileDelService" class="controller.FileDelService" />
 	<bean id="imgDelService" class="service.announcement.ImgDelService" />
 </beans>

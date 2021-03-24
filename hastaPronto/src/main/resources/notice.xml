@@ -6,6 +6,9 @@
 	<bean class ="service.notice.NoticeRegistService" id="noticeRegistService"/>
 	<bean class ="service.notice.NoticeListService" id="noticeListService"/>
 	<bean class ="service.notice.NoticeDetailService" id="noticeDetailService"/>
+	<bean class ="service.notice.NoticeModifyService" id="noticeModifyService"/>
+	<bean class ="service.notice.NoticeDeleteService" id="noticeDeleteService"/>
+	<bean class ="service.notice.FileDownService" id="fileDownService"/>
 	<bean class ="repository.notice.NoticeRepository" id="noticeRepository"/>
 
 </beans>
