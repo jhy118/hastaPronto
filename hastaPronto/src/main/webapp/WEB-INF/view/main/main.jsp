@@ -21,6 +21,7 @@
 		<a href="<c:url value='outsourcing/osList'/>">협력업체</a>
 		<a href="<c:url value='osEmployees/osEmpList'/>">강사</a>
 	</c:if>
-	<a href="<c:url value='res/resList'/>">레스토랑</a><br />
+	<a href="<c:url value='res/resList'/>">레스토랑</a><br /><br />
+	<a href="<c:url value='resmenu/resmenuList'/>">레스토랑 메뉴</a><br /><br />
 </body>
 </html>
