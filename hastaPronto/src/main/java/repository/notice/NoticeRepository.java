@@ -38,4 +38,13 @@ public class NoticeRepository {
 		return sqlSession.selectList(statement);
 	}
 
+	public Integer updateNotice(NoticeDTO noticeDTO) {
+		statement = namespace + ".updateNotice";
+		return sqlSession.update(statement, noticeDTO);
+	}
+
+	public Integer deleteNotice(String noticeNo) {
+		statement = namespace + ".deleteNotice";
+		return sqlSession.update(statement, noticeNo);
+	}
 }

@@ -13,8 +13,8 @@
 			type:"post",
 			url:"../fileDel",
 			dataType:"text",
-			data:{"annOriginalFileName":orgFile, "annStoredFileName":strFile,
-				"annFileSize":fileSize},
+			data:{"originalFileName":orgFile, "storedFileName":strFile,
+				"fileSize":fileSize},
 			success:function(result){
 				if(result.trim()=="1"){
 					$(cFile).remove();

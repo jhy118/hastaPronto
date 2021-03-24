@@ -1,5 +1,7 @@
 package controller.notice;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import command.FileInfo;
 import command.NoticeCommand;
+import controller.FileDelService;
+import service.notice.FileDownService;
+import service.notice.NoticeDeleteService;
 import service.notice.NoticeDetailService;
 import service.notice.NoticeListService;
+import service.notice.NoticeModifyService;
 import service.notice.NoticeRegistService;
 import validator.NoticeCommandValidator;
 
@@ -27,6 +34,14 @@ public class NoticeController {
 	NoticeListService noticeListService;
 	@Autowired
 	NoticeDetailService noticeDetailService;
+	@Autowired
+	FileDownService fileDownService;
+	@Autowired
+	FileDelService fileDelService;
+	@Autowired
+	NoticeModifyService noticeModifyService;
+	@Autowired
+	NoticeDeleteService noticeDeleteService;
 
 	@RequestMapping(value = "notice", method = RequestMethod.GET)
 	public String noticeList(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model) {
@@ -58,8 +73,33 @@ public class NoticeController {
 		return "notice/noticeDetail";
 	}
 
-	public String noticeModify(@PathVariable(value = "id") String noticeNo, Model model) {		
+	@RequestMapping(value = "noticeModify/{id}", method = RequestMethod.GET)
+	public String noticeModify(@PathVariable(value = "id") String noticeNo, Model model) {
 		noticeDetailService.execute(noticeNo, model);
 		return "notice/noticeModify";
+	}
+
+	@RequestMapping(value = "noticeModify/{id}", method = RequestMethod.POST)
+	public String noticeModifyOk(@ModelAttribute(value = "notice") NoticeCommand noticeCommand, HttpSession session) {
+		String path = noticeModifyService.execute(noticeCommand, session);
+		return path;
+	}
+
+	@RequestMapping(value = "fileDown", method = RequestMethod.GET)
+	public void fileDown(@RequestParam(value = "sfileName") String sfileName,
+			@RequestParam(value = "ofileName") String ofileName, HttpServletRequest req, HttpServletResponse resp) {
+		fileDownService.execute(ofileName, sfileName, req, resp);
+	}
+
+	@RequestMapping(value = "fileDel", method = RequestMethod.POST)
+	public String fileDel(FileInfo fileInfo, Model model, HttpSession session) {
+		fileDelService.execute(fileInfo, session, model);
+		return "include/fileDel";
+	}
+
+	@RequestMapping(value = "noticeDelete/{id}", method = RequestMethod.GET)
+	public String noticeDelete(@PathVariable(value = "id")String noticeNo, HttpSession session) {
+		noticeDeleteService.execute(noticeNo, session);
+		return "redirect:/notice/notice";
 	}
 }

@@ -24,6 +24,7 @@ public class NoticeRegistService {
 
 	public String execute(NoticeCommand noticeCommand, HttpSession httpSession) {
 		NoticeDTO noticeDTO = new NoticeDTO();
+		System.out.println(noticeCommand.getStartDate());
 		noticeCommand.execute();
 		noticeDTO.setNoticeContent(noticeCommand.getNoticeContent());
 		noticeDTO.setNoticeName(noticeCommand.getNoticeName());
