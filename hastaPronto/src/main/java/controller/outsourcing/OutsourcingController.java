@@ -1,19 +1,24 @@
 package controller.outsourcing;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import command.FileInfo;
 import command.OsCommand;
+import model.DTO.OsFileDTO;
 import service.outsourcing.OsDeleteService;
 import service.outsourcing.OsDetailService;
+import service.outsourcing.OsFileDeleteService;
 import service.outsourcing.OsListService;
 import service.outsourcing.OsUpdateService;
 import service.outsourcing.OutsourcingService;
@@ -32,6 +37,8 @@ public class OutsourcingController {
 	OsUpdateService osUpdateService;
 	@Autowired
 	OsDeleteService osDeleteService;
+	@Autowired
+	OsFileDeleteService osFileDeleteService;
 	
 	@RequestMapping("osDelete/{osNo}")
 	public String osDelete(
@@ -48,8 +55,8 @@ public class OutsourcingController {
 	}
 	
 	@RequestMapping("osModifyPro")
-	public String osModifyPro(OsCommand osCommand) {
-		osUpdateService.execute(osCommand);
+	public String osModifyPro(@ModelAttribute(value="os")OsCommand osCommand, HttpSession session) {
+		osUpdateService.execute(osCommand, session);
 		return "redirect:osDetail?osNo=" + osCommand.getOsNo();
 	}
 	
@@ -72,12 +79,18 @@ public class OutsourcingController {
 	}
 
 	@RequestMapping("osFormAction")
-	public String osFormAction(OsCommand osCommand, Errors errors) {
+	public String osFormAction(OsCommand osCommand, HttpSession session, Errors errors) {
 		new OsCommandValidator().validate(osCommand, errors);
 		if (errors.hasErrors()) {
 			return "outsourcing/osForm";
 		}
-		outsourcingService.execute(osCommand);
+		outsourcingService.execute(osCommand, session);
 		return "redirect:osList";
 	}
+	
+	@RequestMapping("osFileDelete")
+	   public String osFileDelete(OsFileDTO osFileDTO, HttpSession session, Model model) {
+		osFileDeleteService.execute(osFileDTO, session, model);
+		   return "ann/fileDel";
+	   }
 }

@@ -3,16 +3,33 @@ package model.DTO;
 import java.sql.Timestamp;
 
 public class AnnDTO {
-	 String annNo;
-	 String annSubject;
-	 Timestamp annDate;
-	 String annContent;
-	 String empId;
-	 Integer readCount;
+	String annNo;
+	String annSubject;
+	Timestamp annDate;
+	String annContent;
+	String empId;
+	Integer readCount;
     String annStoredFileName;
     String annOriginalFileName;
     String annFileSize;
-	StartEndPageDTO startEndPageDTO;
+    String annImg;
+    StartEndPageDTO startEndPageDTO;
+    public AnnDTO() {}
+	public AnnDTO(String annNo, String annSubject, Timestamp annDate, String annContent, String empId,
+			Integer readCount, String annStoredFileName, String annOriginalFileName, String annFileSize,
+			String annImg) {
+		super();
+		this.annNo = annNo;
+		this.annSubject = annSubject;
+		this.annDate = annDate;
+		this.annContent = annContent;
+		this.empId = empId;
+		this.readCount = readCount;
+		this.annStoredFileName = annStoredFileName;
+		this.annOriginalFileName = annOriginalFileName;
+		this.annFileSize = annFileSize;
+		this.annImg = annImg;
+	}
 	public StartEndPageDTO getStartEndPageDTO() {
 		return startEndPageDTO;
 	}
@@ -72,5 +89,11 @@ public class AnnDTO {
 	}
 	public void setAnnFileSize(String annFileSize) {
 		this.annFileSize = annFileSize;
+	}
+	public String getAnnImg() {
+		return annImg;
+	}
+	public void setAnnImg(String annImg) {
+		this.annImg = annImg;
 	}
 }

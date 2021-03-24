@@ -24,9 +24,30 @@
 			},
 			error : function(){
 				alert('에러가 나왔습니다.');
-				return;
+				return false;
 			}
 		});
+	}
+	
+	function imgDelete(imgfile, btn, cImg){
+		imageFile = {
+				type:"post",
+				url:"../imgDel",
+				dataType:"text",
+				data:{"imgfile":imgfile},
+				success:function(result){
+					if(result.trim()=="1"){
+						$(cImg).remove();
+					}else{
+						$(btn).val("삭제");
+					}
+				},
+				error : function(){
+					alert('에러가 나왔습니다.');
+					return false;
+				}
+		};
+		$.ajax(imageFile);
 	}
 </script>
 </head>
@@ -58,20 +79,36 @@
 	         	</c:forTokens>
 	         </td>
 	      </tr>
-      </c:if>
-      <c:if test="${ann.annOriginalFileName == null}">      
+      </c:if>      
 		  <tr>
-		      <th>파일</th>
+		      <th>파일 추가</th>
 		      <td>
 		      	<input type="file" name="report" multiple="multiple" />
 		      </td>
 	      </tr>
+      <c:if test="${ann.annImg != null}">
+      	<tr>
+      		<th>사진</th>
+      		<td>
+      			<c:forTokens items="${ann.annImg}" delims="`" var="img" varStatus="idx">
+      				<img src="../upload/${img}" class="img${idx.index}" width="50" height="25" />
+      				
+      				<input class="img${idx.index}" type="button" value="삭제" 
+      					onclick="imgDelete('${img}',this, '.img${idx.index}');" />
+      			</c:forTokens>
+      		</td>
+      	</tr>
       </c:if>
-   
+	      <tr>
+	    		<th>사진 추가</th>
+	    		<td>
+	    			<input type="file" name="annImg" multiple="multiple" />
+	    		</td>
+	      </tr>
       <tr><th>내용</th>
          <td><textarea rows="30" cols="50" name="annContent">${ann.annContent}</textarea>
-         </td></tr>
-       
+         </td>
+      </tr> 
       <tr><th>등록일</th>
          <td>${ann.annDate}</td></tr>
    </table>

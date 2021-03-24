@@ -9,7 +9,9 @@
 </head>
 <body>
 <h2>NOTICE</h2>
+<c:if test="${authInfo.grade == 'emp' }">
 	<a href="annForm">공지 등록하기</a>
+</c:if>
 <table border="1">
 <c:if test="${count > 0}">   
    <tr>

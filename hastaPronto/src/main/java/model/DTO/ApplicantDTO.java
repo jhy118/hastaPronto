@@ -12,6 +12,15 @@ public class ApplicantDTO {
 	Date appBirth;
 	String appGender;
 	String selfIntroduction;
+	StartEndPageDTO startEndPageDTO;
+
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 
 	public String getAppNo() {
 		return appNo;

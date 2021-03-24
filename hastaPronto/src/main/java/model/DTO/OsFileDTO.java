@@ -1,15 +1,15 @@
 package model.DTO;
 
 public class OsFileDTO {
-	private int osFilenum;
+	private String osFilenum;
 	private String osOriginalfilename;
 	private String osStorefilename;
-	private String osImgfile;
-	private int osFilesize;
-	public int getOsFilenum() {
+	private String osFilesize;
+	
+	public String getOsFilenum() {
 		return osFilenum;
 	}
-	public void setOsFilenum(int osFilenum) {
+	public void setOsFilenum(String osFilenum) {
 		this.osFilenum = osFilenum;
 	}
 	public String getOsOriginalfilename() {
@@ -24,16 +24,10 @@ public class OsFileDTO {
 	public void setOsStorefilename(String osStorefilename) {
 		this.osStorefilename = osStorefilename;
 	}
-	public String getOsImgfile() {
-		return osImgfile;
-	}
-	public void setOsImgfile(String osImgfile) {
-		this.osImgfile = osImgfile;
-	}
-	public int getOsFilesize() {
+	public String getOsFilesize() {
 		return osFilesize;
 	}
-	public void setOsFilesize(int osFilesize) {
+	public void setOsFilesize(String osFilesize) {
 		this.osFilesize = osFilesize;
 	}
 }

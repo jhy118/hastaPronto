@@ -23,7 +23,7 @@
 	<tr align="center">
 		<td>${status.count }</td>
 		<td>
-		<a href="osDetail?osNo=${os.osNo}">${os.osName }</td>
+		<a href="osDetail?osNo=${os.osNo}">${os.osName }</a></td>
 		<td>${os.osBusinessName }</td>
 	</tr>
 	</c:forEach>
