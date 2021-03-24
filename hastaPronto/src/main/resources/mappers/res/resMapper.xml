@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.res.resMapper">
+	<sql id="baseColumn">
+		RT_NO, RT_NAME, RT_CONTENT, RT_FILE
+	</sql>
+	<sql id="baseColumn1">
+		RT_NO rtNo, RT_NAME rtName, RT_CONTENT rtContent, RT_FILE rtFile
+	</sql>
+	<insert id="insertRes" parameterType="model.DTO.ResDTO">
+		insert into restaurant (<include refid="baseColumn" />)
+		values(board_seq.nextval, #{rtName}, #{rtContent},
+		<if test="rtFile != ''">
+			#{rtFile}  
+		</if>
+		<if test="rtFile == ''">   
+			null
+		</if>
+		)
+	</insert>
+	<select id="selectRes" parameterType="model.DTO.ResDTO" resultType="model.DTO.ResDTO">
+		select * from (select ROWNUM RN, <include refid="baseColumn1" />
+					from (select <include refid="baseColumn" />
+				from restaurant
+				<trim prefix="where" prefixOverrides="and | or">
+					<if test="rtNo != null">
+						RT_NO = #{rtNo}
+					</if>
+				</trim>
+				order by RT_NO desc))
+		<where>
+			<if test="startEndPageDTO != null ">
+				rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
+			</if>		
+		</where>
+	</select>
+	<select id="resCount" resultType="integer">
+		select count(*) from restaurant
+	</select>
+	<update id="resUpdate" parameterType="model.DTO.ResDTO">
+		update restaurant
+		set RT_NAME = #{rtName},  
+			RT_CONTENT = #{rtContent},
+			RT_FILE = #{rtFile}
+		where RT_NO = #{rtNo}
+	</update>
+	<delete id="deleteRes">
+		delete from restaurant
+		where RT_NO = #{rtNo}
+	</delete>
+</mapper>
