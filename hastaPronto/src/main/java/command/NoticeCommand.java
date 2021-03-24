@@ -3,13 +3,22 @@ package command;
 import org.springframework.web.multipart.MultipartFile;
 
 public class NoticeCommand {
+	String noticeNo;
 	String noticeName;
 	String startDate;
 	String endDate;
 	String announceDate;
 	String noticeContent;
 	MultipartFile[] noticeFile;
-	
+
+	public String getNoticeNo() {
+		return noticeNo;
+	}
+
+	public void setNoticeNo(String noticeNo) {
+		this.noticeNo = noticeNo;
+	}
+
 	public MultipartFile[] getNoticeFile() {
 		return noticeFile;
 	}
@@ -57,6 +66,7 @@ public class NoticeCommand {
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;
 	}
+
 	public void execute() {
 		startDate = startDate.replace("T", " ") + ":00";
 		endDate = endDate.replace("T", " ") + ":00";

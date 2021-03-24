@@ -59,4 +59,24 @@
 		set read_count = read_count + 1
 		where notice_no = #{noticeNo}
 	</update>
+	<update id="updateNotice">
+		update notice
+		set notice_name = #{noticeName}, emp_id = #{empId}, start_date = #{startDate}, end_date = #{endDate},
+		announce_date = #{announceDate}, notice_content = #{noticeContent},
+		<if test="noticeOriginalFileName != null">
+		notice_originalfilename = #{noticeOriginalFileName},
+		notice_storefilename = #{noticeStoreFileName},
+		notice_filesize = #{noticeFileSize}
+		</if>
+		<if test="noticeOriginalFileName == null">
+		null,
+		null,
+		null
+		</if>
+		where notice_no = #{noticeNo}
+	</update>
+	<delete id="deleteNotice" parameterType="string">
+		delete from notice
+		where notice_no = #{noticeNo}	
+	</delete>
 </mapper>

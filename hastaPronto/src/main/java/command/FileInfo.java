@@ -1,25 +1,32 @@
 package command;
 
 public class FileInfo {
-	String annStoredFileName;
-    String annOriginalFileName;
-    String annFileSize;
-	public String getAnnStoredFileName() {
-		return annStoredFileName;
+	String storedFileName;
+	String originalFileName;
+	String fileSize;
+
+	public String getStoredFileName() {
+		return storedFileName;
 	}
-	public void setAnnStoredFileName(String annStoredFileName) {
-		this.annStoredFileName = annStoredFileName;
+
+	public void setStoredFileName(String storedFileName) {
+		this.storedFileName = storedFileName;
 	}
-	public String getAnnOriginalFileName() {
-		return annOriginalFileName;
+
+	public String getOriginalFileName() {
+		return originalFileName;
 	}
-	public void setAnnOriginalFileName(String annOriginalFileName) {
-		this.annOriginalFileName = annOriginalFileName;
+
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
 	}
-	public String getAnnFileSize() {
-		return annFileSize;
+
+	public String getFileSize() {
+		return fileSize;
 	}
-	public void setAnnFileSize(String annFileSize) {
-		this.annFileSize = annFileSize;
+
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
 	}
+
 }
