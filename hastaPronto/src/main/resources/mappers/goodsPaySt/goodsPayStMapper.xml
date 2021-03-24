@@ -11,25 +11,41 @@
       ALL_PAYMENT allPayment, DET_CONTENT detContent,
       PAYMENT_DATE paymentDate, OS_NO osNo, EMP_ID empId
    </sql>
+   <sql id ="goodsPayNoMaker">
+   		select nvl(max(GOODS_PAY_NO), 0) +1 from GOODS_PAY_ST
+   </sql>
    <insert id="payStInsert" parameterType="billSt">
    		insert into GOODS_PAY_ST(<include refid = "goodsPaySt" />)
-   		values(board_seq.nextval, #{orderContent}, #{allPayment}, #{detContent},
-   		SYSDATE, #{osNo}, #{empId})
+   		values((<include refid= "goodsPayNoMaker" />), #{orderContent},
+   		#{allPayment}, #{detContent}, SYSDATE, #{osNo}, #{empId})
    </insert>
-   <select id="getCount" resultType="int">
-   		select count(*) from GOODS_PAY_ST
+   <select id="getCount" parameterType="integer" resultType="integer">
+   		select count(*)
+   		from GOODS_PAY_ST
+   		<if test="value != 0">
+   		where OS_NO = #{value}
+   		</if>
    </select>
-   <select id="getGoodsPayStList" parameterType="billSt" resultType="billSt">
+   <resultMap type="billSt" id="billStMap">
+   		<id column="GOODS_PAY_NO" jdbcType="VARCHAR" property="goodsPayNo"/>
+   		<result column="ORDER_CONTENT" jdbcType="VARCHAR" property="orderContent"/>
+   		<result column="ALL_PAYMENT" jdbcType="BIGINT" property="allPayment"/>
+   		<result column="DET_CONTENT" jdbcType="VARCHAR" property="detContent"/>
+   		<result column="PAYMENT_DATE" jdbcType="TIMESTAMP" property="paymentDate"/>
+   		<result column="OS_NO" jdbcType="VARCHAR" property="osNo"/>
+   		<result column="EMP_ID" jdbcType="VARCHAR" property="empId"/>
+   </resultMap>
+   <select id="getGoodsPayStList" parameterType="os" resultMap="billStMap">
    		select *
    		from ( select rownum rn, <include refid="goodsPaySt1" />
    			from (select <include refid="goodsPaySt" />
    					from GOODS_PAY_ST
    					<where>
-   						<if test="goodsPayNo != null">
-   							GOODS_PAY_NO = #{goodsPayNo}
+   						<if test="osNo != 0">
+   							OS_NO = #{osNo}
    						</if>
    					</where>
-   					order by GOODS_PAY_NO ASC
+   					order by GOODS_PAY_NO
    				)
    			)
    		<if test="startEndPageDTO != null">
@@ -37,4 +53,23 @@
    			and #{startEndPageDTO.endRow}
    		</if>
    </select>
+   <select id="getOneGoodsPaySt" parameterType="billSt" resultType="billSt">
+   		select <include refid="goodsPaySt1" />
+   		from GOODS_PAY_ST
+   		where
+   		<if test="goodsPayNo != null">
+   		GOODS_PAY_NO = #{goodsPayNo}
+   		</if>
+   </select>
+   <update id="updateBillSt" parameterType="billSt">
+   		update GOODS_PAY_ST
+   		set ORDER_CONTENT = #{orderContent},
+   			ALL_PAYMENT = #{allPayment},
+   			DET_CONTENT = #{detContent}
+   		where GOODS_PAY_NO = #{goodsPayNo}
+   </update>
+   <delete id="deleteBillSt" parameterType="string">
+   	delete from GOODS_PAY_ST
+   	where GOODS_PAY_NO = #{value}
+   </delete>
 </mapper>

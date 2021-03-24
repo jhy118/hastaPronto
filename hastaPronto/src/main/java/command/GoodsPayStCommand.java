@@ -5,6 +5,13 @@ public class GoodsPayStCommand {
 	String detContent;
 	Long allPayment;
 	String osNo;
+	String goodsPayNo;
+	public String getGoodsPayNo() {
+		return goodsPayNo;
+	}
+	public void setGoodsPayNo(String goodsPayNo) {
+		this.goodsPayNo = goodsPayNo;
+	}
 	public String getOsNo() {
 		return osNo;
 	}

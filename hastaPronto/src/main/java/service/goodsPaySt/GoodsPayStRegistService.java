@@ -26,6 +26,7 @@ public class GoodsPayStRegistService {
 		goodsPayStDTO.setAllPayment(goodsPayStCommand.getAllPayment());
 		goodsPayStDTO.setEmpId(authInfo.getLoginId());
 		goodsPayStDTO.setOsNo(goodsPayStCommand.getOsNo());
+		goodsPayStDTO.setGoodsPayNo(goodsPayStCommand.getGoodsPayNo());
 		goodsPayStRepository.payStInsert(goodsPayStDTO);
 	}
 

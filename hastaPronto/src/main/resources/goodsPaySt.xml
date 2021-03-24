@@ -12,4 +12,10 @@
 		class="repository.goodsPaySt.GoodsPayStRepository" />
 	<bean id="goodsPayStListService" 
 		class="service.goodsPaySt.GoodsPayStListService" />
+	<bean id="goodsPayStInfoService" 
+		class="service.goodsPaySt.GoodsPayStInfoService" />
+	<bean id="goodsPayStModifyService" 
+		class="service.goodsPaySt.GoodsPayStModifyService" />	
+	<bean id="goodsPayStDelService" 
+		class="service.goodsPaySt.GoodsPayStDelService" />						
 </beans>
