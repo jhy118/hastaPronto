@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.goodsPaySt.goodsPayStMapper">
+   <sql id="goodsPaySt">
+      GOODS_PAY_NO, ORDER_CONTENT, ALL_PAYMENT, DET_CONTENT,
+      PAYMENT_DATE, OS_NO, EMP_ID
+   </sql>
+   <sql id="goodsPaySt1">
+      GOODS_PAY_NO goodsPayNo, ORDER_CONTENT orderContent, 
+      ALL_PAYMENT allPayment, DET_CONTENT detContent,
+      PAYMENT_DATE paymentDate, OS_NO osNo, EMP_ID empId
+   </sql>
+   <sql id ="goodsPayNoMaker">
+   		select nvl(max(GOODS_PAY_NO), 0) +1 from GOODS_PAY_ST
+   </sql>
+   <insert id="payStInsert" parameterType="billSt">
+   		insert into GOODS_PAY_ST(<include refid = "goodsPaySt" />)
+   		values((<include refid= "goodsPayNoMaker" />), #{orderContent},
+   		#{allPayment}, #{detContent}, SYSDATE, #{osNo}, #{empId})
+   </insert>
+   <select id="getCount" parameterType="integer" resultType="integer">
+   		select count(*)
+   		from GOODS_PAY_ST
+   		<if test="value != 0">
+   		where OS_NO = #{value}
+   		</if>
+   </select>
+   <resultMap type="billSt" id="billStMap">
+   		<id column="GOODS_PAY_NO" jdbcType="VARCHAR" property="goodsPayNo"/>
+   		<result column="ORDER_CONTENT" jdbcType="VARCHAR" property="orderContent"/>
+   		<result column="ALL_PAYMENT" jdbcType="BIGINT" property="allPayment"/>
+   		<result column="DET_CONTENT" jdbcType="VARCHAR" property="detContent"/>
+   		<result column="PAYMENT_DATE" jdbcType="TIMESTAMP" property="paymentDate"/>
+   		<result column="OS_NO" jdbcType="VARCHAR" property="osNo"/>
+   		<result column="EMP_ID" jdbcType="VARCHAR" property="empId"/>
+   </resultMap>
+   <select id="getGoodsPayStList" parameterType="os" resultMap="billStMap">
+   		select *
+   		from ( select rownum rn, <include refid="goodsPaySt1" />
+   			from (select <include refid="goodsPaySt" />
+   					from GOODS_PAY_ST
+   					<where>
+   						<if test="osNo != 0">
+   							OS_NO = #{osNo}
+   						</if>
+   					</where>
+   					order by GOODS_PAY_NO
+   				)
+   			)
+   		<if test="startEndPageDTO != null">
+   		where rn between #{startEndPageDTO.startRow}
+   			and #{startEndPageDTO.endRow}
+   		</if>
+   </select>
+   <select id="getOneGoodsPaySt" parameterType="billSt" resultType="billSt">
+   		select <include refid="goodsPaySt1" />
+   		from GOODS_PAY_ST
+   		where
+   		<if test="goodsPayNo != null">
+   		GOODS_PAY_NO = #{goodsPayNo}
+   		</if>
+   </select>
+   <update id="updateBillSt" parameterType="billSt">
+   		update GOODS_PAY_ST
+   		set ORDER_CONTENT = #{orderContent},
+   			ALL_PAYMENT = #{allPayment},
+   			DET_CONTENT = #{detContent}
+   		where GOODS_PAY_NO = #{goodsPayNo}
+   </update>
+   <delete id="deleteBillSt" parameterType="string">
+   	delete from GOODS_PAY_ST
+   	where GOODS_PAY_NO = #{value}
+   </delete>
+</mapper>

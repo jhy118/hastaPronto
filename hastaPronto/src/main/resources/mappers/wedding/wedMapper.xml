@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.wedding.wedMapper">
+<sql id="wed">
+	WED_NO, WED_NAME, WED_CHAR, WED_FILE, WED_CONTENT,
+	WED_NUM, EMP_ID, WED_LOCATION
+</sql>
+<sql id="renamedWed">
+	WED_NO wedNo, WED_NAME wedName, WED_CHAR wedChar, 
+	WED_FILE wedFile, WED_CONTENT wedContent,
+	WED_NUM wedNum, EMP_ID empId, WED_LOCATION wedLocation
+</sql>
+<sql id="wedNoMaker">
+	select nvl(max(WED_NO), 0) + 1 from WEDDINGHALL
+</sql>
+<insert id="insertWed" parameterType="wed">
+	insert into WEDDINGHALL (<include refid="wed" />)
+	values((<include refid="wedNoMaker" />), #{wedName}, #{wedChar}, 
+	<if test="wedFile != ''">
+		#{wedFile}, 
+	</if>
+	<if test="wedFile == ''">
+		null, 
+	</if>
+	#{wedContent}, #{wedNum}, #{empId}, #{wedLocation})
+</insert>
+<select id="getWedList" parameterType="wed" resultType="wed">
+	select *
+	from ( select rownum rn, <include refid="renamedWed" />
+		from ( select <include refid="wed" />
+			from WEDDINGHALL
+			<where>
+				<if test="wedNo != null">
+					WED_NO = #{wedNo}
+				</if>
+			</where>
+			order by WED_NO
+		)
+	)
+</select>
+</mapper>

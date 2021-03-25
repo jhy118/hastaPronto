@@ -40,6 +40,8 @@
   			classpath:question.xml
   			classpath:applicant.xml
   			classpath:answer.xml
+  			classpath:goodsPaySt.xml
+  			classpath:wedding.xml
   			classpath:restaurant.xml
   			classpath:osemp.xml
   			classpath:resmenu.xml

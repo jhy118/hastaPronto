@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.wedding.WeddingController" />
+	<bean id="wedService" class="service.wedding.WedService" />
+	<bean id="wedRepository" class="repository.wedding.WedRepository" />
+	<bean id="wedBroListService" class="service.wedding.WedBroListService" />
+	<bean id="wedBroInfoService" class="service.wedding.WedBroInfoService" />
+</beans>

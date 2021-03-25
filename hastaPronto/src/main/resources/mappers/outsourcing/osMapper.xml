@@ -26,41 +26,13 @@
 					from OUTSOURCING
 					<where>
 						<if test="osNo != null">
-							OS_NO = #{osNo}
+							os_no = #{osNo}
 						</if>
 					</where>
-				)
-		)
-	</select>
-	
-	<sql id="outsourcingFile">
-		OS_FILENUM, OS_ORIGINALFILENAME, OS_STOREDFILENAME, OS_FILESIZE
-	</sql>
-	<sql id = "osFileNo">
-		select max(os_no) from OUTSOURCING
-	</sql>
-	<insert id="insertOsFile" parameterType="osFile">
-		insert into OS_FILE (<include refid="outsourcingFile" />)
-		values((<include refid="osFileNo"/>), #{osOriginalfilename}, #{osStorefilename},#{osFilesize})
-	</insert>
-	<resultMap type="osFile" id="osFileResult">
-		<id column="OS_FILENUM" jdbcType="VARCHAR" property="osFilenum"/>
-   		<result column="OS_ORIGINALFILENAME" jdbcType="VARCHAR" property="osOriginalfilename" />
-   		<result column="OS_STOREDFILENAME" jdbcType="VARCHAR" property="osStorefilename" />
-   		<result column="OS_FILESIZE" jdbcType="VARCHAR" property="osFilesize" />
-	</resultMap>
-	<select id="getOsFileList" parameterType="osFile" resultMap="osFileResult">
-		select * 
-			from (select rownum rn, <include refid="outsourcingFile" />
-				from(select <include refid="outsourcingFile" />
-					from OS_FILE
-					<where>
-						<if test="osFilenum != null">
-							OS_FILENUM = #{osFilenum}
-						</if>
-					</where>
-				)
-		)
+					order by os_no asc))
+		<if test="startEndPageDTO != null">
+			where rn between #{startEndPageDTO.startRow}	and #{startEndPageDTO.endRow}
+		</if>
 	</select>
 	<select id="listCount" resultType="int">
 		select count(*) from OUTSOURCING
@@ -103,5 +75,4 @@
 		delete from OUTSOURCING
 		where os_no = #{osNo}
 	</delete>
-	
 </mapper>
