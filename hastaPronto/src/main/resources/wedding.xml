@@ -4,4 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.wedding.WeddingController" />
+	<bean id="wedService" class="service.wedding.WedService" />
+	<bean id="wedRepository" class="repository.wedding.WedRepository" />
+	<bean id="wedBroListService" class="service.wedding.WedBroListService" />
+	<bean id="wedBroInfoService" class="service.wedding.WedBroInfoService" />
 </beans>
