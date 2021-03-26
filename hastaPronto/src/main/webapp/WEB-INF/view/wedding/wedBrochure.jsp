@@ -29,12 +29,6 @@
 	<tr><th colspan="2">${dto.wedName}</th></tr>
 	<tr><th colspan="2">${fn:replace(dto.wedContent,cn,br)}</th></tr>
 	<tr><th>수용인원</th><th>${dto.wedNum}</th></tr>
-<!-- 
-<c:if test="${authInfo.grade == 'emp' }">
-<a href="wedBrochureModify">수정</a>
-<a href="#">삭제</a>
-</c:if>
- -->
 </table>
 </c:forEach>
 </body>
