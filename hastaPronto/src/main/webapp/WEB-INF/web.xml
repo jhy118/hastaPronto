@@ -48,6 +48,7 @@
   			classpath:resmenu.xml
   			classpath:wedRes.xml
   			classpath:reservation.xml
+  			classpath:wedRv.xml
   		</param-value>
   	</init-param>
   </servlet>
