@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.resrv.ResrvController"/>
+	<bean class="service.resrv.ResrvRegistService" id="resrvRegistService"/>
+	<bean class="service.resrv.ResrvFormService" id="resrvFormService"/>
+	<bean class="repository.resrv.ResrvRepository" id="resrvRepository"/> 
+	<bean class="service.resrv.ResrvListService" id="resrvListService"/>
+	<bean class="service.resrv.ResrvDetailService" id="resrvDetailService"/>
+	<bean class="service.resrv.ResrvModifyService" id="resrvModifyService"/>
+	<bean class="service.resrv.ResrvDeleteService" id="resrvDeleteService"/>
+</beans>   

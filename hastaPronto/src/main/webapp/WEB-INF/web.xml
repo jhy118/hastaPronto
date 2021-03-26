@@ -45,6 +45,7 @@
   			classpath:restaurant.xml
   			classpath:osemp.xml
   			classpath:resmenu.xml
+  			classpath:resrv.xml
   		</param-value>
   	</init-param>
   </servlet>

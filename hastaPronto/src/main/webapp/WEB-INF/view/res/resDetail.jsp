@@ -24,7 +24,10 @@
 							<input type="button" value="문의 삭제" 
 				onclick="javascript:location.href='resDelete?rtNo=${res.rtNo}'"/>
 							<input type="button" value="메뉴보기" 
-				onclick="javascript:location.href='../resmenu/resmenuList?rtNo=${res.rtNo}'"></td></tr>
+				onclick="javascript:location.href='../resmenu/resmenuList?rtNo=${res.rtNo}'">
+							<input type="button" value="예약 하기"
+				onclick="javascript:location.href='../resrv/resrvList?rtNo=${res.rtNo}'">
+				</td></tr>
 	</table>
 </body>
 </html>
