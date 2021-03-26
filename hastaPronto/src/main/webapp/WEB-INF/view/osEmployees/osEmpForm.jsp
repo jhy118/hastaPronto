@@ -8,13 +8,14 @@
 <title>osEmpForm.jsp</title>
 </head>
 <body>
-<form:form action="oseAction" name="frm" method="post" modelAttribute="oseCommand" enctype="multipart/form-data" >
+<form:form action="oseAction" name="frm" method="post" modelAttribute="oseCommand">
 	<table border="1">
 		<tr>
-			<th>강사ID</th>
+			<th>소속업체명</th>
 			<td>
-				<form:input path="oseId"/>
-				<form:errors path="oseId"/>
+				<form:radiobutton path="osNo" id="osNo" value="89"/> FitnessH
+				<form:radiobutton path="osNo" id="osNo" value="90"/> SwimmingS
+				<form:radiobutton path="osNo" id="osNo" value="91"/> TheraphyT 
 			</td>
 		</tr>
 		<tr>
@@ -29,6 +30,13 @@
 			<td>
 				<form:input path="osePw"/>
 				<form:errors path="osePw"/>
+			</td>
+		</tr>
+		<tr>
+			<th>강사이름</th>
+			<td>
+				<form:input path="oseName"/>
+				<form:errors path="oseName"/>
 			</td>
 		</tr>
 		<tr>
@@ -58,6 +66,12 @@
 				<form:input path="oseAddr"/>
 				<form:errors path="oseAddr"/>
 			</td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<input type="submit" value="등록" />
+				<input type="button" value="취소" onclick="javascript:location.href='<c:url value= "/"/>'"/>
+			</th>
 		</tr>
 	</table>
 </form:form>

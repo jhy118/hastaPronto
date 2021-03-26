@@ -11,5 +11,6 @@
 		<typeAlias type="model.DTO.NoticeDTO" alias="noti"/>
 		<typeAlias type="model.DTO.ApplicantDTO" alias="app"/>
 		<typeAlias type="model.DTO.OsFileDTO" alias="osfile"/>
+		<typeAlias type="model.DTO.OsEmpDTO" alias="osemp"/>
 	</typeAliases>
 </configuration>
