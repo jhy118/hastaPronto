@@ -18,7 +18,7 @@
 	<a href="<c:url value='question/question'/>">문의사항</a><br />
 	<a href="<c:url value='goodsPaySt/goodsPayStList'/>">대금지급서</a><br />
 	<a href="<c:url value='wedding/wedBrochure'/>">WEDDING</a><br />
-	<a href="<c:url value='wedding/wedResList'/>">WEDDING RESTAURANT</a><br />	
+	<a href="<c:url value='wedRes/wedResList'/>">WEDDING RESTAURANT</a><br />	
 	<a href="<c:url value='outsourcing/osList'/>">협력업체</a><br />
 	<a href="<c:url value='osEmployees/osEmpList'/>">강사</a><br />
 	<a href="<c:url value='res/resList'/>">레스토랑</a><br />
