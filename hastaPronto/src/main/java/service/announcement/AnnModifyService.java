@@ -58,7 +58,7 @@ public class AnnModifyService {
     				  original.substring(original.lastIndexOf("."));
     		  String store = UUID.randomUUID().toString()
     				  .replace("-", "")+originalFileExtension;
-    		  annDTO.setAnnImg(annImage+store+"`");
+    		  annImage = annImage+store+"`";
     		  
     		  File file = new File(filePath + "/" + store);
     		  try {
@@ -72,6 +72,7 @@ public class AnnModifyService {
 			}
     	  }
       }
+      annDTO.setAnnImg(annImage);
       annDTO.setAnnSubject(annCommand.getAnnSubject());
       annDTO.setAnnContent(annCommand.getAnnContent());
       

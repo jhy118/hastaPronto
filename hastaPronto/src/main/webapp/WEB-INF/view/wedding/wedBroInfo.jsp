@@ -10,15 +10,17 @@
 	var idx = 0;
 	function nextGallery(img){
 		var imgName = img.split('`');
+		var maxIdx = imgName.length - 2;
 		idx++;
-		if(idx > 4) idx = 0;
+		if(idx > maxIdx) idx = 0;
 		document.getElementById("gallery").src=
 			"../wedding/upload/"+imgName[idx];
 	}
 	function prevGallery(img){
 		var imgName = img.split('`');
+		var maxIdx = imgName.length - 2;
 		idx--;
-		if(idx < 0) idx = 4;
+		if(idx < 0) idx = maxIdx;
 		document.getElementById("gallery").src=
 			"../wedding/upload/"+imgName[idx];
 	}
@@ -41,5 +43,17 @@
 	<tr><th>수용인원</th><th>${list.wedNum}</th></tr>
 	<tr><th>위치</th><th>${list.wedLocation}</th></tr>
 </table>
+<c:if test="${authInfo.grade == 'emp' }">
+	<a href="wedBroModify?wedNo=${list.wedNo}">수정</a>
+	<a href="#" onclick="return wedBroDel(${list.wedNo})">삭제</a>
+</c:if>
+<script type="text/javascript">
+	function wedBroDel(wedNo){
+		if(confirm('정말 삭제하시겠습니까?')){
+			location.href='wedBroDel?wedNo=' + wedNo;
+		}
+		return false;
+	}
+</script>
 </body>
 </html>

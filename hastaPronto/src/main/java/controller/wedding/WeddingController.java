@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import command.WedCommand;
+import service.wedding.WedBroDelService;
 import service.wedding.WedBroInfoService;
 import service.wedding.WedBroListService;
+import service.wedding.WedBroModService;
+import service.wedding.WedFileDelService;
 import service.wedding.WedService;
 import validator.WedCommandValidator;
 
@@ -24,6 +27,12 @@ public class WeddingController {
 	WedBroListService wedBroListService;
 	@Autowired
 	WedBroInfoService wedBroInfoService;
+	@Autowired
+	WedFileDelService wedFileDelService;
+	@Autowired
+	WedBroModService wedBroModService;
+	@Autowired
+	WedBroDelService wedBroDelService;
 	@RequestMapping("wedBrochure")
 	public String wedBrochure(
 			@RequestParam(value="page", defaultValue="1") Integer page,
@@ -51,6 +60,34 @@ public class WeddingController {
 			Model model) {
 		wedBroInfoService.execute(wedNo, model);
 		return "wedding/wedBroInfo";
+	}
+	@RequestMapping("wedBroModify")
+	public String wedBroModify(
+			@RequestParam(value="wedNo") String wedNo,
+			Model model) {
+		wedBroInfoService.execute(wedNo, model);
+		return "wedding/wedBroModify";
+	}
+	@RequestMapping("imgDel")
+	public String imgDel(
+			@RequestParam(value="imgfile") String imgfile,
+			Model model, HttpSession session) {
+		wedFileDelService.imgDel(imgfile, model, session);
+		return "wedding/imgDel";
+	}
+	@RequestMapping("wedBroModifyOk")
+	public String wedBroModifyOk(WedCommand wedCommand, 
+			HttpSession session) {
+		wedBroModService.execute(wedCommand, session);
+		return "redirect:wedBroInfo?wedNo="
+				+wedCommand.getWedNo();
+	}
+	@RequestMapping("wedBroDel")
+	public String wedBroModify(
+			@RequestParam(value="wedNo") String wedNo, 
+			HttpSession session) {
+		wedBroDelService.execute(wedNo, session);
+		return "redirect:wedBrochure";
 	}
 }
    
