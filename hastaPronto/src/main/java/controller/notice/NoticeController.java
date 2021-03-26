@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import command.FileInfo;
 import command.NoticeCommand;
-import controller.FileDelService;
+import service.FileDelService;
 import service.notice.FileDownService;
 import service.notice.NoticeDeleteService;
 import service.notice.NoticeDetailService;

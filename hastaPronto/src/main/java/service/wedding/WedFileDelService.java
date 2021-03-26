@@ -1,4 +1,4 @@
-package service.announcement;
+package service.wedding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
-public class ImgDelService {
+public class WedFileDelService {
 
 	public void imgDel(String imgfile, Model model, 
 			HttpSession session) {
@@ -32,4 +32,5 @@ public class ImgDelService {
 		}
 		model.addAttribute("val", num);
 	}
+
 }

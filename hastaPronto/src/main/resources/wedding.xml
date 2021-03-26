@@ -8,4 +8,7 @@
 	<bean id="wedRepository" class="repository.wedding.WedRepository" />
 	<bean id="wedBroListService" class="service.wedding.WedBroListService" />
 	<bean id="wedBroInfoService" class="service.wedding.WedBroInfoService" />
+	<bean id="wedFileDelService" class="service.wedding.WedFileDelService" />
+	<bean id="wedBroModService" class="service.wedding.WedBroModService" />
+	<bean id="wedBroDelService" class="service.wedding.WedBroDelService" />
 </beans>

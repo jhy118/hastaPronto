@@ -25,4 +25,22 @@
 			}
 		});
 	}
+	
+	function imgDelete(imgfile, cImg){
+		$.ajax({
+				type:"post",
+				url:"../imgDel",
+				dataType:"text",
+				data:{"imgfile":imgfile},
+				success:function(result){
+					if(result.trim()=="1"){
+						$(cImg).remove();
+					}
+				},
+				error : function(){
+					alert('에러가 나왔습니다.');
+					return false;
+				}
+		});
+	}
 </script>
