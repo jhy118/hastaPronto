@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.wedRes.WedResController" />
+	<bean id="wedResService" class="service.wedRes.WedResService" />
+	<bean id="wedRtRepository" class="repository.wedRt.WedRtRepository" />
+	<bean id="wedRtListService" class="service.wedRes.WedRtListService" />
+	<bean id="wedRtInfoService" class="service.wedRes.WedRtInfoService" />
+	<bean id="wedRtFileDelService" class="service.wedRes.WedRtFileDelService" />
+	<bean id="wedRtModService" class="service.wedRes.WedRtModService" />
+	<bean id="wedRtDelService" class="service.wedRes.WedRtDelService" />
+</beans>

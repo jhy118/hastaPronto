@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.goodsPaySt.GoodsPayStController" />
+	<bean id="goodsPayStRegistService" 
+		class="service.goodsPaySt.GoodsPayStRegistService" />
+	<bean id="goodsPayStWriteService" 
+		class="service.goodsPaySt.GoodsPayStWriteService" />
+	<bean id="goodsPayStRepository" 
+		class="repository.goodsPaySt.GoodsPayStRepository" />
+	<bean id="goodsPayStListService" 
+		class="service.goodsPaySt.GoodsPayStListService" />
+	<bean id="goodsPayStInfoService" 
+		class="service.goodsPaySt.GoodsPayStInfoService" />
+	<bean id="goodsPayStModifyService" 
+		class="service.goodsPaySt.GoodsPayStModifyService" />	
+	<bean id="goodsPayStDelService" 
+		class="service.goodsPaySt.GoodsPayStDelService" />						
+</beans>

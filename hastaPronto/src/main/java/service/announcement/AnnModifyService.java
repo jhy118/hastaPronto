@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import command.AnnCommand;
 import command.FileInfo;
 import model.DTO.AnnDTO;
-import model.DTO.AuthInfo;
 import repository.announcement.AnnRepository;
 
 @Service
@@ -59,7 +58,7 @@ public class AnnModifyService {
     				  original.substring(original.lastIndexOf("."));
     		  String store = UUID.randomUUID().toString()
     				  .replace("-", "")+originalFileExtension;
-    		  annDTO.setAnnImg(annImage+store+"`");
+    		  annImage = annImage+store+"`";
     		  
     		  File file = new File(filePath + "/" + store);
     		  try {
@@ -73,6 +72,7 @@ public class AnnModifyService {
 			}
     	  }
       }
+      annDTO.setAnnImg(annImage);
       annDTO.setAnnSubject(annCommand.getAnnSubject());
       annDTO.setAnnContent(annCommand.getAnnContent());
       
@@ -82,9 +82,9 @@ public class AnnModifyService {
     		  (List<FileInfo>)session.getAttribute("fileList");
       if(list2 != null) {
     	  for(FileInfo fi : list2) {
-    		  String org = fi.getAnnOriginalFileName();
-    		  String sto = fi.getAnnStoredFileName();
-    		  String fsize = fi.getAnnFileSize();
+    		  String org = fi.getOriginalFileName();
+    		  String sto = fi.getStoredFileName();
+    		  String fsize = fi.getFileSize();
     		  list1.get(0).setAnnOriginalFileName(
     				  list1.get(0).getAnnOriginalFileName()
     				  .replace(org + "`", ""));

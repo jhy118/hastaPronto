@@ -1,4 +1,4 @@
-package service.announcement;
+package service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ public class FileDelService {
 		Integer num = 0;
 		boolean newFile = true;
 		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getAnnOriginalFileName()
-					.equals(fileInfo.getAnnOriginalFileName())) {
+			if(list.get(i).getOriginalFileName()
+					.equals(fileInfo.getOriginalFileName())) {
 				list.remove(i);
 				newFile = false;
 				num = 0;
