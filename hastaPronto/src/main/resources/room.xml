@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.room.RoomController"/>
+	<bean class="service.room.RoomRegistService" id="roomRegistService"/>
+	<bean class="service.room.RoomListService" id="roomListService"/>
+	<bean class="service.room.RoomInfoService" id="roomInfoService"/>
+	<bean class="service.room.RoomModifyService" id="roomModifyService"/>
+	<bean class="service.room.RoomDeleteService" id="roomDeleteService"/>
+	<bean class="repository.room.RoomRepository" id="roomRepository"/>
+</beans>

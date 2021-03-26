@@ -44,6 +44,7 @@
   			classpath:wedding.xml
   			classpath:restaurant.xml
   			classpath:osemp.xml
+  			classpath:room.xml
   			classpath:resmenu.xml
   		</param-value>
   	</init-param>
