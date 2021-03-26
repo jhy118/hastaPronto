@@ -3,7 +3,7 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.room.roomMapper">
 	<sql id="baseColumn">
-		rm_no, rm_name, rm_char, rm_file, rm_content, rm_paycontent
+		rm_no, rm_name, rm_char, rm_file, rm_content, rm_paycontent, rm_num, rm_count
 	</sql>
 	<insert id="insertRoom" parameterType="room">
 		insert into room(<include refid="baseColumn"/>)
@@ -14,7 +14,7 @@
 		<if test="rmFile == null">
 			null
 		</if>
-		, #{rmContent}, #{rmPaycontent})
+		, #{rmContent}, #{rmPaycontent}, #{rmNum}, #{rmCount})
 	</insert>
 	<resultMap type="room" id="roomList">
 		<id column="rm_no" jdbcType="VARCHAR" property="rmNo"/>
@@ -23,6 +23,8 @@
 		<result column="rm_file" jdbcType="VARCHAR" property="rmFile"/>
 		<result column="rm_content" jdbcType="VARCHAR" property="rmContent"/>
 		<result column="rm_paycontent" jdbcType="VARCHAR" property="rmPaycontent"/>
+		<result column="rm_num" jdbcType="BIGINT" property="rmNum"/>
+		<result column="rm_count" jdbcType="BIGINT" property="rmCount"/>
 	</resultMap>
 	<select id="getRoomList" parameterType="room" resultMap="roomList">
 		select <include refid="baseColumn"/>
@@ -43,7 +45,7 @@
 		<if test="rmFile == null">
 			null
 		</if>
-		, rm_content = #{rmContent}, rm_paycontent = #{rmPaycontent}
+		, rm_content = #{rmContent}, rm_paycontent = #{rmPaycontent}, rm_num = #{rmNum}, rm_count = #{rmCount}
 		where rm_no = #{rmNo}
 	</update>
 	<delete id="deleteRoom" parameterType="room">

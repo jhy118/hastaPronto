@@ -11,6 +11,25 @@
 		if(confirm('삭제하시겠습니까?'))
 		location.href='../roomDelete/${room.rmNo}';
 	}
+	var idx = 0;
+	function nextImg(imgList){
+		var img = imgList.split('`');
+		var maxIdx = img.length - 2;
+		idx++;
+		if (idx > maxIdx){			
+			idx = 0;
+		}
+		document.getElementById('img').src='../upload/'+img[idx];
+	}
+	function prevImg(imgList){
+		var img = imgList.split('`');
+		var maxIdx = img.length - 2;
+		idx--;
+		if (idx < 0){			
+			idx = maxIdx;
+		}
+		document.getElementById('img').src='../upload/'+img[idx];
+	}
 </script>
 </head>
 <body>
@@ -21,14 +40,20 @@
 		</tr>
 		<tr>
 			<th>방이미지</th>
-			<td><c:forTokens items="${room.rmFile}" delims="`" var="img">
-					<img alt="전경" src="../upload/${img}" width="200">
-				</c:forTokens></td>
+			<td><img src="../../wedding/images/left_btn.png" 
+			onclick="prevImg('${room.rmFile}');">
+			<img alt="전경" id="img" src="../upload/${fn:split(room.rmFile,'`')[0]}" width="400">
+			<img src="../../wedding/images/right_btn.png" 
+			onclick="nextImg('${room.rmFile}');"></td>
 		</tr>
 		<tr>
 			<th>가격</th>
 			<td><fmt:formatNumber value="${room.rmChar}" type="currency"
 					pattern="\#,###" /></td>
+		</tr>
+		<tr>
+			<th>정원</th>
+			<td>${room.rmNum }</td>
 		</tr>
 		<tr>
 			<th>세부사항</th>
@@ -45,6 +70,8 @@
 			onclick="deleteRoom();">
 			<input type="button" value="목록" 
 			onclick="javascript:location.href='../';">
+			<input type="button" value="예약하기"
+			onclick="javascript:location.href='<c:url value="/reservationRoom/roomList"/>';">
 			</th>
 		</tr>
 	</table>
