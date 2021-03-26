@@ -30,6 +30,8 @@ public class RoomModifyService {
 		roomDTO.setRmName(roomCommand.getRmName());
 		roomDTO.setRmContent(roomCommand.getRmContent());
 		roomDTO.setRmPaycontent(roomCommand.getRmPaycontent());
+		roomDTO.setRmNum(roomCommand.getRmNum());
+		roomDTO.setRmCount(roomCommand.getRmCount());
 
 		String realPath = session.getServletContext().getRealPath("WEB-INF/view/room/upload");
 		List<String> list = (List<String>) session.getAttribute("imgList");

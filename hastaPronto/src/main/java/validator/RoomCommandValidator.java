@@ -17,5 +17,7 @@ public class RoomCommandValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rmChar", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rmContent", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rmPaycontent", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rmNum", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rmCount", "required");
 	}
 }

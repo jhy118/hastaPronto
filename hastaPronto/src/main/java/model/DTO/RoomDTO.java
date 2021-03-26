@@ -7,6 +7,24 @@ public class RoomDTO {
 	String rmFile;
 	String rmContent;
 	String rmPaycontent;
+	String rmNum;
+	String rmCount;
+
+	public String getRmNum() {
+		return rmNum;
+	}
+
+	public void setRmNum(String rmNum) {
+		this.rmNum = rmNum;
+	}
+
+	public String getRmCount() {
+		return rmCount;
+	}
+
+	public void setRmCount(String rmCount) {
+		this.rmCount = rmCount;
+	}
 
 	public String getRmNo() {
 		return rmNo;

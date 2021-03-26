@@ -32,12 +32,20 @@
 				<td><form:input path="rmChar"/></td>
 			</tr>
 			<tr>
+				<th>정원</th>
+				<td><form:input path="rmNum"/></td>
+			</tr>
+			<tr>
 				<th>세부사항</th>
 				<td><form:input path="rmContent"/></td>
 			</tr>
 			<tr>
 				<th>유료사항</th>
 				<td><form:input path="rmPaycontent"/></td>
+			</tr>
+			<tr>
+				<th>방개수</th>
+				<td><form:input path="rmCount"/></td>
 			</tr>
 			<tr>
 				<th colspan="2"><input type="submit" value="수정하기"></th>

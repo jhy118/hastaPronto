@@ -47,6 +47,7 @@
   			classpath:room.xml
   			classpath:resmenu.xml
   			classpath:wedRes.xml
+  			classpath:reservation.xml
   		</param-value>
   	</init-param>
   </servlet>

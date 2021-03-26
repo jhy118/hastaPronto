@@ -31,6 +31,16 @@
 				<form:errors path="rmPaycontent"/></td>
 			</tr>
 			<tr>
+				<th>정원</th>
+				<td><form:input path="rmNum"/>
+				<form:errors path="rmNum"/></td>
+			</tr>
+			<tr>
+				<th>방 개수</th>
+				<td><form:input path="rmCount"/>
+				<form:errors path="rmCount"/></td>
+			</tr>
+			<tr>
 				<th>사진</th>
 				<td><input type="file" name="rmFile" multiple="multiple"></td>
 			</tr>

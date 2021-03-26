@@ -27,6 +27,8 @@ public class RoomRegistService {
 		roomDTO.setRmContent(roomCommand.getRmContent());
 		roomDTO.setRmName(roomCommand.getRmName());
 		roomDTO.setRmPaycontent(roomCommand.getRmPaycontent());
+		roomDTO.setRmNum(roomCommand.getRmNum());
+		roomDTO.setRmCount(roomCommand.getRmCount());
 		String path = "WEB-INF/view/room/upload";
 		String realPath = session.getServletContext().getRealPath(path);
 		String img = "";
