@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.resmenu.resmenuMapper">
+	<sql id="baseColumn">
+		RT_MENU_NO, RT_MENU, RT_MENU_CHAR, RT_NO, RT_MENU_CON, RT_MENU_IMAGE
+	</sql>
+	<sql id="baseColumn1">
+		RT_MENU_NO rtMenuNo, RT_MENU rtMenu, 
+		RT_MENU_CHAR rtMenuChar, RT_NO rtNo, RT_MENU_CON rtMenuCon, RT_MENU_IMAGE rtMenuImage
+	</sql>
+	<insert id="insertResmenu" parameterType="model.DTO.ResmenuDTO">
+		insert into restaurant_menu (<include refid="baseColumn" />)
+		values(board_seq.nextval, #{rtMenu}, #{rtMenuChar}, #{rtNo}, #{rtMenuCon}
+		<if test="rtMenuImage != ''">
+			,#{rtMenuImage}
+		</if>
+		<if test="rtMenuImage == ''">   
+			null   
+		</if>     
+		)
+	</insert>
+	<select id="selectResmenu" parameterType="model.DTO.ResmenuDTO" resultType="model.DTO.ResmenuDTO">
+		select * from (select ROWNUM RN, <include refid="baseColumn1" /> 
+					from (select <include refid="baseColumn" />
+				from restaurant_menu
+				<trim prefix="where" prefixOverrides="and | or">
+					<if test="rtMenuNo != null">
+						RT_MENU_NO = #{rtMenuNo}
+					</if>
+					<if test="rtNo != null">
+						RT_NO  = #{rtNo}
+					</if>
+				</trim>
+				))
+				<where>
+					<if test="startEndPageDTO != null">
+						rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
+					</if>
+				</where>
+	</select>
+	<select id="resmenuCount" resultType="integer">
+		select count(*) from restaurant_menu
+	</select>
+	<update id="updateResmenu" parameterType="model.DTO.ResmenuDTO">
+		update restaurant_menu
+		set RT_MENU = #{rtMenu},
+			RT_MENU_CHAR = #{rtMenuChar},
+			RT_MENU_CON = #{rtMenuCon}
+		where RT_MENU_NO = #{rtMenuNo}
+	</update>
+	<delete id="deleteResmenu">
+		delete from restaurant_menu
+		where RT_MENU_NO = #{rtMenuNo}
+	</delete>
+</mapper>

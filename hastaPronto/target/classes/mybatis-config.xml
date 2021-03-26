@@ -12,5 +12,7 @@
 		<typeAlias type="model.DTO.ApplicantDTO" alias="app"/>
 		<typeAlias type="model.DTO.OsFileDTO" alias="osfile"/>
 		<typeAlias type="model.DTO.RoomDTO" alias="room"/>
+		<typeAlias type="model.DTO.GoodsPayStDTO" alias="billSt"/>
+		<typeAlias type="model.DTO.WedDTO" alias="wed"/>
 	</typeAliases>
 </configuration>

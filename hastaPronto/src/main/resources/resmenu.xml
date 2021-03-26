@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="controller.resmenu.ResmenuController"/>
+	<bean class="service.resmenu.ResmenuRegistService" id="resmenuRegistService"/>
+	<bean class="repository.resmenu.ResmenuRepository" id="resmenuRepository"/>
+	<bean class="service.resmenu.ResmenuListService" id="resmenuListService"/>
+	<bean class="service.resmenu.ResmenuDetailService" id="resmenuDetailService"/>
+	<bean class="service.resmenu.ResMenuModifyService" id="resMenuModifyService"/>
+	<bean class="service.resmenu.ResMenuDeleteService" id="resMenuDeleteService"/> 
+</beans>        

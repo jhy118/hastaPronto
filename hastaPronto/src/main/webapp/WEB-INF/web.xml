@@ -40,9 +40,12 @@
   			classpath:question.xml
   			classpath:applicant.xml
   			classpath:answer.xml
+  			classpath:goodsPaySt.xml
+  			classpath:wedding.xml
   			classpath:restaurant.xml
   			classpath:osemp.xml
   			classpath:room.xml
+  			classpath:resmenu.xml
   		</param-value>
   	</init-param>
   </servlet>
