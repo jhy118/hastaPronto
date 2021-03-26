@@ -47,10 +47,8 @@
   			classpath:room.xml
   			classpath:resmenu.xml
   			classpath:resrv.xml
-=======
   			classpath:wedRes.xml
   			classpath:reservation.xml
->>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
   		</param-value>
   	</init-param>
   </servlet>
