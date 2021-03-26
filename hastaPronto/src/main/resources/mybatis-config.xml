@@ -14,5 +14,6 @@
 		<typeAlias type="model.DTO.RoomDTO" alias="room"/>
 		<typeAlias type="model.DTO.GoodsPayStDTO" alias="billSt"/>
 		<typeAlias type="model.DTO.WedDTO" alias="wed"/>
+		<typeAlias type="model.DTO.WedResDTO" alias="wedRt"/>
 	</typeAliases>
 </configuration>

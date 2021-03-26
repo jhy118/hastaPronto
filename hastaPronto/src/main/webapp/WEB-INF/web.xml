@@ -46,6 +46,7 @@
   			classpath:osemp.xml
   			classpath:room.xml
   			classpath:resmenu.xml
+  			classpath:wedRes.xml
   		</param-value>
   	</init-param>
   </servlet>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.wedRes.wedRtMapper">
+<sql id="wedRt">
+	WED_RT_NO, WED_RT_NAME, WED_RT_CHAR, WED_RT_FILE, WED_RT_MNAME,
+	WED_RT_LOCATION, WED_RT_NUM, EMP_ID
+</sql>
+<sql id="RenamedWedRt">
+	WED_RT_NO wedRtNo, WED_RT_NAME wedRtName, WED_RT_CHAR wedRtChar,
+	WED_RT_FILE wedRtFile, WED_RT_MNAME wedRtMname,
+	WED_RT_LOCATION wedRtLocation, WED_RT_NUM wedRtNum, EMP_ID empId
+</sql>
+<sql id="wedRtNoMaker">
+	select nvl(max(WED_RT_NO), 0) + 1 from WEDDING_RESTAURANT
+</sql>
+<insert id="insertWedRt" parameterType="wedRt">
+	insert into WEDDING_RESTAURANT(<include refid="wedRt" />)
+	values((<include refid="wedRtNoMaker" />), #{wedRtName}, #{wedRtChar},
+	<if test="wedRtFile != ''">
+	#{wedRtFile},
+	</if>
+	<if test="wedRtFile == ''">
+	null,
+	</if>
+	#{wedRtMname}, #{wedRtLocation}, #{wedRtNum}, #{empId})
+</insert>
+<select id="getWedRtList" parameterType="wedRt" resultType="wedRt">
+	select *
+	from ( select rownum rn, <include refid="RenamedWedRt" />
+		from ( select <include refid="wedRt" />
+			from WEDDING_RESTAURANT
+			<where>
+				<if test="wedRtNo != null">
+					WED_RT_NO = #{wedRtNo}
+				</if>
+			</where>
+			order by WED_RT_NO
+		)
+	)
+</select>
+<update id="updateWedRt" parameterType="wedRt">
+	update WEDDING_RESTAURANT
+	set WED_RT_NAME = #{wedRtName}, WED_RT_CHAR = #{wedRtChar}, 
+		WED_RT_MNAME = #{wedRtMname},
+		WED_RT_LOCATION = #{wedRtLocation}, 
+		WED_RT_NUM = #{wedRtNum},
+		<if test="wedRtFile != null">
+		WED_RT_FILE = #{wedRtFile}
+		</if>
+		<if test="wedRtFile == null">
+		WED_RT_FILE = null
+		</if>
+	where WED_RT_NO = #{wedRtNo}
+</update>
+<delete id="wedRtDelete" parameterType="string">
+	delete from WEDDING_RESTAURANT
+	where WED_RT_NO = #{wedRtNo}
+</delete>
+</mapper>
