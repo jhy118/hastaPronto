@@ -46,7 +46,6 @@
   			classpath:osemp.xml
   			classpath:room.xml
   			classpath:resmenu.xml
-<<<<<<< HEAD
   			classpath:resrv.xml
 =======
   			classpath:wedRes.xml
