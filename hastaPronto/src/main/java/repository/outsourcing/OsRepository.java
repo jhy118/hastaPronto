@@ -30,11 +30,11 @@ public class OsRepository {
 		statement = namespace + ".osUpdate";
 		return sqlSession.selectList(statement, osDTO);		
 	}
-	
 	public Integer osDelete(String osNo) {
 		statement = namespace + ".osDelete";
 		return sqlSession.delete(statement, osNo);
 	}
+	
 	public Integer insertOsFile(OsFileDTO osFileDTO) {
 		statement = namespace + ".insertOsFile";
 		return sqlSession.update(statement, osFileDTO);		

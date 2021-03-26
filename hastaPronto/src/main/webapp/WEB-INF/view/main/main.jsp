@@ -23,5 +23,6 @@
 	<a href="<c:url value='osEmployees/osEmpList'/>">강사</a><br />
 	<a href="<c:url value='res/resList'/>">레스토랑</a><br />
 	<a href="<c:url value='resmenu/resmenuList'/>">레스토랑 메뉴</a><br />
+	<a href="<c:url value='resrv/resrvList'/>">레스토랑 예약</a><br />
 </body>
 </html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.osEmployees.osEmpMapper">
+	<sql id="OSEMPLOYEES">
+		OSE_NO, OSE_ID, OSE_PW, OSE_CAT, OSE_PH, OSE_EMAIL, OSE_ADDR, OS_NO, OSE_REGIST, OSE_NAME 
+	</sql>
+	<sql id="OSEMPLOYEESColum">
+		OSE_NO oseNo, OSE_ID oseId, OSE_PW osePw, OSE_CAT oseCat, OSE_PH osePh, 
+		OSE_EMAIL oseEmail, OSE_ADDR oseAddr, OS_NO osNo, OSE_REGIST oseRegist, OSE_NAME oseName
+	</sql>
+	<sql id = "osempNoMaker">
+		SELECT NVL(MAX(OSE_NO)+1,0) FROM OSEMPLOYEES
+	</sql>
+	<insert id="insertOsEmp" parameterType="osemp">
+		insert into OSEMPLOYEES (<include refid="OSEMPLOYEES"/>)
+		values ((<include refid="osempNoMaker"/>), #{oseId}, #{osePw}, #{oseCat},
+		#{osePh}, #{oseEmail}, #{oseAddr}, #{osNo}, sysdate, #{oseName})
+	</insert>
+	<resultMap type="osemp" id="osempResult">
+		<id column="OSE_NO" jdbcType="VARCHAR" property="oseNo"/>
+   		<result column="OSE_ID" jdbcType="VARCHAR" property="oseId" />
+   		<result column="OSE_PW" jdbcType="VARCHAR" property="osePw" />
+   		<result column="OSE_CAT" jdbcType="VARCHAR" property="oseCat" />
+   		<result column="OSE_PH" jdbcType="VARCHAR" property="osePh" />
+   		<result column="OSE_EMAIL" jdbcType="VARCHAR" property="oseEmail" />
+   		<result column="OSE_ADDR" jdbcType="VARCHAR" property="oseAddr" />
+   		<result column="OS_NO" jdbcType="VARCHAR" property="osNo" />
+<!-- 		<result column="OSE_REGIST" jdbcType="TIMESTAMP" property="oseRegist" /> -->
+   		<result column="OSE_NAME" jdbcType="VARCHAR" property="oseName" />
+	</resultMap>
+	<resultMap type="os" id="osResult">
+		<id column="OS_NO" jdbcType="VARCHAR" property="osNo"/>
+   		<result column="OS_NAME" jdbcType="VARCHAR" property="osName" />
+   		<result column="BS_LICENSE" jdbcType="VARCHAR" property="bsLicense" />
+   		<result column="OS_ADDR" jdbcType="VARCHAR" property="osAddr" />
+   		<result column="OS_BUSINESSNAME" jdbcType="VARCHAR" property="osBusinessName" />
+   		<result column="REP_NAME" jdbcType="VARCHAR" property="repName" />
+   		<result column="OS_TEL" jdbcType="VARCHAR" property="osTel" />
+   		<result column="OS_EMAIL" jdbcType="VARCHAR" property="osEmail" />
+	</resultMap>
+	<select id="getOsEmpList" parameterType="os" resultMap="osempResult">
+		select * 
+		from (select rownum rn, OSE_NO, OSE_ID, OSE_PW, OSE_CAT, OSE_PH, OSE_EMAIL, OSE_ADDR, OS_NO, OSE_REGIST, OSE_NAME, OS_NAME
+			from (select OSE_NO, OSE_ID, OSE_PW, OSE_CAT, OSE_PH, OSE_EMAIL, OSE_ADDR, E.OS_NO, OSE_REGIST, OSE_NAME, OS_NAME
+					from OSEMPLOYEES E, OUTSOURCING O
+					where o.os_no = e.os_no
+				))
+			<where>
+				<if test="startEndPageDTO != null">
+					rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
+				</if>
+			</where>
+	</select>
+	<select id="osemplistCount" resultType="integer">
+		select count(*) 
+		from OSEMPLOYEES
+	</select>
+
+</mapper>
+
+
+<!-- 	<sql id="OSEMPLOYEES"> -->
+<!-- 		OSE_NO, OSE_ID, OSE_PW, OSE_CAT, OSE_PH, OSE_EMAIL, OSE_ADDR, OS_NO, OSE_NAME  -->
+<!-- 	</sql> -->
+<!-- 	<insert id="insertOsEmp" parameterType="osemp"> -->
+<!-- 		insert into OSEMPLOYEES (<include refid="OSEMPLOYEES" />) -->
+<!-- 		values(board_seq.nextval, #{oseId}, #{osePw},#{oseCat},#{osePh},#{oseEmail},#{oseAddr}, #{osNo},  #{oseName}) -->
+<!-- 	</insert>	 -->
+<!-- 	<resultMap type="osemp" id="osempResult"> -->
+<!-- 		<id column="OSE_NO" jdbcType="VARCHAR" property="oseNo"/> -->
+<!--    		<result column="OSE_ID" jdbcType="VARCHAR" property="oseId" /> -->
+<!--    		<result column="OSE_PW" jdbcType="VARCHAR" property="osePw" /> -->
+<!--    		<result column="OSE_CAT" jdbcType="VARCHAR" property="oseCat" /> -->
+<!--    		<result column="OSE_PH" jdbcType="VARCHAR" property="osePh" /> -->
+<!--    		<result column="OSE_EMAIL" jdbcType="VARCHAR" property="oseEmail" /> -->
+<!--    		<result column="OSE_ADDR" jdbcType="VARCHAR" property="oseAddr" /> -->
+<!-- 		<result column="OSE_REGIST" jdbcType="Timestamp" property="oseRegist" /> -->
+<!-- 		<result column="OS_NO" jdbcType="VARCHAR" property="osNo" /> -->
+<!--    		<result column="OSE_NAME" jdbcType="VARCHAR" property="oseName" /> -->
+<!--    		<association column="OS_NO" property="osNo" resultMap="osResult" /> -->
+<!-- 	</resultMap>  -->
+<!-- 	<resultMap type="os" id="osResult"> -->
+<!-- 		<id column="OS_NO" jdbcType="VARCHAR" property="osNo"/> -->
+<!--    		<result column="OS_NAME" jdbcType="VARCHAR" property="osName" /> -->
+<!--    		<result column="BS_LICENSE" jdbcType="VARCHAR" property="bsLicense" /> -->
+<!--    		<result column="OS_ADDR" jdbcType="VARCHAR" property="osAddr" /> -->
+<!--    		<result column="OS_BUSINESSNAME" jdbcType="VARCHAR" property="osBusinessName" /> -->
+<!--    		<result column="REP_NAME" jdbcType="VARCHAR" property="repName" /> -->
+<!--    		<result column="OS_TEL" jdbcType="VARCHAR" property="osTel" /> -->
+<!--    		<result column="OS_EMAIL" jdbcType="VARCHAR" property="osEmail" /> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="getOsEmpList" parameterType="osemp" resultMap="osempResult"> -->
+<!-- 		select ose_No, ose_Id, ose_Pw, ose_Cat, ose_Ph, ose_Email, ose_Addr, os_No, ose_Regist, ose_Name -->
+<!-- 			from (select rownum rn, ose_No, ose_Id, ose_Pw, ose_Cat, ose_Ph, ose_Email, ose_Addr, os_No, ose_Regist, ose_Name -->
+<!-- 				from (select ose_No, ose_Id, ose_Pw, ose_Cat, ose_Ph, ose_Email, ose_Addr, e.os_No, ose_Regist, ose_Name -->
+<!-- 					from OSEMPLOYEES e join OUTSOURCING o -->
+<!-- 			 		on e.os_no = o.os_no -->
+<!-- 					 <where> -->
+<!-- 					 	<if test="osNo != null"> -->
+<!-- 					 	 	e.os_no = #{osNo} -->
+<!-- 					 	</if> -->
+<!-- 					 </where>)) -->
+<!-- 			 <if test="startEndPageDTO != null"> -->
+<!--    				where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow} -->
+<!--    			 </if> -->
+<!-- 	</select> -->
+<!-- 	<select id="getOsEmpList" parameterType="osemp" resultMap="osempResult"> -->
+<!-- 		select ose_No, ose_Id, ose_Pw, ose_Cat, ose_Ph, ose_Email, ose_Addr, os_No, ose_Name -->
+<!-- 			from (select rownum rn, <include refid="OSEMPLOYEES" /> -->
+<!-- 				from(select <include refid="OSEMPLOYEES" /> -->
+<!-- 					from OSEMPLOYEES -->
+<!-- 					<where> -->
+<!-- 						<if test="oseNo != null"> -->
+<!-- 							OSE_NO = #{oseNo}S -->
+<!-- 						</if> -->
+<!-- 					</where> -->
+<!-- 				) -->
+<!-- 		) -->
+<!-- 		 <if test="startEndPageDTO != null"> --> 
+<!--   				where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow} -->
+<!--    		</if> -->
+<!-- 	</select> -->
+<!-- 	<select id="getOsEmpList" parameterType="osemp" resultMap="osempResult"> -->
+<!-- 		select *  -->
+<!-- 			from (select rownum rn, <include refid="OSEMPLOYEES" /> -->
+<!-- 				from(select <include refid="OSEMPLOYEES" /> -->
+<!-- 					from OSEMPLOYEES join os_osemp using(osNo) -->
+<!-- 					<where> -->
+<!-- 						<if test="osNo != null"> -->
+<!-- 							OS_NO = #{osNo} -->
+<!-- 						</if> -->
+<!-- 					</where> -->
+<!-- 			<if test="startEndPageDTO != null"> -->
+<!--    				where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow} -->
+<!--    			</if> -->
+<!-- 	</select> -->
+<!-- 	<select id="osemplistCount" resultType="int"> -->
+<!-- 		select count(*) from OSEMPLOYEES -->
+<!-- 	</select> -->
+<!-- 	<update id="osEmpUpdate" parameterType="osEmployees"> -->
+<!-- 			update OSEMPLOYEES -->
+<!-- 			set  -->
+<!-- 				 OSE_ID = #{osName},  -->
+<!-- 				 OSE_PW = #{oseId},  -->
+<!-- 				 OSE_NAME = #{oseName},  -->
+<!-- 				 OS_ADDR = #{osAddr},  -->
+<!-- 				 OSE_CAT = #{osePw},  -->
+<!-- 				 OSE_PH = #{oseCat},  -->
+<!-- 				 OS_TEL = #{osePh},  -->
+<!-- 				 OSE_EMAIL = #{oseEmail} -->
+<!-- 				 OSE_ADDR = #{oseAddr} -->
+<!-- 				 OS_NO = #{osNo} -->
+<!-- 				 OSE_REGIST = #{oseRegist} -->
+<!-- 			 where OSE_NO = #{oseNo} -->
+<!-- 	</update> -->

@@ -52,9 +52,16 @@
 	<update id="osFileUpdate" parameterType="osFile">
 			update OS_FILE
 			set 
+			<if test="osOriginalfilename != null">
 				 OS_ORIGINALFILENAME = #{osOriginalfilename}, 
 				 OS_STOREDFILENAME = #{osStorefilename}, 
 				 OS_FILESIZE = #{osFilesize}
+			</if>
+			<if test="osOriginalfilename == null">
+				 OS_ORIGINALFILENAME = null, 
+				 OS_STOREDFILENAME = null, 
+				 OS_FILESIZE = null
+			</if>
 			 where OS_FILENUM = #{osFilenum}
 	</update>
 	

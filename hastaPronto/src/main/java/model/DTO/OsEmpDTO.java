@@ -1,15 +1,33 @@
-package command;
+package model.DTO;
 
-public class OseCommand {
+import java.security.Timestamp;
+
+public class OsEmpDTO {
+	String oseNo;
 	String oseId;
 	String osePw;
 	String oseCat;
 	String osePh;
 	String oseEmail;
 	String oseAddr;
-	String oseName;
 	String osNo;
+	Timestamp oseRegist;
+	String oseName;
 	
+	StartEndPageDTO startEndPageDTO;
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
+	
+	public String getOseNo() {
+		return oseNo;
+	}
+	public void setOseNo(String oseNo) {
+		this.oseNo = oseNo;
+	}
 	public String getOseId() {
 		return oseId;
 	}
@@ -46,28 +64,23 @@ public class OseCommand {
 	public void setOseAddr(String oseAddr) {
 		this.oseAddr = oseAddr;
 	}
-	public String getOseName() {
-		return oseName;
-	}
-	public void setOseName(String oseName) {
-		this.oseName = oseName;
-	}
-
 	public String getOsNo() {
 		return osNo;
 	}
 	public void setOsNo(String osNo) {
 		this.osNo = osNo;
 	}
-	
-	String oseNo;
-
-	public String getOseNo() {
-		return oseNo;
+	public Timestamp getOseRegist() {
+		return oseRegist;
 	}
-	public void setOseNo(String oseNo) {
-		this.oseNo = oseNo;
+	public void setOseRegist(Timestamp oseRegist) {
+		this.oseRegist = oseRegist;
 	}
-	
+	public String getOseName() {
+		return oseName;
+	}
+	public void setOseName(String oseName) {
+		this.oseName = oseName;
+	}
 	
 }
