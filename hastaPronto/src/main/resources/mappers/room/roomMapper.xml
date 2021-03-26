@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.room.roomMapper">
+	<sql id="baseColumn">
+		rm_no, rm_name, rm_char, rm_file, rm_content, rm_paycontent
+	</sql>
+	<insert id="insertRoom" parameterType="room">
+		insert into room(<include refid="baseColumn"/>)
+		values((select nvl(max(rm_no), 0) + 1 from room), #{rmName}, #{rmChar}, 
+		<if test="rmFile != null">
+			#{rmFile}
+		</if>
+		<if test="rmFile == null">
+			null
+		</if>
+		, #{rmContent}, #{rmPaycontent})
+	</insert>
+	<resultMap type="room" id="roomList">
+		<id column="rm_no" jdbcType="VARCHAR" property="rmNo"/>
+		<result column="rm_name" jdbcType="VARCHAR" property="rmName"/>
+		<result column="rm_char" jdbcType="BIGINT" property="rmChar"/>
+		<result column="rm_file" jdbcType="VARCHAR" property="rmFile"/>
+		<result column="rm_content" jdbcType="VARCHAR" property="rmContent"/>
+		<result column="rm_paycontent" jdbcType="VARCHAR" property="rmPaycontent"/>
+	</resultMap>
+	<select id="getRoomList" parameterType="room" resultMap="roomList">
+		select <include refid="baseColumn"/>
+		from room
+		<where>
+			<if test="rmNo != null">
+				rm_no = #{rmNo}
+			</if>
+		</where>
+		order by rm_char asc
+	</select>
+	<update id="updateRoom" parameterType="room">
+		update room
+		set rm_name = #{rmName}, rm_char = #{rmChar}, rm_file =
+		<if test="rmFile != null">
+			#{rmFile}
+		</if>
+		<if test="rmFile == null">
+			null
+		</if>
+		, rm_content = #{rmContent}, rm_paycontent = #{rmPaycontent}
+		where rm_no = #{rmNo}
+	</update>
+	<delete id="deleteRoom" parameterType="room">
+		delete from room
+		where rm_no = #{rmNo}
+	</delete>
+</mapper>

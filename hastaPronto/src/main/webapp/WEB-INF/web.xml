@@ -42,6 +42,7 @@
   			classpath:answer.xml
   			classpath:restaurant.xml
   			classpath:osemp.xml
+  			classpath:room.xml
   		</param-value>
   	</init-param>
   </servlet>
