@@ -50,6 +50,7 @@
   			classpath:wedRes.xml
   			classpath:reservation.xml
   			classpath:wedRv.xml
+  			classpath:wedCs.xml
   		</param-value>
   	</init-param>
   </servlet>
