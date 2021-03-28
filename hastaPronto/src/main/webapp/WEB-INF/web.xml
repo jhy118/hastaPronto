@@ -49,6 +49,9 @@
   			classpath:resrv.xml
   			classpath:wedRes.xml
   			classpath:reservation.xml
+  			classpath:wedRv.xml
+  			classpath:wedCs.xml
+  			classpath:resSt.xml
   		</param-value>
   	</init-param>
   </servlet>

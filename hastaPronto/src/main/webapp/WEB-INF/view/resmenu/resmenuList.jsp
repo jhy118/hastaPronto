@@ -24,5 +24,6 @@
 	</table>
 	<%@ include file = "../include/includePage.jsp" %>
 <a href="resmenuForm?rtNo=${rtNo}">레스토랑 메뉴등록</a>
+<a href="javascript:location.href='../resSt/resStList'">주문서 담기</a>
 </body>
 </html>

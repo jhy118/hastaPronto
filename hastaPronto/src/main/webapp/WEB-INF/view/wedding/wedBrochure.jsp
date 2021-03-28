@@ -11,6 +11,12 @@
 <c:if test="${authInfo.grade == 'emp' }">
 	<a href="wedBroWrite">웨딩사진 등록</a>
 </c:if>
+
+<br />
+<!-- 웨딩 예약 버튼 추가쓰 -->
+<a href="<c:url value='../wedCs/wedCsForm'/>">웨딩 예약 문의</a><br />
+<a href="<c:url value='../wedRv/wedRvForm'/>">웨딩 최종 예약</a><br />
+
 <c:forEach items="${list}" var="dto" varStatus="status">
 <table onclick="javascript:location.href=
 	'wedBroInfo?wedNo=${dto.wedNo}';" align="center">
