@@ -1,16 +1,29 @@
 package service.reservation;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import model.DTO.ReservationRoomDTO;
+import model.DTO.RoomDTO;
+import repository.reservation.ReservationRoomRepository;
+import repository.room.RoomRepository;
+
 @Service
 @Component
 public class ReservationRoomListService {
+	@Autowired
+	RoomRepository roomRepository;
+	@Autowired
+	ReservationRoomRepository reservationRoomRepository;
 
-	public void execute(Model model) {
+	public void execute(Model model, String ckIn, String ckOut) {
 
 		Calendar cal = Calendar.getInstance();
 		Integer year = cal.get(Calendar.YEAR);
@@ -26,12 +39,24 @@ public class ReservationRoomListService {
 		model.addAttribute("lastDay", lastDay);
 		cal.set(Calendar.MONTH, month);
 		firstWeekDay = cal.get(Calendar.DAY_OF_WEEK);
-		System.out.println(firstWeekDay);
 		model.addAttribute("nextFstDay", firstWeekDay);
 		lastDay = cal.getActualMaximum(Calendar.DATE);
-		System.out.println(lastDay);
 		model.addAttribute("nextLastDay", lastDay);
-		
-		
+		model.addAttribute("ckIn", ckIn);
+		model.addAttribute("ckOut", ckOut);
+		if (!ckIn.equals("null")) {
+			List<String> roomNo = roomRepository.getRoomNo();
+			List<RoomDTO> vcRoom = new ArrayList<RoomDTO>();
+			ckIn = ckIn.replace("T", " ");
+			Timestamp ckeckIn = Timestamp.valueOf(ckIn);
+			for (String rmNo : roomNo) {
+				ReservationRoomDTO rrDTO = new ReservationRoomDTO();
+				rrDTO.setRmNo(rmNo);
+				rrDTO.setCkIn(ckeckIn);
+				RoomDTO roomDTO = reservationRoomRepository.getVacancy(rrDTO);
+				vcRoom.add(roomDTO);
+			}
+			model.addAttribute("vcRoom", vcRoom);
+		}
 	}
 }

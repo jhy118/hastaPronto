@@ -13,6 +13,7 @@
 	<a href="wedResWrite">웨딩홀 레스토랑 등록</a>
 </c:if>
 
+
 <c:forEach items="${list}" var="dto" varStatus="status">
 <table onclick="javascript:location.href=
 	'wedRtInfo?wedRtNo=${dto.wedRtNo}';" align="center">

@@ -24,14 +24,7 @@
 		<a href="<c:url value='/outsourcing/osFile/${store[idx.index]}' />" > ${org}</a><br >
 	</c:forTokens>
 </c:if>
- <c:if test="${osFile.osOriginalfilename == null}">      
-		  <tr>
-		      <th>파일</th>
-		      <td>
-		      	<input type="file" name="report" multiple="multiple" />
-		      </td>
-	      </tr>
-</c:if>
+
 <br />
  =====================================> <br >
    &nbsp; &nbsp;

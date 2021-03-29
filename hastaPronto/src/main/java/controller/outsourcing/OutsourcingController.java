@@ -47,17 +47,17 @@ public class OutsourcingController {
 		return "redirect:/outsourcing/osList";
 	}
 	
+	@RequestMapping("osModifyPro")
+	public String osModifyPro(@ModelAttribute(value="os")OsCommand osCommand, HttpSession session) {
+		osUpdateService.execute(osCommand, session);
+		return "redirect:osDetail?osNo=" + osCommand.getOsNo();
+	}
+	
 	@RequestMapping("osModify/{osNo}")
 	public String osModify(
 			@PathVariable(value="osNo") String osNo, Model model) {
 		osDetailService.execute(osNo, model);
 		return "outsourcing/osModify";
-	}
-	
-	@RequestMapping("osModifyPro")
-	public String osModifyPro(@ModelAttribute(value="os")OsCommand osCommand, HttpSession session) {
-		osUpdateService.execute(osCommand, session);
-		return "redirect:osDetail?osNo=" + osCommand.getOsNo();
 	}
 	
 	@RequestMapping("osDetail")
