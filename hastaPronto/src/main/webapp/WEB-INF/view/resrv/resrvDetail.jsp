@@ -16,9 +16,11 @@
 				onclick="javascript:location.href='resrvModify?rtRvNo=${resrv.rtRvNo}'">
 							<input type="button" value="뒤로가기" 
 				onclick="javascript:history.back();">
-							<input type="button" value="메뉴 삭제" 
+							<input type="button" value="예약 삭제" 
 				onclick="javascript:location.href
-				='resrvDelete?rtRvNo=${resrv.rtRvNo}&rtNo=${resrv.rtNo }'"/></td></tr>
+				='resrvDelete?rtRvNo=${resrv.rtRvNo}&rtNo=${resrv.rtNo }'"/>
+							<input type="button" value="메뉴보기" 
+				onclick="javascript:location.href='../resmenu/resmenuList?rtNo=${rtNo}&rtRvNo=${resrv.rtRvNo}'"></td></tr>
 	</table>
 </body>
 </html>

@@ -10,20 +10,23 @@
 <body>
 	<table border = "1">
 		<tr>
-			<th>메뉴 이름</th>
-			<th>메뉴 가격</th>
-			<th>메뉴 내용</th>  
+			<th>메뉴 이름</th>      
+			<th>메뉴 가격</th>  
+			<th>메뉴 내용</th>    
 		</tr>
 		<c:forEach items="${resmenuList }" var="resmenu" varStatus="resmenuList">
-		<tr onclick="javascript:location.href='resmenuDetail?rtMenuNo=${resmenu.rtMenuNo}'">
-			<th>${resmenu.rtMenu }</th>   
-			<th>${resmenu.rtMenuChar }</th>  
-			<th>${resmenu.rtMenuCon }</th>
+		<tr>
+			<th onclick="javascript:location.href='resmenuDetail?rtMenuNo=${resmenu.rtMenuNo}'">${resmenu.rtMenu }</th>   
+			<th onclick="javascript:location.href='resmenuDetail?rtMenuNo=${resmenu.rtMenuNo}'">${resmenu.rtMenuChar }</th>
+			<th onclick="javascript:location.href='resmenuDetail?rtMenuNo=${resmenu.rtMenuNo}'">${resmenu.rtMenuCon }</th>
+			<td colspan="3" align="right">
+			<input type="button" 
+			onclick="javascript:location.href='../resSt/resStRegist?rtMenuNo=${resmenu.rtMenuNo}&rtRvNo=${rtRvNo }'"
+			value="주문서 등록"></td>
 		</tr>
 		</c:forEach>
 	</table>
 	<%@ include file = "../include/includePage.jsp" %>
 <a href="resmenuForm?rtNo=${rtNo}">레스토랑 메뉴등록</a>
-<a href="javascript:location.href='../resSt/resStList'">주문서 담기</a>
 </body>
 </html>

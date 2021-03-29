@@ -4,4 +4,6 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.resSt.ResStController"/>
 	<bean class="service.resSt.ResRtRegistService" id="resRtRegistService"/>
+	<bean class="repository.resSt.ResStRepository" id="resStRepository"/> 
+	<bean class="service.resSt.ResRtListService" id="resRtListService"/>
 </beans>

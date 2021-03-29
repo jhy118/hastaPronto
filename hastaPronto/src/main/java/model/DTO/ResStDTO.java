@@ -7,6 +7,24 @@ public class ResStDTO {
 	String rtRvNo;
 	String userId;
 	String rtMenuNo;
+	
+	ResmenuDTO resmenuDTO;
+	
+	public ResmenuDTO getResmenuDTO() {
+		return resmenuDTO;
+	}
+	public void setResmenuDTO(ResmenuDTO resmenuDTO) {
+		this.resmenuDTO = resmenuDTO;
+	}
+	StartEndPageDTO startEndPageDTO;
+	
+	
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getOderSno() {
 		return oderSno;
 	}
