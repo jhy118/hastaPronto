@@ -52,4 +52,7 @@
 		delete from room
 		where rm_no = #{rmNo}
 	</delete>
+	<select id="getRoomNo" resultType="string">
+		select rm_no from room
+	</select>
 </mapper>

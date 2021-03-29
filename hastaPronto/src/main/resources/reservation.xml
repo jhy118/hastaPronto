@@ -5,4 +5,6 @@
 							http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.reservation.ReservationRoomController"/>
 	<bean class="service.reservation.ReservationRoomListService" id="reservationRoomListService"/>
+	<bean class="service.reservation.RoomResvService" id="roomResvService"/>
+	<bean class="repository.reservation.ReservationRoomRepository" id="reservationRoomRepository"/>
 </beans>
