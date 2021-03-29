@@ -9,6 +9,33 @@ public class ReservationRoomDTO {
 	Long rmRvNum;
 	String rmNo;
 	String userId;
+	String rmRequirements;
+	Long rmExbadnum;
+	PaymentRoomDTO paymentRoomDTO;
+
+	public PaymentRoomDTO getPaymentRoomDTO() {
+		return paymentRoomDTO;
+	}
+
+	public void setPaymentRoomDTO(PaymentRoomDTO paymentRoomDTO) {
+		this.paymentRoomDTO = paymentRoomDTO;
+	}
+
+	public String getRmRequirements() {
+		return rmRequirements;
+	}
+
+	public void setRmRequirements(String rmRequirements) {
+		this.rmRequirements = rmRequirements;
+	}
+
+	public Long getRmExbadnum() {
+		return rmExbadnum;
+	}
+
+	public void setRmExbadnum(Long rmExbadnum) {
+		this.rmExbadnum = rmExbadnum;
+	}
 
 	public String getRmRvNo() {
 		return rmRvNo;

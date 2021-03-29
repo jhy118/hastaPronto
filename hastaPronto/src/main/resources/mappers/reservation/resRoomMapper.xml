@@ -3,7 +3,7 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.reservation.resRoomMapper">
 	<sql id="baseColumn">
-		RM_RV_NO, CKIN, CKOUT, RM_RV_NUM, RM_NO, USER_ID
+		RM_RV_NO, CKIN, CKOUT, RM_RV_NUM, RM_NO, USER_ID, RM_REQUIREMENTS, RM_EXBADNUM
 	</sql>
 	<sql id="roomColumn">
 		rm_no, rm_name, rm_char, rm_file, rm_content, rm_paycontent, rm_num, rm_count
@@ -11,7 +11,9 @@
 	<sql id="rcount">
 		select count(*) from rm_reservation group by rm_no, ckin having ckin = #{ckIn} and rm_no = #{rmNo}
 	</sql>
-	
+	<sql id="noMaker">
+		select TO_CHAR(systimestamp, 'yyyyMMddhhmiff3') from dual
+	</sql>	
 	<resultMap type="room" id="roomList">
 		<id column="rm_no" jdbcType="VARCHAR" property="rmNo"/>
 		<result column="rm_name" jdbcType="VARCHAR" property="rmName"/>
@@ -30,5 +32,49 @@
 				then (<include refid="rcount"/>) else 0 end
 				from dual)
 			&lt; (select rm_count from room where rm_no = #{rmNo}) and rm_no = #{rmNo}
+	</select>
+	<insert id="insertRoomResv" parameterType="rr">
+		insert into rm_reservation(<include refid="baseColumn"/>)
+		values((<include refid="noMaker"/>), #{ckIn}, #{ckOut}, #{rmRvNum}, 
+		#{rmNo}, #{userId}, #{rmRequirements}, #{rmExbadnum})
+	</insert>
+	<insert id="insertPaymentRoom" parameterType="pr">
+		insert into rm_pm(RM_PM_NO, RM_PM_CHAR, RM_RV_NO, USER_ID, RM_ACCOUNT)
+		values((<include refid="noMaker"/>), #{rmPmChar}, (select max(RM_RV_NO) from rm_reservation), 
+		#{userId}, #{rmAccount})
+	</insert>
+	<resultMap type="rr" id="reMap">
+		<id column="RM_RV_NO" jdbcType="VARCHAR" property="rmRvNo"/>
+		<id column="USER_ID" jdbcType="VARCHAR" property="userId"/>
+		<result column="CKIN" jdbcType="TIMESTAMP" property="ckIn"/>
+		<result column="CKOUT" jdbcType="TIMESTAMP" property="ckOut"/>
+		<result column="RM_RV_NUM" jdbcType="BIGINT" property="rmRvNum"/>
+		<result column="RM_NO" jdbcType="VARCHAR" property="rmNo"/>
+		<result column="RM_REQUIREMENTS" jdbcType="VARCHAR" property="rmRequirements"/>
+		<result column="RM_EXBADNUM" jdbcType="VARCHAR" property="rmExbadnum"/>
+	<association property="paymentRoomDTO" javaType="pr">
+		<id column="RM_PM_NO" jdbcType="VARCHAR" property="rmPmNo"/>
+		<result column="RM_PM_CHAR" jdbcType="BIGINT" property="rmPmChar"/>
+		<result column="RM_ACCOUNT" jdbcType="VARCHAR" property="rmAccount"/>
+	</association>
+	</resultMap>
+	<select id="getRoomResv" parameterType="rr" resultMap="reMap">
+		select r.RM_RV_NO, CKIN, CKOUT, RM_RV_NUM, RM_NO, r.USER_ID, RM_REQUIREMENTS, RM_EXBADNUM, RM_PM_NO, 
+		RM_PM_CHAR, RM_ACCOUNT
+		from rm_pm p, rm_reservation r
+		where p.rm_rv_no = r.rm_rv_no
+		<if test="userId != null">
+			and r.user_id = #{userId}
+		</if>
+		<if test="rmRvNo != null">
+			and r.RM_RV_NO = #{rmRvNo}
+		</if>
+		order by r.rm_rv_no desc
+	</select>
+	<select id="getCount" parameterType="rr" resultType="integer">
+		select count(*) from rm_reservation
+		<if test="userId != null">
+			where user_id = #{userId}
+		</if>
 	</select>
 </mapper>
