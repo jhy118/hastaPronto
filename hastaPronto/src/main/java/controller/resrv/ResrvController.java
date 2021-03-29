@@ -49,7 +49,7 @@ public class ResrvController {
 			@RequestParam(value = "rtNo") String rtNo, Model model, ResrvCommand resrvCommand) {
 		
 		resrvCommand.setRtNo(rtNo);
-		model.addAttribute("resrvRegist", resrvCommand);
+		model.addAttribute("resrvRegist", resrvCommand);  
 		return "resrv/resrvForm";
 	}
 	@RequestMapping(value = "resrvFormPro", method = RequestMethod.POST)
@@ -64,8 +64,10 @@ public class ResrvController {
 		return "redirect:/resrv/resrvList?rtNo="+resrvCommand.getRtNo();
 	}
 	@RequestMapping(value = "resrvDetail", method = RequestMethod.GET)
-	public String resrvDetail(Model model, @RequestParam(value = "rtRvNo") String rtRvNo) {
+	public String resrvDetail(Model model, @RequestParam(value = "rtRvNo") String rtRvNo,
+			@RequestParam(value = "rtNo") String rtNo) {
 		
+		model.addAttribute("rtNo", rtNo);
 		resrvDetailService.execute(model,rtRvNo);
 		return "resrv/resrvDetail";
 	}

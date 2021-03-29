@@ -12,11 +12,6 @@
 		<form:hidden path="rtNo"/> 
 		<table border = "1">
 			<tr>
-			<td>테이블 번호</td>
-			<td><form:input path="rtRvTnum"/>
-			<form:errors path="rtRvTnum" /></td>
-			</tr>
-			<tr>
 			<td>인원수</td>
 			<td><form:input path="rtrvNum"/>
 			<form:errors path="rtrvNum" /></td>

@@ -10,15 +10,15 @@
 <body>
 	<table border = "1">
 		<tr>
-			<th>테이블 번호</th>
+			<th>고객아이디</th>  
 			<th>인원수</th>
-			<th>날짜</th> 
-		</tr>
+			<th>날짜</th>
+		</tr>     
 		<c:forEach items="${resrvList }" var="resrv" varStatus="resrvList">
-		<tr onclick="javascript:location.href='resrvDetail?rtRvNo=${resrv.rtRvNo}'">
-			<th>${resrv.rtRvTnum }</th>
+		<tr onclick="javascript:location.href='resrvDetail?rtRvNo=${resrv.rtRvNo}&rtNo=${rtNo}'">
+			<th>${resrv.userId }</th>
 			<th>${resrv.rtrvNum }</th>
-			<th>${resrv.rtRvTime }</th>
+			<th>${resrv.rtRvTime }</th> 
 		</tr>
 		</c:forEach>
 	</table>
