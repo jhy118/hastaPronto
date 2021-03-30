@@ -29,11 +29,6 @@ public class ResRtListService {
 		List<ResStDTO> list = resStRepository.selectResSt(resStDTO);
 		Integer count = resStRepository.countResSt();
 		model.addAttribute("resStList", list);
-		
-		
-		
-		PageAction pageAction = new PageAction();
-		pageAction.page(model, count, limit, limitPage, page, "resSt?");
-		
 	}
+	
 }

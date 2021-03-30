@@ -27,31 +27,34 @@
 	</insert>
 	
 	<resultMap type="model.DTO.ResStDTO" id="resSt">
+		<result column="RT_RV_NO" jdbcType="VARCHAR" property="rtRvNo"/>
 		<result column="ODER_S_NUM" jdbcType="BIGINT" property="oderSnum"/>
 		<result column="ORER_S_CHAR" jdbcType="VARCHAR" property="oderSchar"/>
+		<result column="RT_MENU_NO" jdbcType="VARCHAR" property="rtMenuNo"/>
 		<association property="resmenuDTO" javaType="model.DTO.ResmenuDTO" >
 			<result column="RT_MENU" jdbcType="VARCHAR" property="rtMenu"/> 
 		</association>
 	</resultMap>
 	<select id="selectResSt" parameterType="model.DTO.ResStDTO" resultMap="resSt">
-		select * from(select ROWNUM RN, RT_MENU, ODER_S_NUM, ORER_S_CHAR
-					from(select RT_MENU, ODER_S_NUM, ORER_S_CHAR
+		select RT_MENU, ODER_S_NUM, ORER_S_CHAR ,RT_RV_NO, m1.RT_MENU_NO
 				from order_statement o1, restaurant_menu m1
 				<trim prefix="where" prefixOverrides="and | or">
 					o1.RT_MENU_NO = m1.RT_MENU_NO and RT_RV_NO = #{rtRvNo}
-					<if test="oderSno != null">
-						ODER_S_NO = #{oderSno}
-					</if>
 				</trim>
-				))
-				<where>
-					<if test="startEndPageDTO != null">
-						rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
-					</if>
-				</where>	
 	</select>
 	<select id="countResSt" resultType="integer">
 		select count(*) from order_statement
 	</select>
-	
+	<update id="resStQtyDown" parameterType="model.DTO.ResStDTO">
+		update order_statement
+		set ODER_S_NUM = ODER_S_NUM - 1, ORER_S_CHAR = (ODER_S_NUM - 1) * (select RT_MENU_CHAR from restaurant_menu where RT_MENU_NO = #{rtMenuNo}) 
+		where RT_MENU_NO = #{rtMenuNo} and RT_RV_NO = #{rtRvNo}
+	</update>
+	<delete id="resStRemove" parameterType="hashMap">
+		delete from order_statement
+		where RT_MENU_NO IN
+		<foreach collection="rtMenuNos" item="rtMenuNo" index="index" open="(" close=")" separator=",">
+			#{rtMenuNo}
+		</foreach>
+	</delete>
 </mapper>
