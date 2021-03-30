@@ -6,5 +6,7 @@
 	<bean class="controller.reservation.ReservationRoomController"/>
 	<bean class="service.reservation.ReservationRoomListService" id="reservationRoomListService"/>
 	<bean class="service.reservation.RoomResvService" id="roomResvService"/>
+	<bean class="service.reservation.RoomResvOkService" id="roomResvOkService"/>
+	<bean class="service.reservation.ReservedListService" id="reservedListService"/>
 	<bean class="repository.reservation.ReservationRoomRepository" id="reservationRoomRepository"/>
 </beans>

@@ -18,5 +18,6 @@
 		<typeAlias type="model.DTO.WedResDTO" alias="wedRt"/>
 		<typeAlias type="model.DTO.ReservationRoomDTO" alias="rr"/>
 		<typeAlias type="model.DTO.WedCsDTO" alias="wedCs"/>
+		<typeAlias type="model.DTO.PaymentRoomDTO" alias="pr"/>
 	</typeAliases>
 </configuration>
