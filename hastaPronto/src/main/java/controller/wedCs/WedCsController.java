@@ -77,6 +77,7 @@ public class WedCsController {
 	@RequestMapping("wedCsDel")
 	public String wedCsDel(String wedCosNo) {
 		wedCsDeleteService.execute(wedCosNo);
+		
 		return "redirect:wedCsList";
 	}
 }
