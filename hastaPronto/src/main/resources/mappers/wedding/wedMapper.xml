@@ -56,4 +56,7 @@
 	delete from WEDDINGHALL
 	where WED_NO = #{value}
 </delete>
+<select id="getWedNo" resultType="string">
+		select WED_NO from WEDDINGHALL
+</select>
 </mapper>

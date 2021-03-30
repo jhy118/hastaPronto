@@ -19,7 +19,6 @@
 	<a href="<c:url value='goodsPaySt/goodsPayStList'/>">대금지급서</a><br />
 	<a href="<c:url value='wedding/wedBrochure'/>">WEDDING</a><br />
 	<a href="<c:url value='wedRes/wedResList'/>">WEDDING RESTAURANT</a><br />
-	<a href="<c:url value='wedCs/wedCsList'/>">웨딩 상담 예약(관리자)</a><br />	
 	<a href="<c:url value='outsourcing/osList'/>">협력업체</a><br />
 	<a href="<c:url value='osEmployees/osEmpList'/>">강사</a><br />
 	<a href="<c:url value='res/resList'/>">레스토랑</a><br />
