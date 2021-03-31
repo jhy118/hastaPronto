@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="">
 		<table border="1">
 			<tr>
 				<td colspan="4"><a>결제완료 페이지</a></td>
@@ -17,8 +16,6 @@
 				<th>메뉴 이름</th>
 				<th>메뉴 수량</th>
 				<th>메뉴 금액</th>
-				<th>총금액</th>
-				<th>결제방법</th>
 			</tr>
 			<c:forEach begin="0" end="${count}" var="idx">
 				<tr>
@@ -28,9 +25,17 @@
 				</tr>
 			</c:forEach>
 			<tr>
+					<th>총금액</th>
+					<th>결제방법</th>
+			</tr>
+			<tr>
 					<td>${respay.rtPmChar}</td>
-					<td>${respay.rtPmMethod}</td></tr>
+					<td>${respay.rtPmMethod}</td>
+			</tr>
+			<tr><td>
+				<input type="button" value="결제 취소"
+				onclick="javascript:location.href
+				='respayDelete?rtRvNo=${respay.rtRvNo}'"/>
 		</table>
-	</form>
 </body>
 </html>
