@@ -6,4 +6,7 @@
 	<bean class="controller.schedule.ScheduleController" />
 	
 	<bean class="controller.schedule.TherapySchedule"/>
+	<bean class="service.schedule.TherapyListService"/>
+	<bean class="repository.schedule.ScheduleRepository" />
+	<bean class="service.schedule.TherapyCalendarListService" />
 </beans>
