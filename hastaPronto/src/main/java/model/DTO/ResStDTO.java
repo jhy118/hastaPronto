@@ -16,6 +16,8 @@ public class ResStDTO {
 	public void setResmenuDTO(ResmenuDTO resmenuDTO) {
 		this.resmenuDTO = resmenuDTO;
 	}
+	
+
 	StartEndPageDTO startEndPageDTO;
 	
 	

@@ -19,7 +19,7 @@
 		<th> 강사이름 </th>
 		<th> 강좌이름 </th>
 	</tr>
-	<c:forEach items="${list}" var="osemp" varStatus="status">
+	<c:forEach items="${list }" var="osemp" varStatus="status">
 		<tr align="center">
 			<td> 
 				<c:if test="${osemp.osNo eq '89' }">FitnessH</c:if>

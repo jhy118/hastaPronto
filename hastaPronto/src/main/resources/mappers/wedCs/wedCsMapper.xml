@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.wedCs.wedCsMapper">
+	<sql id="baseColumn">
+		WED_COS_NO, WED_COS_NAME, WED_COS_EMAIL, WED_COS_PH,
+		WED_COS_DAY, WED_COS_NUM, WED_COS_CONTENT, WED_NO,
+		USER_ID, N_YEAR, N_MONTH, N_DAY
+	</sql>
+	<sql id="baseColumn1">
+		WED_COS_NO wedCosNo, WED_COS_NAME wedCosName, 
+		WED_COS_EMAIL wedCosEmail, WED_COS_PH wedCosPh,
+		WED_COS_DAY wedCosDay, WED_COS_NUM wedCosNum, 
+		WED_COS_CONTENT wedCosContent, WED_NO wedNo,
+		USER_ID userId, N_YEAR nYear, N_MONTH nMonth, N_DAY nDay
+	</sql>
+	<sql id ="noMaker">
+   		select NVL(max(WED_COS_NO), 0) +1 from WEDDING_CONSULT
+   </sql>
+   <insert id="wedCsInsert" parameterType="wedCs">
+		insert into WEDDING_CONSULT(<include refid = "baseColumn" />)
+   		values((<include refid= "noMaker" />), #{wedCosName},
+   		#{wedCosEmail}, #{wedCosPh}, #{wedCosDay}, #{wedCosNum},
+   		#{wedCosContent}, #{wedNo}, #{userId}, #{nYear}, #{nMonth}, #{nDay})
+   </insert>
+   <select id="getWedCsList" parameterType="wedCs" resultType="wedCs">
+   		select *
+   		from ( select rownum rn, <include refid="baseColumn1" />
+			from ( select <include refid="baseColumn" />
+				from WEDDING_CONSULT
+				<where>
+					<if test="wedCosNo != null">
+						WED_COS_NO = #{wedCosNo}
+					</if>
+				</where>
+			)
+		)
+   </select>
+   <update id="updateWedCs" parameterType="wedCs">
+   		update WEDDING_CONSULT
+   		set WED_COS_NAME = #{wedCosName}, WED_COS_EMAIL = #{wedCosEmail}, 
+   			WED_COS_PH = #{wedCosPh}, WED_COS_DAY = #{wedCosDay}, 
+   			WED_COS_NUM = #{wedCosNum}, WED_COS_CONTENT = #{wedCosContent}, 
+   			WED_NO = #{wedNo}
+   		where WED_COS_NO = #{wedCosNo}
+   </update>
+   <delete id="deleteWedCs" parameterType="string">
+   		delete from WEDDING_CONSULT
+   		where WED_COS_NO = #{value}
+   </delete>
+</mapper>

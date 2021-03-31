@@ -28,5 +28,9 @@ public class WedRepository {
 	public Integer wedBroDelete(String wedNo) {
 	    statement = namespace + ".wedBroDelete";
 	    return sqlSession.delete(statement, wedNo);
+	}//getWedNo
+	public List<String> getWedNo(){
+		statement = namespace + ".getWedNo";
+		return sqlSession.selectList(statement);
 	}
 }

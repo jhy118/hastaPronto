@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import command.ResStCommand;
 import service.resSt.ResRtListService;
 import service.resSt.ResRtRegistService;
+import service.resSt.ResStQtyDownService;
+import service.resSt.ResStRemoveService;
 
 @Controller
 @RequestMapping("resSt")
@@ -20,6 +22,11 @@ public class ResStController {
 	ResRtRegistService resRtRegistService;
 	@Autowired
 	ResRtListService resRtListService;
+	@Autowired
+	ResStQtyDownService resStQtyDownService;
+	@Autowired
+	ResStRemoveService resStRemoveService;
+	
 	@RequestMapping(value = "resStList", method = RequestMethod.GET)
 	public String resStList(@RequestParam(value = "page", defaultValue = "1")
 		Integer page, Model model, @RequestParam(value = "rtRvNo") String rtRvNo) {
@@ -41,4 +48,17 @@ public class ResStController {
 //		resRtRegistService.execute(resStCommand, session);
 //		return "";
 //	}
+	@RequestMapping(value = "resStQtyDown")
+	public String resStQtyDown(@RequestParam(value = "rtMenuNo") String rtMenuNo,
+			@RequestParam(value = "rtRvNo") String rtRvNo) {
+		
+		resStQtyDownService.execute(rtMenuNo, rtRvNo);
+		return "redirect:/resSt/resStList?rtRvNo="+rtRvNo;
+	}
+	@RequestMapping(value = "resStRemove")
+	public String resStRemove(@RequestParam(value = "delete") String [] rtMenuNos , @RequestParam(value ="rtRvNo") String rtRvNo) {
+		
+		resStRemoveService.execute(rtMenuNos);
+		return "redirect:/resSt/resStList?rtRvNo="+rtRvNo;
+	}
 }

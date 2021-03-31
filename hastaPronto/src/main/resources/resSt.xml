@@ -6,4 +6,6 @@
 	<bean class="service.resSt.ResRtRegistService" id="resRtRegistService"/>
 	<bean class="repository.resSt.ResStRepository" id="resStRepository"/> 
 	<bean class="service.resSt.ResRtListService" id="resRtListService"/>
+	<bean class="service.resSt.ResStQtyDownService" id="resStQtyDownService"/>
+	<bean class="service.resSt.ResStRemoveService" id="resStRemoveService"/>
 </beans>

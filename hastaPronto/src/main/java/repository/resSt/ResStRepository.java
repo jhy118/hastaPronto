@@ -1,6 +1,7 @@
 package repository.resSt;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,13 @@ public class ResStRepository {
 	public Integer countResSt() {
 		statement = namespace  + ".countResSt";
 		return sqlSession.selectOne(statement);
+	}
+	public Integer resStQtyDown(ResStDTO resStDTO) {
+		String statement = namespace + ".resStQtyDown";
+		return sqlSession.update(statement, resStDTO);
+	}
+	public void resStRemove(Map<String, Object> condition) {
+		String statement = namespace + ".resStRemove";
+		sqlSession.delete(statement, condition);
 	}
 }

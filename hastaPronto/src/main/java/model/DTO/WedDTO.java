@@ -9,6 +9,14 @@ public class WedDTO {
 	Integer wedNum;
 	String empId;
 	String wedLocation;
+	Integer wedCount;
+	
+	public Integer getWedCount() {
+		return wedCount;
+	}
+	public void setWedCount(Integer wedCount) {
+		this.wedCount = wedCount;
+	}
 	public String getWedNo() {
 		return wedNo;
 	}
