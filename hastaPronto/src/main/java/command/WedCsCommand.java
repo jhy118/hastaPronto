@@ -15,7 +15,6 @@ public class WedCsCommand {
 	String nYear;
 	String nMonth;
 	String nDay;
-	//너 왜있니
 	String action;
 	
 	public String getnYear() {

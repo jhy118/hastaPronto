@@ -19,12 +19,10 @@
 	<a href="<c:url value='goodsPaySt/goodsPayStList'/>">대금지급서</a><br />
 	<a href="<c:url value='wedding/wedBrochure'/>">WEDDING</a><br />
 	<a href="<c:url value='wedRes/wedResList'/>">WEDDING RESTAURANT</a><br />
+	<a href="<c:url value='wedPay/wedPayList'/>">웨딩결제내역</a><br />
 	<a href="<c:url value='outsourcing/osList'/>">협력업체</a><br />
 	<a href="<c:url value='osEmployees/osEmpList'/>">강사</a><br />
 	<a href="<c:url value='res/resList'/>">레스토랑</a><br />
-	<a href="<c:url value='resmenu/resmenuList'/>">레스토랑 메뉴</a><br />
-	<a href="<c:url value='resrv/resrvList'/>">레스토랑 예약</a><br />
 	<a href="<c:url value='schedule/main'/>">부가서비스</a><br />
-	<a href="<c:url value='resSt/resStList'/>">레스토랑 주문서</a><br />
 </body>
 </html>

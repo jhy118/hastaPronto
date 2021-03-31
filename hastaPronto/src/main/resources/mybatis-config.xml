@@ -16,7 +16,12 @@
 		<typeAlias type="model.DTO.GoodsPayStDTO" alias="billSt"/>
 		<typeAlias type="model.DTO.WedDTO" alias="wed"/>
 		<typeAlias type="model.DTO.WedResDTO" alias="wedRt"/>
+<<<<<<< HEAD
 		<typeAlias type="model.DTO.ScheduleDTO" alias="sch"/>
+=======
+		<typeAlias type="model.DTO.WedRvDTO" alias="wedRv"/>
+		<typeAlias type="model.DTO.ScheduleDTO" alias="schedule"/>
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 		<typeAlias type="model.DTO.ReservationRoomDTO" alias="rr"/>
 		<typeAlias type="model.DTO.WedCsDTO" alias="wedCs"/>
 		<typeAlias type="model.DTO.PaymentRoomDTO" alias="pr"/>
