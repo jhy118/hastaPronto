@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.respay.respayMapper">
+	<sql id="baseColumn">
+		RT_PM_NO, RT_PM_CHAR, RT_PM_METHOD, RT_RV_NO, USER_ID
+	</sql>
+	<insert id="insertRespay" parameterType="model.DTO.RespayDTO">
+		insert into restaurant_payment(
+		<include refid="baseColumn" />
+		)   
+		values(board_seq.nextval, #{rtPmChar}, #{rtPmMethod}, #{rtRvNo},
+		#{userId})
+	</insert>
+
+	<resultMap type="model.DTO.RespayDTO" id="respay">
+		<result column="RT_PM_CHAR" jdbcType="BIGINT" property="rtPmChar"/>
+		<result column="RT_PM_METHOD" jdbcType="VARCHAR" property="rtPmMethod"/>
+		<result column="RT_RV_NO" jdbcType="VARCHAR" property="rtRvNo"/>
+		<collection property="resStDTO" ofType="model.DTO.ResStDTO">
+			<result column="ODER_S_NUM" jdbcType="BIGINT" property="oderSnum"/>
+			<result column="ORER_S_CHAR" jdbcType="VARCHAR" property="oderSchar"/>
+		</collection>
+		<collection property="resmenuDTO" ofType="model.DTO.ResmenuDTO">
+			<result column="RT_MENU" jdbcType="VARCHAR" property="rtMenu"/>
+			<result column="RT_MENU_CHAR" jdbcType="BIGINT" property="rtMenuChar"/>
+		</collection>
+	</resultMap>
+	<select id="selectRespay" parameterType="model.DTO.RespayDTO" resultMap="respay">
+		select RT_MENU, RT_MENU_CHAR, ODER_S_NUM, ORER_S_CHAR, RT_PM_CHAR, RT_PM_METHOD, p.RT_RV_NO
+		from restaurant_payment p, order_statement o, restaurant_menu m
+		where p.rt_rv_no = o.rt_rv_no and o.rt_menu_no = m.rt_menu_no and
+		p.rt_rv_no = #{rtRvNo}  
+	</select>
+	<delete id="deleteRespay">
+		delete from restaurant_payment
+		where RT_RV_NO = #{rtRvNo}
+	</delete>
+</mapper>    

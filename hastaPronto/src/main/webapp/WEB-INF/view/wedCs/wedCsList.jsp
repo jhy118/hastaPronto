@@ -26,8 +26,10 @@
 				<c:if test="${num lt dayNum}"></c:if>
 				<c:if test="${num ge dayNum && num lt dayNum + maxDay}">
 					<a href="wedCsForm?nYear=${nYear}&nMonth=${nMonth}&nDay=${value1}">
-						${value1}</a></c:if>
-<%-- 				<c:if test="${num ge dayNum + maxDay}">${value2}</c:if> --%>
+						${value1}
+					</a>
+				</c:if>
+<%-- 			<c:if test="${num ge dayNum + maxDay}">${value2}</c:if> --%>
 				
 				<c:forEach items="${list}" var="dto" varStatus="status">
 					<c:if test="${dto.nYear eq nYear 

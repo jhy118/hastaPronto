@@ -4,4 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.wedRv.WedRvController" />
+	<bean id="wedRvOkService" class="service.wedRv.WedRvOkService" />
+	<bean id="wedRvRepository" class="repository.wedRv.WedRvRepository" />
+	<bean id="wedRvFormService" class="service.wedRv.WedRvFormService" />
+	<bean id="wedRvListService" class="service.wedRv.WedRvListService" />
+	<bean id="wedRvInfoService" class="service.wedRv.WedRvInfoService" />
+	<bean id="wedRvModifyService" class="service.wedRv.WedRvModifyService" />
+	<bean id="wedRvDeleteService" class="service.wedRv.WedRvDeleteService" />
 </beans>

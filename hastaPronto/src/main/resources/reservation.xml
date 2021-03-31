@@ -8,5 +8,7 @@
 	<bean class="service.reservation.RoomResvService" id="roomResvService"/>
 	<bean class="service.reservation.RoomResvOkService" id="roomResvOkService"/>
 	<bean class="service.reservation.ReservedListService" id="reservedListService"/>
+	<bean class="service.reservation.ReservationDetailService" id="reservationDetailService"/>
+	<bean class="service.reservation.CancleReservationService" id="cancleReservationService"/>
 	<bean class="repository.reservation.ReservationRoomRepository" id="reservationRoomRepository"/>
 </beans>

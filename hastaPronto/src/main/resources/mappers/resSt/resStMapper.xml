@@ -56,5 +56,6 @@
 		<foreach collection="rtMenuNos" item="rtMenuNo" index="index" open="(" close=")" separator=",">
 			#{rtMenuNo}
 		</foreach>
+
 	</delete>
 </mapper>

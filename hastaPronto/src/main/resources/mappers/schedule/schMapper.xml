@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.schedule.schMapper">
+	<sql id="sch">
+		SCH_NO, SCH_DATE, SCH_NAME, SCH_CONTENT, USER_ID, OSE_NO, 
+		OS_NO, SCH_TYPE, SCH_NUM, N_YEAR, N_MONTH,N_DAY
+	</sql>
+	<insert id="insertSch" parameterType="sch">
+		insert into SCHEDULE (<include refid="sch" />)
+		values(board_seq.nextval, #{schDate},#{schName},#{schContent},
+		#{userId},#{oseNo},#{osNo},#{schType},#{schNum},#{nYear},#{nMonth},#{nDay})
+	</insert>
+</mapper>
