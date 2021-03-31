@@ -14,7 +14,7 @@
 
 <br />
 <!-- 웨딩 예약 버튼 추가쓰 -->
-<a href="<c:url value='../wedCs/wedCsForm'/>">웨딩 예약 문의</a><br />
+<a href="<c:url value='../wedCs/wedCsList'/>">웨딩 예약 문의</a><br />
 <a href="<c:url value='../wedRv/wedRvForm'/>">웨딩 최종 예약</a><br />
 
 <c:forEach items="${list}" var="dto" varStatus="status">
@@ -33,9 +33,10 @@
 		</th>
 	</tr>
 	<tr><th colspan="2">${dto.wedName}</th></tr>
-	<tr><th colspan="2">${fn:replace(dto.wedContent,cn,br)}</th></tr>
 	<tr><th>수용인원</th><th>${dto.wedNum}</th></tr>
 </table>
+<br /><br /><br /><br /><br /><br /><br /><br />
 </c:forEach>
+
 </body>
 </html>

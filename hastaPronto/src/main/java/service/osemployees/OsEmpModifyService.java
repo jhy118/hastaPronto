@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 
 import command.OsCommand;
 import command.OseCommand;
+import model.DTO.AuthInfo;
 import model.DTO.OsEmpDTO;
 import repository.osemployees.OsEmpRepository;
 
@@ -16,6 +17,8 @@ public class OsEmpModifyService {
 @Autowired
 OsEmpRepository osEmpRepository;
 	public void execute(OseCommand oseCommand, HttpSession session) {
+		AuthInfo authInfo = (AuthInfo) session.getAttribute("authInfo");
+
 		OsEmpDTO osEmpDTO = new OsEmpDTO();
 		osEmpDTO.setOseNo(oseCommand.getOseNo());
 		List<OsEmpDTO> list = osEmpRepository.getOsEmpList(osEmpDTO);

@@ -1,11 +1,13 @@
-package command;
+package model.DTO;
 
-public class WedCsCommand {
+import java.sql.Timestamp;
+
+public class WedCsDTO {
 	String wedCosNo;	
 	String wedCosName;
 	String wedCosEmail;
 	String wedCosPh;
-	String wedCosDay;
+	Timestamp wedCosDay;
 	String wedCosTime;
 	Integer wedCosNum;
 	String wedCosContent;
@@ -15,8 +17,6 @@ public class WedCsCommand {
 	String nYear;
 	String nMonth;
 	String nDay;
-	//너 왜있니
-	String action;
 	
 	public String getnYear() {
 		return nYear;
@@ -35,12 +35,6 @@ public class WedCsCommand {
 	}
 	public void setnDay(String nDay) {
 		this.nDay = nDay;
-	}
-	public String getAction() {
-		return action;
-	}
-	public void setAction(String action) {
-		this.action = action;
 	}
 	public String getWedCosNo() {
 		return wedCosNo;
@@ -66,18 +60,11 @@ public class WedCsCommand {
 	public void setWedCosPh(String wedCosPh) {
 		this.wedCosPh = wedCosPh;
 	}
-
-	public String getWedCosDay() {
+	public Timestamp getWedCosDay() {
 		return wedCosDay;
 	}
-	public void setWedCosDay(String wedCosDay) {
+	public void setWedCosDay(Timestamp wedCosDay) {
 		this.wedCosDay = wedCosDay;
-	}
-	public String getWedCosTime() {
-		return wedCosTime;
-	}
-	public void setWedCosTime(String wedCosTime) {
-		this.wedCosTime = wedCosTime;
 	}
 	public Integer getWedCosNum() {
 		return wedCosNum;
@@ -103,5 +90,12 @@ public class WedCsCommand {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	public String getWedCosTime() {
+		return wedCosTime;
+	}
+	public void setWedCosTime(String wedCosTime) {
+		this.wedCosTime = wedCosTime;
+	}
+	
 	
 }

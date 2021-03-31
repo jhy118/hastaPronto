@@ -8,7 +8,7 @@
 <title>osEmpDetail.jsp</title>
 </head>
 <body>
-
+<input type="hidden" name="oseNo" value="${osemp.oseNo }" />
 <table border="1">
 	<tr>
 		<th>소속업체명</th>
@@ -43,8 +43,12 @@
 		<td> ${osemp.oseAddr}</td>
 	</tr>
 	<tr>
+		<th>등록일</th>
+		<td>${osemp.oseRegist}</td>
+	</tr>
+	<tr>
 		<th colspan="2">
-			<a href="../osEmployees/osEmpModify/${osemp.oseNo}"> [수정] </a>
+			<a href="../osEmployees/osEmpModify/${oseCommand.oseNo}"> [수정] </a>
 		    <a href="javascript:oseDelete();" > [삭제] </a>
             <a onclick="javascript:location.href='osEmpList'" > [목록] </a>
 		</th>
@@ -54,9 +58,9 @@
 </body>
 </html>
 <script type="text/javascript">
-	function osDelete(){
-		if(confirm("등록된 강사를 정말로 삭제하시겠습니까?" + <br /> + "(삭제시 저장된 모든 파일도 함께 삭제됩니다.)")){
-			location.href="osDelete/${osemp.oseNo}";
+	function oseDelete(){
+		if(confirm("등록된 강사를 정말로 삭제하시겠습니까?\n(삭제시 저장된 모든 파일도 함께 삭제됩니다.)")){
+			location.href="oseDelete/${osemp.oseNo}";
 		}
 	}
 </script>

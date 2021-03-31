@@ -4,4 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.wedCs.WedCsController" />
+	<bean id="wedCsRegistService" class="service.wedCs.WedCsRegistService" />
+	<bean id="wedCsRepository" class="repository.wedCs.WedCsRepository" />
+	<bean id="wedCsFormService" class="service.wedCs.WedCsFormService" />
+	<bean id="wedCsListService" class="service.wedCs.WedCsListService" />
+	<bean id="wedCsInfoService" class="service.wedCs.WedCsInfoService" />
+	<bean id="wedCsModifyService" class="service.wedCs.WedCsModifyService" />
+	<bean id="wedCsDeleteService" class="service.wedCs.WedCsDeleteService" />
 </beans>

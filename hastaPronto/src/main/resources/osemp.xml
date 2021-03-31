@@ -9,4 +9,5 @@
 	<bean class="service.osemployees.OsEmpListService" />
 	<bean class="service.osemployees.OsEmpDetailService" />
 	<bean class="service.osemployees.OsEmpModifyService" />
+	<bean class="service.osemployees.OsEmpDeleteService" />
 </beans>

@@ -9,6 +9,7 @@ public class OseCommand {
 	String oseAddr;
 	String oseName;
 	String osNo;
+	String oseNo;
 	
 	public String getOseId() {
 		return oseId;
@@ -59,8 +60,6 @@ public class OseCommand {
 	public void setOsNo(String osNo) {
 		this.osNo = osNo;
 	}
-	
-	String oseNo;
 
 	public String getOseNo() {
 		return oseNo;

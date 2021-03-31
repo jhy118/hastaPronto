@@ -44,7 +44,10 @@
 		from (select rownum rn, OSE_NO, OSE_ID, OSE_PW, OSE_CAT, OSE_PH, OSE_EMAIL, OSE_ADDR, OS_NO, OSE_REGIST, OSE_NAME, OS_NAME
 			from (select OSE_NO, OSE_ID, OSE_PW, OSE_CAT, OSE_PH, OSE_EMAIL, OSE_ADDR, E.OS_NO, OSE_REGIST, OSE_NAME, OS_NAME
 					from OSEMPLOYEES E, OUTSOURCING O
-					where o.os_no = e.os_no
+					where o.os_no = e.os_no 
+					<if test="oseNo != null">
+					and OSE_NO = #{oseNo}
+					</if>
 				))
 			<where>
 				<if test="startEndPageDTO != null">
@@ -52,11 +55,23 @@
 				</if>
 			</where>
 	</select>
-	<select id="osemplistCount" resultType="integer">
+	<select id="osemplistCount" resultType="int">
 		select count(*) 
 		from OSEMPLOYEES
 	</select>
-
+	<update id="oseUpdate" parameterType="osemp">
+		update OSEMPLOYEES
+		set OSE_NAME = #{oseName},
+			OSE_CAT = #{oseCat},
+			OSE_PH = #{osePh},
+			OSE_EMAIL = #{oseEmail},
+			OSE_ADDR = #{oseAddr}
+		where OSE_NO = #{oseNo} 
+	</update>
+	<delete id="oseDelete" parameterType="osemp">
+		delete from OSEMPLOYEES
+		where OSE_NO = #{oseNo}
+	</delete>
 </mapper>
 
 

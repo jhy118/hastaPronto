@@ -22,11 +22,16 @@ public class OsEmpRepository {
 		return sqlSession.selectOne(statement);
 	}
 	public List<OsEmpDTO> getOsEmpList(OsEmpDTO osEmpDTO) {
+		System.out.println(osEmpDTO.getOseNo());
 		statement = namespace + ".getOsEmpList";
 		return sqlSession.selectList(statement, osEmpDTO);
 	}
 	public List<OsEmpDTO> oseUpdate(OsEmpDTO osEmpDTO) {
 		statement = namespace + ".oseUpdate";
 		return sqlSession.selectList(statement,osEmpDTO);
+	}
+	public Integer oseDelete(String oseNo) {
+		statement = namespace + ".oseDelete";
+		return sqlSession.delete(statement, oseNo);
 	}
 }
