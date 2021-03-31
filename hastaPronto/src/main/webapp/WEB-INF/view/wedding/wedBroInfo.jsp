@@ -28,6 +28,7 @@
 </head>
 <body>
 <table align="center">
+	<tr><th colspan="2">${fn:replace(list.wedContent,cn,br)}</th></tr>
 	<tr>
 		<th colspan="2">
 			<a href="javascript:prevGallery('${list.wedFile}');">

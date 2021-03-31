@@ -1,17 +1,47 @@
 package command;
 
-import java.sql.Timestamp;
-
 public class WedCsCommand {
 	String wedCosNo;	
 	String wedCosName;
 	String wedCosEmail;
 	String wedCosPh;
-	Timestamp wedCosDay;
+	String wedCosDay;
+	String wedCosTime;
 	Integer wedCosNum;
 	String wedCosContent;
 	String wedNo;
-	String empId;
+	String userId;
+	//추가추가추
+	String nYear;
+	String nMonth;
+	String nDay;
+	//너 왜있니
+	String action;
+	
+	public String getnYear() {
+		return nYear;
+	}
+	public void setnYear(String nYear) {
+		this.nYear = nYear;
+	}
+	public String getnMonth() {
+		return nMonth;
+	}
+	public void setnMonth(String nMonth) {
+		this.nMonth = nMonth;
+	}
+	public String getnDay() {
+		return nDay;
+	}
+	public void setnDay(String nDay) {
+		this.nDay = nDay;
+	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
 	public String getWedCosNo() {
 		return wedCosNo;
 	}
@@ -36,11 +66,18 @@ public class WedCsCommand {
 	public void setWedCosPh(String wedCosPh) {
 		this.wedCosPh = wedCosPh;
 	}
-	public Timestamp getWedCosDay() {
+
+	public String getWedCosDay() {
 		return wedCosDay;
 	}
-	public void setWedCosDay(Timestamp wedCosDay) {
+	public void setWedCosDay(String wedCosDay) {
 		this.wedCosDay = wedCosDay;
+	}
+	public String getWedCosTime() {
+		return wedCosTime;
+	}
+	public void setWedCosTime(String wedCosTime) {
+		this.wedCosTime = wedCosTime;
 	}
 	public Integer getWedCosNum() {
 		return wedCosNum;
@@ -60,11 +97,11 @@ public class WedCsCommand {
 	public void setWedNo(String wedNo) {
 		this.wedNo = wedNo;
 	}
-	public String getEmpId() {
-		return empId;
+	public String getUserId() {
+		return userId;
 	}
-	public void setEmpId(String empId) {
-		this.empId = empId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	
 }

@@ -52,6 +52,7 @@
   			classpath:wedRv.xml
   			classpath:wedCs.xml
   			classpath:schedule.xml
+  			classpath:resSt.xml
   		</param-value>
   	</init-param>
   </servlet>

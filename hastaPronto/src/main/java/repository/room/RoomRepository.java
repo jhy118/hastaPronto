@@ -37,4 +37,9 @@ public class RoomRepository {
 		return sqlSession.delete(statement, roomDTO);
 	}
 	
+	public List<String> getRoomNo(){
+		statement = namespace + ".getRoomNo";
+		return sqlSession.selectList(statement);
+	}
+	
 }

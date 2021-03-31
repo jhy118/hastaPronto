@@ -35,7 +35,8 @@ public class ResmenuController {
 	
 	@RequestMapping(value = "resmenuList", method = RequestMethod.GET)
 	public String resmenuList(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model,
-			@RequestParam(value = "rtNo") String rtNo) {
+			@RequestParam(value = "rtNo") String rtNo, @RequestParam(value = "rtRvNo") String rtRvNo) {
+		model.addAttribute("rtRvNo", rtRvNo);
 		
 		resmenuListService.execute(page,model,rtNo);
 		return "resmenu/resmenuList";  
