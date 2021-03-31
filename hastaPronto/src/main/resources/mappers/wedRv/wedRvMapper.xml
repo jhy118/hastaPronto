@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.wedRv.wedRvMapper">
+	<sql id="baseColumn">
+		WED_RV_NO, WED_RV_NUM, WED_RV_DAY, WED_RV_CHAR, WED_COS_NO,
+		USER_ID, WED_RT_NO, WED_NO, N_YEAR, N_MONTH, N_DAY
+	</sql>
+	<sql id="baseColumn1">
+		WED_RV_NO wedRvNo, WED_RV_NUM wedRvNum, WED_RV_DAY wedRvTime, 
+		WED_RV_CHAR wedRvChar, WED_COS_NO wedCosNo, USER_ID userId, 
+		WED_RT_NO wedRtNo, WED_NO wedNo, N_YEAR nYear, 
+		N_MONTH nMonth, N_DAY nDay
+	</sql>
+	<sql id ="noMaker">
+   		select NVL(max(WED_RV_NO), 0) +1 from WEDDING_RESERVATION
+	</sql>
+	<insert id="wedRvInsert" parameterType="wedRv">
+		insert into WEDDING_RESERVATION(<include refid="baseColumn" />)
+		values ((<include refid="noMaker" />), #{wedRvNum}, #{wedRvTime}, 
+		#{wedRvChar}, 5, #{userId}, #{wedRtNo}, #{wedNo}, 
+		#{nYear}, #{nMonth}, #{nDay})
+	</insert>
+	<select id="getWedRvList" parameterType="wedRv" resultType="wedRv">
+   		select *
+   		from ( select rownum rn, <include refid="baseColumn1" />
+			from ( select <include refid="baseColumn" />
+				from WEDDING_RESERVATION
+				<where>
+					<if test="wedRvNo != null">
+						WED_RV_NO = #{wedRvNo}
+					</if>
+				</where>
+			)
+		)
+   </select>
+   <update id="updateWedRv" parameterType="wedRv">
+   		update WEDDING_RESERVATION
+   		set WED_NO = #{wedNo}, WED_RT_NO = #{wedRtNo}, 
+   			WED_RV_DAY = #{wedRvTime}, WED_RV_NUM = #{wedRvNum}, 
+   			WED_RV_CHAR = #{wedRvChar}
+   		where WED_RV_NO = #{wedRvNo}
+   </update>
+   <delete id="deleteWedRv" parameterType="string">
+   		delete from WEDDING_RESERVATION
+   		where WED_RV_NO = #{value}
+   </delete>
+</mapper>
