@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import command.OsCommand;
 import command.OseCommand;
+import service.osemployees.OsEmpDeleteService;
 import service.osemployees.OsEmpDetailService;
 import service.osemployees.OsEmpListService;
 import service.osemployees.OsEmpModifyService;
@@ -35,12 +36,19 @@ public class OsEmployeesController {
 	OsEmpDetailService osEmpDetailService;
 	@Autowired
 	OsEmpModifyService osEmpModifyService;
+	@Autowired
+	OsEmpDeleteService osEmpDeleteService;
 
-	
+	@RequestMapping("oseDelete/{oseNo}")
+	public String oseDelete(
+			@PathVariable(value="oseNo") String oseNo ) {
+		osEmpDeleteService.execute(oseNo);
+		return "redirect:/osEmployees/osEmpList";
+	}
 	@RequestMapping("osEmpModifyPro")
-	public String osModifyPro(@ModelAttribute(value="osemp")OseCommand oseCommand, HttpSession session) {
+	public String osModifyPro(OseCommand oseCommand, HttpSession session) {
 		osEmpModifyService.execute(oseCommand, session);
-		return "redirect:oseDetail?oseNo=" + oseCommand.getOseNo();
+		return "redirect:osEmpDetail?oseNo=" + oseCommand.getOseNo();
 	}
 	@RequestMapping("osEmpModify/{oseNo}")
 	public String osEmpModify(

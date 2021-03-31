@@ -7,6 +7,7 @@ public class ResStCommand {
 	String rtRvNo;
 	String userId;
 	String rtMenuNo;
+	
 	public String getOderSno() {
 		return oderSno;
 	}
