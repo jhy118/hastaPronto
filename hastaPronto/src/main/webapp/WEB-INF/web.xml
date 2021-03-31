@@ -52,6 +52,7 @@
   			classpath:wedRv.xml
   			classpath:wedCs.xml
   			classpath:resSt.xml
+  			classpath:respay.xml
   		</param-value>
   	</init-param>
   </servlet>
