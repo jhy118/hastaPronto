@@ -16,5 +16,6 @@
 		<typeAlias type="model.DTO.GoodsPayStDTO" alias="billSt"/>
 		<typeAlias type="model.DTO.WedDTO" alias="wed"/>
 		<typeAlias type="model.DTO.WedResDTO" alias="wedRt"/>
+		<typeAlias type="model.DTO.ScheduleDTO" alias="schedule"/>
 	</typeAliases>
 </configuration>

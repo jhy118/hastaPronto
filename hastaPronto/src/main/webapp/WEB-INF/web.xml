@@ -51,6 +51,7 @@
   			classpath:reservation.xml
   			classpath:wedRv.xml
   			classpath:wedCs.xml
+  			classpath:schedule.xml
   		</param-value>
   	</init-param>
   </servlet>
