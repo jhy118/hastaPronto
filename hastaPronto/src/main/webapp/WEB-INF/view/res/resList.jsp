@@ -115,6 +115,7 @@
 				<%@ include file = "../include/includePage.jsp" %>
 			</div>
 			<div class="box2">
+				
 				<a href="resForm">레스토랑 등록</a>
 			</div>
 		</div>

@@ -84,12 +84,17 @@
 				<img width="200" src="upload/${rt} ">
 				</c:forTokens>
 				</td></tr>
-				<tr class="center"><td colspan="2"><input type="button" value="수정" 
-						onclick="javascript:location.href='resModify?rtNo=${res.rtNo}'">
+				<tr class="center">
+				
+				<td colspan="2">
+				<c:if test="${authInfo.loginId == ann.empId}">
+				<input type="button" value="수정" 
+						onclick="javascript:location.href='resModify?rtNo=${res.rtNo}'"></c:if>
 									<input type="button" value="뒤로가기" 
 						onclick="javascript:history.back();">
+						<c:if test="${authInfo.loginId == ann.empId}">
 									<input type="button" value="메뉴 삭제"
-						onclick="javascript:location.href='resDelete?rtNo=${res.rtNo}'"/>
+						onclick="javascript:location.href='resDelete?rtNo=${res.rtNo}'"/></c:if>
 									<input type="button" value="예약 하기"
 						onclick="javascript:location.href='../resrv/resrvList?rtNo=${res.rtNo}'">
 						</td></tr>
