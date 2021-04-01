@@ -11,20 +11,15 @@
 <meta name="keywords" content="" />
 <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'
 	rel='stylesheet' type='text/css'>
-<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="../js/skel.min.js"></script>
 <script src="../js/skel-panels.min.js"></script>
 <script src="../js/init.js"></script>
 <noscript>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/WEB-INF/view/css/skel-noscript.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/WEB-INF/view/css/style.css" />
+	<link rel="stylesheet" href="../css/skel-noscript.css" />
+	<link rel="stylesheet" href="../css/style.css" />
 </noscript>
-<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/skel-noscript.css"> --%>
-<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"> --%>
-<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 </head>
 <body>
 
