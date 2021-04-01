@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="therapyRvAction" name="frm" method="post" modelAttribute="ScheduleCommand">
+<form action="therapyRvAction" name="frm" method="post">
 	<input type="hidden" name="osNo" id="osNo" value="91" >
-	<input type="hidden" name="nYear" value="${scheduleCommand.nYear}" />
+	<input type="hidden" name="nYear" value="${scheduleCommand.nYear }" />
 	<input type="hidden" name="nMonth" value="${scheduleCommand.nMonth}" />
 	<input type="hidden" name="nDay" value="${scheduleCommand.nDay}" />
 	<table border="1">
@@ -22,55 +22,51 @@
 		<tr>
 			<th>관리 종류선택</th>
 			<td>
-				<form:radiobutton path="schType" value="basic"/> 기본스파&nbsp;&nbsp;&nbsp;
-				<form:radiobutton path="schType" value="color"/> 컬러테라피&nbsp;&nbsp;&nbsp;
-				<form:radiobutton path="schType" value="base"/> 헤이베스&nbsp;&nbsp;&nbsp;
-				<form:radiobutton path="schType" value="perfection"/> 스위스퍼펙션 스파&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="schType" value="basic"/> 기본스파&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="schType" value="color"/> 컬러테라피&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="schType" value="base"/> 헤이베스&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="schType" value="perfection"/> 스위스퍼펙션 스파&nbsp;&nbsp;&nbsp;
 			</td>
 		</tr>
 		<tr>
 			<th>예약날짜선택</th>
 			<td>
-				<input type="Date" id="schDate"/>
-				<select name="schDate">
+				<input type="Date" id="schDate" name="schDate"/>
+				<select name="schTime" id="schTime">
 				<c:forEach begin="09" end="20" var="num">
 					<option value =" ${num}:00:00">${num}:00</option>
 				</c:forEach>
 				</select>
-				<form:errors path="schDate" />
 			</td>
 		</tr>
 		<tr>
 			<th>예약자명</th>
 			<td>
-				<form:input path="schName" id="schName" />
-				<form:errors path="schName" />
+				<input type="text" name="schName" id="schName" />
 			</td>
 		</tr>
 		<tr>
 			<th>예약자 수(최대 3명)</th>
 			<td>
-				<form:radiobutton path= "schNum" value="1"/> 1인
-				<form:radiobutton path= "schNum" value="2"/> 2인
-				<form:radiobutton path= "schNum" value="3"/> 3인
-				<form:errors path="schNum" />
+				<input type="radio" name = "schNum" value="1"/> 1인
+				<input type="radio" name = "schNum" value="2"/> 2인
+				<input type="radio" name = "schNum" value="3"/> 3인
 			</td>
 		</tr>
 		<tr>
 			<th>관리사 선택</th>
 			<td>
-				<form:radiobutton path="oseNo" value='107'/> 김나린 &nbsp;&nbsp;
-				<form:radiobutton path="oseNo" value='108'/> 진나린 &nbsp;&nbsp;
-				<form:radiobutton path="oseNo" value='109'/> 김태리 &nbsp;&nbsp;
-				<form:radiobutton path="oseNo" value='110'/> 박연우 &nbsp;&nbsp;
-				<form:radiobutton path="oseNo" /> (첫 방문)없음
-				<form:errors path="oseNo" />
+				<input type="radio" name="oseNo" value='107'/> 김나린 &nbsp;&nbsp;
+				<input type="radio" name="oseNo" value='108'/> 진유라 &nbsp;&nbsp;
+				<input type="radio" name="oseNo" value='109'/> 김태리 &nbsp;&nbsp;
+				<input type="radio" name="oseNo" value='110'/> 박연우 &nbsp;&nbsp;
+				<input type="radio" name="oseNo" value='111'/> (첫 방문)없음
 			</td>
 		</tr>
 		<tr>
 			<th>추가요청사항</th>
 			<td>
-				<form:input path="schContent" id="schContent" />
+				<input type="text" name="schContent" id="schContent" />
 			</td>
 		</tr>
 		<tr>
@@ -81,7 +77,7 @@
 			</th>
 		</tr>
 	</table>	
-</form:form>
+</form>
 </body>
 </html>
 

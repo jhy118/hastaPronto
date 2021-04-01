@@ -4,11 +4,50 @@
 <mapper namespace="mapper.schedule.schMapper">
 	<sql id="sch">
 		SCH_NO, SCH_DATE, SCH_NAME, SCH_CONTENT, USER_ID, OSE_NO, 
-		OS_NO, SCH_TYPE, SCH_NUM, N_YEAR, N_MONTH,N_DAY
+		OS_NO, SCH_TYPE, SCH_NUM, N_YEAR, N_MONTH, N_DAY, SCH_TIME
 	</sql>
 	<insert id="insertSch" parameterType="sch">
 		insert into SCHEDULE (<include refid="sch" />)
 		values(board_seq.nextval, #{schDate},#{schName},#{schContent},
-		#{userId},#{oseNo},#{osNo},#{schType},#{schNum},#{nYear},#{nMonth},#{nDay})
+		#{userId},#{oseNo},#{osNo},#{schType},#{schNum},#{nYear},#{nMonth},#{nDay},#{schTime})
 	</insert>
+	<resultMap type="sch" id="schResult">
+		<id column="SCH_NO" jdbcType="VARCHAR" property="schNo" />
+		<result column="SCH_DATE" jdbcType="VARCHAR" property="schDate" />
+		<result column="SCH_NAME" jdbcType="VARCHAR" property="schName" />
+		<result column="SCH_CONTENT" jdbcType="VARCHAR" property="schContent" />
+		<result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+		<result column="OSE_NO" jdbcType="VARCHAR" property="oseNo" />
+		<result column="OS_NO" jdbcType="VARCHAR" property="osNo" />
+		<result column="SCH_TYPE" jdbcType="VARCHAR" property="schType" />
+		<result column="SCH_NUM" jdbcType="BIGINT" property="schNum" />
+		<result column="N_YEAR" jdbcType="VARCHAR" property="nYear" />
+		<result column="N_MONTH" jdbcType="VARCHAR" property="nMonth" />
+		<result column="N_DAY" jdbcType="VARCHAR" property="nDay" />
+		<result column="SCH_TIME" jdbcType="VARCHAR" property="schTime" />
+	</resultMap>
+	<select id="getSchList" parameterType="sch" resultMap="schResult">
+		select * 
+		from(select rownum rn, <include refid="sch"/>
+			from (select <include refid="sch"/>
+				from SCHEDULE
+				<where>
+					<if test = "schNo != null">
+						SCH_NO = #{schNo}
+					</if>
+				</where>
+				))
+		<if test = "startEndPageDTO != null">
+			where rn between #{startEndPageDTO.startRow}
+				and #{startEndPageDTO.endRow}
+		</if>
+	</select>
+	<select id="getCount" resultType="int">
+		select count(*) from SCHEDULE
+	</select>
+	<update id="theUpdate" parameterType="sch">
+		update SCHEDULE
+		set SCH_DATE = #{schDate}, SCH_CONTENT = #{schContent}, OSE_NO = #{oseNo}, SCH_TYPE=#{"schType"}, SCH_NUM = #{schNum}, SCH_TIME = #{schTime}
+		where SCH_NO = #{schNo}
+	</update>
 </mapper>
