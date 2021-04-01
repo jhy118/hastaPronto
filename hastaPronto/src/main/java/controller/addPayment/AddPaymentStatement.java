@@ -29,4 +29,9 @@ public class AddPaymentStatement {
 		addPaymentService.execute(rmRvNo, model);
 		return "addPayment/addPayment";
 	}
+	@RequestMapping(value = "addPayment/{id}", method = RequestMethod.POST)
+	public String addPaymentOk(@PathVariable(value="id")String rmRvNo, Model model) {
+		addPaymentService.execute(rmRvNo, model);
+		return "addPayment/addPayment";
+	}
 }
