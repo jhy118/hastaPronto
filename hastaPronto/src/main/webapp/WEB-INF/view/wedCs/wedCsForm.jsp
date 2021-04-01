@@ -29,10 +29,6 @@
 <caption>
 	${wedCsCommand.nYear}년 ${wedCsCommand.nMonth}월 ${wedCsCommand.nDay}일
 </caption>
-	<c:if test="${authInfo.grade == 'emp'}">	
-		<tr><th>아이디</th>
-			<td colspan="2"><input type="text" name="userId"></td></tr>
-	</c:if>
 	<tr><th>성명 *</th>
 		<td colspan="2"><form:input path="wedCosName" />
 			<form:errors path="wedCosName" /></td></tr>
@@ -66,6 +62,7 @@
 		<td colspan="2"><input type="text" name="wedCosContent"  /></td></tr>
 </table> 
 <input type="submit" value="상담예약 접수"/>
+<input type="button" value="접수 취소" onclick="javascript:history.back();" />
 </form:form>
 </body>
 </html>

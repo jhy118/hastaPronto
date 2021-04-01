@@ -18,6 +18,7 @@
 		<typeAlias type="model.DTO.WedResDTO" alias="wedRt"/>
 		<typeAlias type="model.DTO.ScheduleDTO" alias="sch"/>
 		<typeAlias type="model.DTO.WedRvDTO" alias="wedRv"/>
+		<typeAlias type="model.DTO.WedPayDTO" alias="wedPay"/>
 		<typeAlias type="model.DTO.ScheduleDTO" alias="schedule"/>
 		<typeAlias type="model.DTO.ReservationRoomDTO" alias="rr"/>
 		<typeAlias type="model.DTO.WedCsDTO" alias="wedCs"/>

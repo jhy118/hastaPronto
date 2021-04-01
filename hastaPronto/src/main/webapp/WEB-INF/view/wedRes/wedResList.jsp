@@ -31,8 +31,9 @@
 	</tr>
 	<tr><th colspan="2">${dto.wedRtName}</th></tr>
 	<tr><th colspan="2">${fn:replace(dto.wedRtMname,cn,br)}</th></tr>
-	<tr><th>수용인원</th><th>${dto.wedRtNum}</th></tr>
+	<tr><th>수용인원</th><th>최대 ${dto.wedRtNum}명</th></tr>
 </table>
+<br /><br /><br /><br /><br /><br /><br /><br />
 </c:forEach>
 </body>
 </html>

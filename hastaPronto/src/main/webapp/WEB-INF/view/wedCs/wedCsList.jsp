@@ -35,13 +35,13 @@
 					<c:if test="${dto.nYear eq nYear 
 						&& dto.nMonth eq nMonth 
 						&& dto.nDay eq fn:replace(value1, ' ','')}">
-						<c:if test="${authInfo.grade == 'emp' }">
+						<c:if test="${authInfo.grade == 'emp' or authInfo.loginId == dto.userId}">
 							<a href='wedCsInfo?wedCosNo=${dto.wedCosNo}';">
-								${dto.wedCosNo}/${dto.wedCosName} 예약완료
+								${dto.wedCosNo}번 고객/${dto.wedCosName} 예약완료
 							</a>
 						</c:if>
-						<c:if test="${authInfo.grade != 'emp' }">
-								${dto.wedCosNo}/${dto.wedCosName} 예약완료<br />
+						<c:if test="${authInfo.grade != 'emp' or authInfo.loginId != dto.userId}">
+								${dto.wedCosNo}번 고객/${dto.wedCosName} 예약완료<br />
 						</c:if>
 					</c:if>
 				</c:forEach>
