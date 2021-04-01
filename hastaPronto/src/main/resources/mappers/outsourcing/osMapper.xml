@@ -7,7 +7,15 @@
 	</sql>
 	<insert id="insertOs" parameterType="os">
 		insert into OUTSOURCING (<include refid="outsourcing" />)
-		values(board_seq.nextval, #{osName}, #{bsLicense},#{osAddr},#{osBusinessName},#{repName},#{osTel},#{osEmail})
+		values(board_seq.nextval, #{osName}, #{bsLicense},#{osAddr},#{osBusinessName},#{repName},
+			#{osTel},#{osEmail})
+	</insert>
+	<sql id="osFile">
+		OS_FILENUM, OS_ORIGINALFILENAME, OS_STOREDFILENAME, OS_FILESIZE
+	</sql>
+	<insert id="insertOsFile" parameterType="osFile">
+		insert into OS_FILE (<include refid="osFile" />)
+		values(board_seq.nextval, #{osOriginalfilename}, #{osStorefilename},#{osFilesize})
 	</insert>
 	<resultMap type="os" id="osResult">
 		<id column="OS_NO" jdbcType="VARCHAR" property="osNo"/>
@@ -18,6 +26,18 @@
    		<result column="REP_NAME" jdbcType="VARCHAR" property="repName" />
    		<result column="OS_TEL" jdbcType="VARCHAR" property="osTel" />
    		<result column="OS_EMAIL" jdbcType="VARCHAR" property="osEmail" />
+<!--    		<association property="insertOsFile"> -->
+<!-- 	   		<id column="OS_FILENUM" jdbcType="VARCHAR" property="osFilenum"/> -->
+<!-- 	   		<result column="OS_ORIGINALFILENAME" jdbcType="VARCHAR" property="osOriginalfilename" /> -->
+<!-- 	   		<result column="OS_STOREDFILENAME" jdbcType="VARCHAR" property="osStorefilename" /> -->
+<!-- 	   		<result column="OS_FILESIZE" jdbcType="VARCHAR" property="osFilesize" /> -->
+<!-- 	   	</association> -->
+	</resultMap>
+	<resultMap type="osFile" id="osFileResult">
+		<id column="OS_FILENUM" jdbcType="VARCHAR" property="osFilenum"/>
+   		<result column="OS_ORIGINALFILENAME" jdbcType="VARCHAR" property="osOriginalfilename" />
+   		<result column="OS_STOREDFILENAME" jdbcType="VARCHAR" property="osStorefilename" />
+   		<result column="OS_FILESIZE" jdbcType="VARCHAR" property="osFilesize" />
 	</resultMap>
 	<select id="getOsList" parameterType="os" resultMap="osResult">
 		select * 
@@ -32,6 +52,21 @@
 					order by os_no asc))
 		<if test="startEndPageDTO != null">
 			where rn between #{startEndPageDTO.startRow}	and #{startEndPageDTO.endRow}
+		</if>
+	</select>
+	<select id="getOsFileList" parameterType="osFile" resultMap="osFileResult">
+		select * 
+			from (select rownum rn, <include refid="osFile" />
+				from(select <include refid="osFile" />
+					from OS_FILE
+					<where>
+						<if test="osFilenum != null">
+							OS_FILENUM = #{osFilenum}
+						</if>
+					</where>
+				))
+		<if test="startEndPageDTO != null">
+			where rn between #{startEndPageDTO.startRow} and #{startEndPageDTO.endRow}
 		</if>
 	</select>
 	<select id="listCount" resultType="int">
@@ -64,7 +99,6 @@
 			</if>
 			 where OS_FILENUM = #{osFilenum}
 	</update>
-	
 <!-- 	<update id="osUpdate" parameterType="model.DTO.OsDTO"> -->
 <!-- 		update users -->
 <!-- 		<trim prefix="set" suffixOverrides=","> -->

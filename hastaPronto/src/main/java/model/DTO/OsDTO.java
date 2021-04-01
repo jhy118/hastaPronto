@@ -10,7 +10,6 @@ public class OsDTO {
 	String osTel;
 	String osEmail;
 	
-	
 	StartEndPageDTO startEndPageDTO;
 	public StartEndPageDTO getStartEndPageDTO() {
 		return startEndPageDTO;
@@ -68,5 +67,6 @@ public class OsDTO {
 	public void setOsEmail(String osEmail) {
 		this.osEmail = osEmail;
 	}
+
 	
 }
