@@ -53,6 +53,8 @@
   			classpath:wedCs.xml
   			classpath:schedule.xml
   			classpath:resSt.xml
+  			classpath:goods.xml
+  			classpath:addPaymentStatement.xml
   			classpath:respay.xml
   			classpath:wedPay.xml
   		</param-value>

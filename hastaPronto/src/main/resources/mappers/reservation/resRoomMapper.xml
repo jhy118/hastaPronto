@@ -57,12 +57,16 @@
 		<result column="RM_PM_CHAR" jdbcType="BIGINT" property="rmPmChar"/>
 		<result column="RM_ACCOUNT" jdbcType="VARCHAR" property="rmAccount"/>
 	</association>
+	<association property="roomDTO" javaType="room">
+		<result column="rm_name" jdbcType="VARCHAR" property="rmName"/>
+		<result column="rm_file" jdbcType="VARCHAR" property="rmFile"/>
+	</association>
 	</resultMap>
 	<select id="getRoomResv" parameterType="rr" resultMap="reMap">
-		select r.RM_RV_NO, CKIN, CKOUT, RM_RV_NUM, RM_NO, r.USER_ID, RM_REQUIREMENTS, RM_EXBADNUM, RM_PM_NO, 
-		RM_PM_CHAR, RM_ACCOUNT
-		from rm_pm p, rm_reservation r
-		where p.rm_rv_no = r.rm_rv_no
+		select r.RM_RV_NO, CKIN, CKOUT, RM_RV_NUM, r.RM_NO, r.USER_ID, RM_REQUIREMENTS, RM_EXBADNUM, RM_PM_NO, 
+		RM_PM_CHAR, RM_ACCOUNT, rm_name, rm_file
+		from rm_pm p, rm_reservation r, room
+		where p.rm_rv_no = r.rm_rv_no and r.rm_no = room.rm_no
 		<if test="userId != null">
 			and r.user_id = #{userId}
 		</if>
@@ -76,5 +80,36 @@
 		<if test="userId != null">
 			where user_id = #{userId}
 		</if>
+	</select>
+	<update id="deleteRoomReservation" parameterType="rr">
+		delete from rm_reservation
+		where user_id = #{userId} and rm_rv_no = #{rmRvNo}
+	</update>
+	<update id="deleteRoomPayment" parameterType="pr">
+		delete from rm_pm
+		where user_id = #{userId} and rm_pm_no = #{rmPmNo}
+	</update>
+	<resultMap type="rr" id="resvUser">
+		<id column="RM_RV_NO" jdbcType="VARCHAR" property="rmRvNo"/>
+		<id column="USER_ID" jdbcType="VARCHAR" property="userId"/>
+		<result column="CKIN" jdbcType="TIMESTAMP" property="ckIn"/>
+		<result column="CKOUT" jdbcType="TIMESTAMP" property="ckOut"/>
+		<result column="RM_RV_NUM" jdbcType="BIGINT" property="rmRvNum"/>
+		<result column="RM_NO" jdbcType="VARCHAR" property="rmNo"/>
+		<result column="RM_REQUIREMENTS" jdbcType="VARCHAR" property="rmRequirements"/>
+		<result column="RM_EXBADNUM" jdbcType="VARCHAR" property="rmExbadnum"/>
+		<association property="memberDTO" javaType="model.DTO.MemberDTO">
+			<result column="user_name" jdbcType="VARCHAR" property="userName"/>
+			<result column="user_ph" jdbcType="VARCHAR" property="userPh"/>
+		</association>
+	</resultMap>
+	<select id="getNoPayedList" parameterType="java.util.List" resultMap="resvUser">
+		select <include refid="baseColumn"/>, user_name, user_ph
+		from rm_reservation join users 
+		using(user_id) 
+		where rm_rv_no not in 
+		<foreach collection="list" item="nvNo" separator="," open="(" close=")">
+			#{nvNo}
+		</foreach>
 	</select>
 </mapper>

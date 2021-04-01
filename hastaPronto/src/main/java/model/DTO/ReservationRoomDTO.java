@@ -12,6 +12,24 @@ public class ReservationRoomDTO {
 	String rmRequirements;
 	Long rmExbadnum;
 	PaymentRoomDTO paymentRoomDTO;
+	RoomDTO roomDTO;
+	MemberDTO memberDTO;
+
+	public MemberDTO getMemberDTO() {
+		return memberDTO;
+	}
+
+	public void setMemberDTO(MemberDTO memberDTO) {
+		this.memberDTO = memberDTO;
+	}
+
+	public RoomDTO getRoomDTO() {
+		return roomDTO;
+	}
+
+	public void setRoomDTO(RoomDTO roomDTO) {
+		this.roomDTO = roomDTO;
+	}
 
 	public PaymentRoomDTO getPaymentRoomDTO() {
 		return paymentRoomDTO;

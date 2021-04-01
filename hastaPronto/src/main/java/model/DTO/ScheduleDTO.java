@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class ScheduleDTO {
 	String schNo;
-	Timestamp schDate;
+	String schDate;
 	String schName;
 	String schContent;
 	String userId;
@@ -12,7 +12,9 @@ public class ScheduleDTO {
 	String osNo;
 	String schType;
 	Integer schNum;
-	String schPay;
+	String nYear;
+	String nMonth;
+	String nDay;
 	
 	public String getSchNo() {
 		return schNo;
@@ -20,10 +22,11 @@ public class ScheduleDTO {
 	public void setSchNo(String schNo) {
 		this.schNo = schNo;
 	}
-	public Timestamp getSchDate() {
+	
+	public String getSchDate() {
 		return schDate;
 	}
-	public void setSchDate(Timestamp schDate) {
+	public void setSchDate(String schDate) {
 		this.schDate = schDate;
 	}
 	public String getSchName() {
@@ -55,5 +58,43 @@ public class ScheduleDTO {
 	}
 	public void setOsNo(String osNo) {
 		this.osNo = osNo;
+	}
+	public String getSchType() {
+		return schType;
+	}
+	public void setSchType(String schType) {
+		this.schType = schType;
+	}
+	public Integer getSchNum() {
+		return schNum;
+	}
+	public void setSchNum(Integer schNum) {
+		this.schNum = schNum;
+	}
+	public String getnYear() {
+		return nYear;
+	}
+	public void setnYear(String nYear) {
+		this.nYear = nYear;
+	}
+	public String getnMonth() {
+		return nMonth;
+	}
+	public void setnMonth(String nMonth) {
+		this.nMonth = nMonth;
+	}
+	public String getnDay() {
+		return nDay;
+	}
+	public void setnDay(String nDay) {
+		this.nDay = nDay;
+	}
+	
+	StartEndPageDTO startEndPageDTO;
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
 	}
 }

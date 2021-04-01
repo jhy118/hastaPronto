@@ -19,4 +19,8 @@ public class RespayRepository {
 		statement = namespace + ".selectRespay";
 		return sqlSession.selectOne(statement, respayDTO);
 	}
+	public Integer deleteRespay(String rtRvNo) {
+		statement = namespace + ".deleteRespay";
+		return sqlSession.delete(statement, rtRvNo);
+	}
 }

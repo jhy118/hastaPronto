@@ -28,7 +28,6 @@
 		<th>메뉴 이름</th>
 		<th>메뉴 수량</th>
 		<th>메뉴 금액</th>
-		<th>결제 방법</th>
 		<td align="center"><input type="submit" value="삭제"></td>   
 	</tr>
 	<c:forEach items="${resStList}" var="resSt" varStatus="resStatus">
@@ -57,10 +56,11 @@
 </table>
 </form>
 <form:form action="../respay/respayRegist" modelAttribute="respay" method="post">
+		<tr><th>결제 방법 : </th></tr>
 		<input type="radio" id="card" name="rtPmMethod" value="Card">카드결제
 		<input type="radio" id="account" name="rtPmMethod" value="Account">계좌이체
 	<input type="submit" 
-			value="결제하러 가기">
+			value="결제 하기">
 	<input type="hidden" name="rtPmChar" value="${totalPrice }">
 	<input type="hidden" name="rtRvNo" value="${resStList[0].rtRvNo }">
 </form:form>
