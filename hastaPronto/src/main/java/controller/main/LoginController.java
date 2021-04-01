@@ -34,4 +34,10 @@ public class LoginController {
 		String path = loginService.execute(loginCommand, model, session);
 		return path;
 	}
+	
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
 }
