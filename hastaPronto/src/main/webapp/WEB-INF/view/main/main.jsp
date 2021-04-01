@@ -43,11 +43,7 @@
 									</ul>
 								</li>
 								<li><a href="left-sidebar.html">RESTAURANT</a></li>
-<<<<<<< HEAD
 								<li><a href="../hastaPronto/schedule/main">PREMIUM LIFE</a></li>
-								<li><a href="no-sidebar.html">WEDDING</a></li>
-=======
-								<li><a href="right-sidebar.html">PREMIUM LIFE</a></li>
 								<li><a href="wedding/wedBrochure">WEDDING</a>
 									<ul>
 										<li><a href="wedding/wedBrochure">WEDDING HALL</a></li>
@@ -61,7 +57,6 @@
 										</li>
 									</ul>
 								</li>
->>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 							</ul>
 						</nav>
 
@@ -176,8 +171,9 @@
 							<c:if test="${authInfo.grade == 'emp' }">
 								<a href="<c:url value='/emp/empList'/>">직원관리</a> |
 								<a href="<c:url value='/dept/deptList'/>">부서관리</a> |
-								<a href="<c:url value='/notice/notice'/>">지원공고</a> |
+								<a href="<c:url value='/addPayStatement/notPayList'/>">체크아웃</a> |
 							</c:if>
+								<a href="<c:url value='/notice/notice'/>">지원공고</a> |
 						</div>
 				</div>
 			</div>

@@ -24,6 +24,11 @@
 </style>
 </head>
 <body class="homepage">
+<c:if test="${authInfo == null }">
+<script>
+	location.href="<c:url value='/login/login'/>";
+</script>
+</c:if>
 	<!-- Header -->
 	<div id="header">
 		<div class="container">

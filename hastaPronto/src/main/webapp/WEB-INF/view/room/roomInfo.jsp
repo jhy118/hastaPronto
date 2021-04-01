@@ -62,8 +62,20 @@
 									</ul>
 								</li>
 								<li><a href="left-sidebar.html">RESTAURANT</a></li>
-								<li><a href="right-sidebar.html">PREMIUM LIFE</a></li>
-								<li><a href="no-sidebar.html">WEDDING</a></li>
+								<li><a href="../hastaPronto/schedule/main">PREMIUM LIFE</a></li>
+								<li><a href="wedding/wedBrochure">WEDDING</a>
+									<ul>
+										<li><a href="wedding/wedBrochure">WEDDING HALL</a></li>
+										<li><a href="wedRes/wedResList">WEDDING BUFFET</a></li>
+										<li><a href="wedCs/wedCsList">COLSULTING</a></li>
+										<li>
+											<a href="wedRv/wedRvList">RESERVATION</a>
+											<ul>
+												<li><a href="wedPay/wedPmList">PAYMENT</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
 							</ul>
 						</nav>
 				</div>
