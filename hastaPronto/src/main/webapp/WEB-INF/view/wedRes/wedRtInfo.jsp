@@ -39,8 +39,8 @@
 		</th>
 	</tr>
 	<tr><th colspan="2">${list.wedRtName} 시설안내</th></tr>
-	<tr><th>이용금액</th><th>${list.wedRtChar}</th></tr>
-	<tr><th>수용인원</th><th>${list.wedRtNum}</th></tr>
+	<tr><th>이용금액</th><th>성인 1인 기준 : ${list.wedRtChar}원</th></tr>
+	<tr><th>수용인원</th><th>최대 ${list.wedRtNum}명</th></tr>
 	<tr><th>위치</th><th>${list.wedRtLocation}</th></tr>
 	<tr><th>메뉴</th>
 		<th>${fn:replace(list.wedRtMname,cn,br)}</th>
@@ -51,7 +51,7 @@
 <a href="wedRtModify?wedRtNo=${list.wedRtNo}">수정</a>
 <a href="#" onclick="return wedRtDel(${list.wedRtNo})">삭제</a>
 </c:if>
-
+<input type="button" value="뒤로가기" onclick="javascript:history.back();" />
 <script type="text/javascript">
 	function wedRtDel(wedRtNo){
 		if(confirm('정말 삭제하시겠습니까?')){

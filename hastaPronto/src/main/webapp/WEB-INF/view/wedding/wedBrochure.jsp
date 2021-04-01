@@ -9,29 +9,25 @@
 </head>
 <body>
 <c:if test="${authInfo.grade == 'emp' }">
-	<a href="wedBroWrite">웨딩사진 등록</a>
+	<a href="wedBroWrite">웨딩사진 등록</a><br />
+	<a href="<c:url value='../wedPay/wedPmList'/>">웨딩 결제내역</a><br />
 </c:if>
-<a href="<c:url value='../wedPay/wedPayList'/>">웨딩 결제내역</a>
 
 <br />
 <!-- 웨딩 예약 버튼 추가쓰 -->
+<a href="<c:url value='../wedRes/wedResList'/>">WEDDING RESTAURANT</a><br />
 <a href="<c:url value='../wedCs/wedCsList'/>">웨딩 예약 문의</a><br />
-
 <a href="<c:url value='../wedRv/wedRvList'/>">웨딩 최종 예약</a><br />
 
 
 <c:forEach items="${list}" var="dto" varStatus="status">
 <table onclick="javascript:location.href=
-	'wedBroInfo?wedNo=${dto.wedNo}';" align="center">
-    <colgroup width="500">
-    	<col width ="200" />
-    	<col width ="200" />
-    </colgroup>
+	'wedBroInfo?wedNo=${dto.wedNo}';">
 	<tr>
 		<th colspan="2">
 			<c:forTokens items="${dto.wedFile}" delims="`"
 				var="i" begin="0" end="0">
-				<img alt="" src="../wedding/upload/${i}" />
+				<img alt="" src="../wedding/upload/${i}"/>
 			</c:forTokens>	
 		</th>
 	</tr>

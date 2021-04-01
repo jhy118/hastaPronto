@@ -32,8 +32,8 @@
 		<th>결제방법</th>
 		<td>
 			<select name="wedPmMethod">
-				<option value="card">카드결제</option>
-				<option value="cash">현금결제</option>
+				<option value="카드 결제">카드결제</option>
+				<option value="현금 결제">현금결제</option>
 			</select>
 		</td>
 	</tr>
