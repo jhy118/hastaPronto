@@ -43,7 +43,7 @@
 					<li><a href="<c:url value='/room/'/>">Room</a></li>
 					<li><a href="twocolumn1.html">Left Sidebar</a></li>
 					<li><a href="twocolumn2.html">Right Sidebar</a></li>
-					<li><a href="onecolumn.html">No Sidebar</a></li>
+					<li><a href="wedding/wedBrochure">WEDDING</a></li>
 				</ul>
 			</nav>
 
