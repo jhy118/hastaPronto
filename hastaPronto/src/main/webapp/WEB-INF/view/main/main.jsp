@@ -77,6 +77,7 @@
 				</div>
 			</div>
 
+<<<<<<< HEAD
 		<!-- Featured -->
 			<div class="wrapper style2">
 				<section class="container">
@@ -101,6 +102,19 @@
 					</div>
 				</section>
 			</div>
+=======
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="active"><a href="<c:url value='/'/>">Hasta
+							Pronto</a></li>
+					<li><a href="<c:url value='/room/'/>">Room</a></li>
+					<li><a href="twocolumn1.html">Left Sidebar</a></li>
+					<li><a href="twocolumn2.html">Right Sidebar</a></li>
+					<li><a href="wedding/wedBrochure">WEDDING</a></li>
+				</ul>
+			</nav>
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 
 		<!-- Main -->
 			<div id="main" class="wrapper style1">
