@@ -24,7 +24,7 @@
 	<tr><th>연락처</th>
 		<td>${wedCsList.wedCosPh}</td></tr>
 	<tr><th>1차 상담일</th>
-		<td>${wedCsList.wedCosNo}.${wedCsList.wedCosDay}</td>
+		<td>${wedCsList.wedCosNo}번/${wedCsList.wedCosDay}</td>
 	</tr>
 </table> 
 
@@ -47,8 +47,8 @@
 	</tr>
 </table>
 </form:form>
-		<a href="wedRvModify?wedRvNo=${wedRvList.wedRvNo}&nYear=${wedRvCommand.nYear}&nMonth=${wedRvCommand.nMonth}&nDay=${wedRvCommand.nDay}">수정</a>
-<a href="#" onclick = "return wedRvDel(${wedRvList.wedRvNo})">삭제</a>
+<a href="wedRvModify?wedRvNo=${wedRvList.wedRvNo}&nYear=${wedRvCommand.nYear}&nMonth=${wedRvCommand.nMonth}&nDay=${wedRvCommand.nDay}">예약 수정</a>
+<a href="#" onclick = "return wedRvDel(${wedRvList.wedRvNo})">예약 삭제</a>
 <script type="text/javascript">
 	function wedRvDel(wedRvNo){
 		if(confirm('정말 삭제하시겠습니까?')){
@@ -57,5 +57,6 @@
 		return false;
 	}
 </script>
+<a href="../wedPay/wedPayForm?wedRvNo=${wedRvList.wedRvNo}&nYear=${wedRvCommand.nYear}&nMonth=${wedRvCommand.nMonth}&nDay=${wedRvCommand.nDay}">예약 결제</a>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package service.wedRv;
+package service.wedPay;
 
 import java.util.List;
 
@@ -7,42 +7,35 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import model.DTO.WedCsDTO;
 import model.DTO.WedDTO;
 import model.DTO.WedResDTO;
-import repository.wedCs.WedCsRepository;
+import model.DTO.WedRvDTO;
 import repository.wedRt.WedRtRepository;
+import repository.wedRv.WedRvRepository;
 import repository.wedding.WedRepository;
 
 @Service
 @Component
-public class WedRvFormService {
+public class WedPayFormService {
 	@Autowired
 	WedRepository wedRepository;
 	@Autowired
 	WedRtRepository wedRtRepository;
-//	@Autowired
-//	WedCsRepository wedCsRepository;
+	@Autowired
+	WedRvRepository wedRvRepository;
 	public void execute(Model model) {
 		WedDTO weddingDTO = new WedDTO();
 		List<WedDTO> wedList = wedRepository.getWedList(weddingDTO);
-		model.addAttribute("wedList", wedList);
+		model.addAttribute("wedList", wedList.get(0));
 		
 		WedResDTO wedResDTO = new WedResDTO();
 		List<WedResDTO> wedRtList = wedRtRepository.getWedRtList(wedResDTO);
-		model.addAttribute("wedRtList", wedRtList);
+		model.addAttribute("wedRtList", wedRtList.get(0));
 		
-		List<WedDTO> wedSelOne = wedRepository.getWedList(weddingDTO);
-		model.addAttribute("wedSelOne", wedSelOne.get(0));
-		
-		List<WedResDTO> wedRtSelOne = wedRtRepository.getWedRtList(wedResDTO);
-		model.addAttribute("wedRtSelOne", wedRtSelOne.get(0));
-		
-		
-//		WedCsDTO wedCsDTO = new WedCsDTO();
-//		List<WedCsDTO> wedCsList = wedCsRepository.getWedCsList(wedCsDTO);
-//		model.addAttribute("wedCsList", wedCsList);
+		WedRvDTO wedRvDTO = new WedRvDTO();
+		List<WedRvDTO> wedRvList = wedRvRepository.getWedRvList(wedRvDTO);
+		model.addAttribute("wedRvList", wedRvList.get(0));
 		
 	}
-
+	
 }

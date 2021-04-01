@@ -54,6 +54,12 @@
 		<td>
 			<input type="text" name="wedRvChar" />
 		</td></tr> 
+		
+<%-- 	<fmt:formatNumber --%>
+<%-- 				value="${0.1*(wedSelOne.wedChar + wedRtSelOne.wedRtChar)}" --%>
+<%-- 				 maxFractionDigits="0" var="wedRvChar"/> --%>
+<%-- 			<c:out value="${wedRvChar}" />원 --%>
+	
 	<tr>
 		<td colspan="2" align ="center">
 			<input type="submit" value="최종 예약" />

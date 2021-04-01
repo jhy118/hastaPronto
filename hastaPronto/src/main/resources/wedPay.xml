@@ -4,4 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean class="controller.wedPay.WedPayController" />
+	<bean id="wedPayFormService" class="service.wedPay.WedPayFormService" />
+	<bean id="wedPayOkService" class="service.wedPay.WedPayOkService" />
+	<bean id="wedPayRepository" class="repository.wedPay.WedPayRepository" />
 </beans>
