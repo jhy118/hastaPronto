@@ -9,16 +9,15 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/jquery.dropotron.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/skel.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/skel-layers.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/init.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="${pageContext.request.contextPath}/css/skel.css" />
-			<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
 		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 <body class="homepage">
 
@@ -29,14 +28,14 @@
 				<div class="container">
 						
 					<!-- Logo -->
-						<h1><a href="#" id="logo">Horizons</a></h1>
+						<h1><a href="<c:url value='/'/>" id="logo">HASTA PRONTO</a></h1>
 					
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="<c:url value='/'/>" >HASTA PRONTO</a></li>
 								<li>
-									<a href="">Dropdown</a>
+									<a href="">ROOM</a>
 									<ul>
 										<li><a href="#">Lorem ipsum dolor</a></li>
 										<li><a href="#">Magna phasellus</a></li>
@@ -54,9 +53,21 @@
 										<li><a href="#">Veroeros feugiat</a></li>
 									</ul>
 								</li>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="no-sidebar.html">No Sidebar</a></li>
+								<li><a href="left-sidebar.html">RESTAURANT</a></li>
+								<li><a href="right-sidebar.html">PREMIUM LIFE</a></li>
+								<li><a href="wedding/wedBrochure">WEDDING</a>
+									<ul>
+										<li><a href="wedding/wedBrochure">WEDDING HALL</a></li>
+										<li><a href="wedRes/wedResList">WEDDING BUFFET</a></li>
+										<li><a href="wedCs/wedCsList">COLSULTING</a></li>
+										<li>
+											<a href="wedRv/wedRvList">RESERVATION</a>
+											<ul>
+												<li><a href="wedPay/wedPmList">PAYMENT</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
 							</ul>
 						</nav>
 
@@ -66,8 +77,8 @@
 							<div class="container">
 								<section>
 									<header class="major">
-										<h2>Welcome to Horizons!</h2>
-										<span class="byline">&hellip; a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit!</span>
+										<h2>Welcome to HastaPronto!</h2>
+										<span class="byline"></a></a></span>
 									</header>
 									<a href="#" class="button alt">Sign Up</a>
 								</section>			
@@ -77,7 +88,6 @@
 				</div>
 			</div>
 
-<<<<<<< HEAD
 		<!-- Featured -->
 			<div class="wrapper style2">
 				<section class="container">
@@ -102,19 +112,6 @@
 					</div>
 				</section>
 			</div>
-=======
-			<!-- Nav -->
-			<nav id="nav">
-				<ul>
-					<li class="active"><a href="<c:url value='/'/>">Hasta
-							Pronto</a></li>
-					<li><a href="<c:url value='/room/'/>">Room</a></li>
-					<li><a href="twocolumn1.html">Left Sidebar</a></li>
-					<li><a href="twocolumn2.html">Right Sidebar</a></li>
-					<li><a href="wedding/wedBrochure">WEDDING</a></li>
-				</ul>
-			</nav>
->>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 
 		<!-- Main -->
 			<div id="main" class="wrapper style1">
