@@ -9,10 +9,12 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import command.ScheduleCommand;
 import command.WedCsCommand;
 import service.schedule.TherapyCalendarListService;
+import service.schedule.TherapyListOkService;
 import service.schedule.TherapyListService;
 import validator.ScheduleCommandValidator;
 
@@ -23,7 +25,15 @@ public class TherapySchedule {
 	TherapyListService therapyListService;
 	@Autowired
 	TherapyCalendarListService therapyCalendarListService;
-
+	@Autowired
+	TherapyListOkService therapyListOkService;
+	
+	@RequestMapping("therapyListOk")
+	public String therapyListOk(
+			@RequestParam(value="page", defaultValue="1") Integer page, Model model) {
+		therapyListOkService.execute(model,page);
+		return "schedule/therapy/therapyListOk";
+	}
 	@RequestMapping("therapyList")
 	public String therapyList(Model model, ScheduleCommand scheduleCommand) {
 		TherapyCalendarListService.execute(model, scheduleCommand);
