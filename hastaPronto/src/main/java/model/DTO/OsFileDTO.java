@@ -1,11 +1,17 @@
 package model.DTO;
 
 public class OsFileDTO {
-	private String osFilenum;
-	private String osOriginalfilename;
-	private String osStorefilename;
-	private String osFilesize;
-	
+	String osFilenum;
+	String osOriginalfilename;
+	String osStorefilename;
+	String osFilesize;
+	StartEndPageDTO startEndPageDTO;
+	public StartEndPageDTO getStartEndPageDTO() {
+		return startEndPageDTO;
+	}
+	public void setStartEndPageDTO(StartEndPageDTO startEndPageDTO) {
+		this.startEndPageDTO = startEndPageDTO;
+	}
 	public String getOsFilenum() {
 		return osFilenum;
 	}
@@ -30,4 +36,5 @@ public class OsFileDTO {
 	public void setOsFilesize(String osFilesize) {
 		this.osFilesize = osFilesize;
 	}
+	
 }

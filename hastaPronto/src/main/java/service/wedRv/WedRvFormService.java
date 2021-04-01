@@ -31,7 +31,14 @@ public class WedRvFormService {
 		WedResDTO wedResDTO = new WedResDTO();
 		List<WedResDTO> wedRtList = wedRtRepository.getWedRtList(wedResDTO);
 		model.addAttribute("wedRtList", wedRtList);
-//		
+		
+		List<WedDTO> wedSelOne = wedRepository.getWedList(weddingDTO);
+		model.addAttribute("wedSelOne", wedSelOne.get(0));
+		
+		List<WedResDTO> wedRtSelOne = wedRtRepository.getWedRtList(wedResDTO);
+		model.addAttribute("wedRtSelOne", wedRtSelOne.get(0));
+		
+		
 //		WedCsDTO wedCsDTO = new WedCsDTO();
 //		List<WedCsDTO> wedCsList = wedCsRepository.getWedCsList(wedCsDTO);
 //		model.addAttribute("wedCsList", wedCsList);

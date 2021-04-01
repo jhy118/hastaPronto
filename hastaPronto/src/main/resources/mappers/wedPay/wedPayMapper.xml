@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.wedPay.wedPayMapper">
+	<sql id="baseColumn">
+		WED_PM_NO, 	WED_PM_CHAR, WED_PM_METHOD, USER_ID, WED_RV_NO, WED_PM_DATE
+	</sql>
+	<sql id="baseColumn1">
+		WED_PM_NO wedPmNo, WED_PM_CHAR wedPmChar, WED_PM_METHOD wedPmMethod, 
+		USER_ID userId, WED_RV_NO wedRvNo, WED_PM_DATE wedPmDate
+	</sql>
+	<sql id ="noMaker">
+   		select NVL(max(WED_PM_NO), 0) +1 from WEDDING_PAYMENT
+	</sql>
+	<insert id="wedPayInsert" parameterType="wedPay">
+		insert into WEDDING_PAYMENT(<include refid="baseColumn" />)
+		values ((<include refid="noMaker" />), #{wedPmChar}, #{wedPmMethod}, 
+		#{userId}, #{wedRvNo}, SYSDATE)
+	</insert>
+	<select id="getWedPayList" parameterType="wedPay" resultType="wedPay">
+   		select *
+   		from ( select rownum rn, <include refid="baseColumn1" />
+			from ( select <include refid="baseColumn" />
+				from WEDDING_PAYMENT
+				<where>
+					<if test="wedPmNo != null">
+						WED_PM_NO = #{wedPmNo}
+					</if>
+				</where>
+				order by WED_PM_DATE
+			)
+		)
+   </select>
+</mapper>

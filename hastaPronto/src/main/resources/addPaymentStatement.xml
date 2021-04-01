@@ -6,5 +6,6 @@
 	<bean class="controller.addPayment.AddPaymentStatement" />
 	<bean class="service.addPayment.NotPayListService" id="notPayListService"/>
 	<bean class="service.addPayment.AddPaymentService" id="addPaymentService"/>
+	<bean class="service.addPayment.AddPaymentRegistService" id="addPaymentRegistService"/>
 	<bean class="repository.addPayment.AddPaymentRepository" id="addPaymentRepository"/>
 </beans>

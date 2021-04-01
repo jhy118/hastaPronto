@@ -1,0 +1,38 @@
+<<<<<<< HEAD
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	.button
+	{
+		/*
+		
+		For elements that use border-radius, add the following:
+		
+			-ms-behavior: url('css/ie/PIE.htc');
+
+		Note that PIE.htc requires its elements to be relative or absolute:
+
+			position: relative;
+
+		*/
+=======
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	.button
+	{
+		/*
+		
+		For elements that use border-radius, add the following:
+		
+			-ms-behavior: url('css/ie/PIE.htc');
+
+		Note that PIE.htc requires its elements to be relative or absolute:
+
+			position: relative;
+
+		*/
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
+	}

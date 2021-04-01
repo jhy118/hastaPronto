@@ -27,6 +27,7 @@ public class TherapyListService {
 		scheduleDTO.setnYear(scheduleCommand.getnYear());
 		scheduleDTO.setnMonth(scheduleCommand.getnMonth());
 		scheduleDTO.setnDay(scheduleCommand.getnDay());
+		scheduleDTO.setSchTime(scheduleCommand.getSchTime());
 		HttpSession session = request.getSession();
 		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
 		scheduleDTO.setUserId(authInfo.getLoginId());

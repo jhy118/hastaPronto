@@ -35,7 +35,7 @@ public class WedRvOkService {
 		//System.out.println(wedRvCommand.getWedCosNo()); //
 		System.out.println(wedRvCommand.getWedNo());
 		System.out.println(wedRvCommand.getWedRtNo());
-		System.out.println(wedRvCommand.getWedRvChar());
+		System.out.println(wedRvCommand.getWedRvChar()); //
 		System.out.println(wedRvCommand.getWedRvTime().trim());
 		System.out.println(wedRvCommand.getWedRvNo()); //
 		System.out.println(wedRvCommand.getnDay());

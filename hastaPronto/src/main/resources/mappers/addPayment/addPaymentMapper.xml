@@ -5,4 +5,13 @@
 	<select id="getRvNo" resultType="string">
 		select rm_rv_no from add_payment
 	</select>
+	<insert id="insertAddPay" parameterType="model.DTO.AddPayDTO">
+		insert into add_payment(AP_NO, TOTAL_CHAR, AP_METHOD, RM_RV_NO, USER_ID)
+		values((select nvl(max(ap_no), 0) + 1 from add_payment), #{totalChar}, #{apMethod}, #{rmRvNo}, #{userId})
+	</insert>
+	<insert id="insertAddPayStatement" parameterType="model.DTO.AddPayStatementDTO">
+		insert into add_payment_statement(APS_NO, APS_GNAME, APS_NUM, APS_CHAR, RM_RV_NO, USER_ID, GOODS_NO)
+		values((select nvl(max(aps_no), 0) + 1 from add_payment_statement where RM_RV_NO = #{rmRvNo} and
+		 USER_ID = #{userId}), ${apsGName}, ${apsNum}, ${apsChar}, ${rmRvNo}, ${userId}, ${goodsNo})
+	</insert>
 </mapper>
