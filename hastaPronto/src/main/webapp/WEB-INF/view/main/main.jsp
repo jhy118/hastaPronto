@@ -4,37 +4,105 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Hasta Pronto</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'
-	rel='stylesheet' type='text/css'>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/skel.min.js"></script>
-<script src="js/skel-panels.min.js"></script>
-<script src="js/init.js"></script>
-<noscript>
-	<link rel="stylesheet" href="css/skel-noscript.css" />
-	<link rel="stylesheet" href="css/style.css" />
-</noscript>
-</head>
-<<<<<<< HEAD
+		<title>Horizons by TEMPLATED</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/jquery.dropotron.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/skel.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/skel-layers.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="${pageContext.request.contextPath}/css/skel.css" />
+			<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
 <body class="homepage">
 
-	<!-- Header -->
-	<div id="header">
-		<div class="container">
+	<body class="homepage">
 
-			<!-- Logo -->
-			<div id="logo">
-				<h1>
-					<a href="<c:url value='/'/>">Hasta Pronto</a>
-				</h1>
-				<span></span>
+		<!-- Header -->
+			<div id="header">
+				<div class="container">
+						
+					<!-- Logo -->
+						<h1><a href="#" id="logo">Horizons</a></h1>
+					
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="">Dropdown</a>
+									<ul>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Magna phasellus</a></li>
+										<li><a href="#">Etiam dolore nisl</a></li>
+										<li>
+											<a href="">Phasellus consequat</a>
+											<ul>
+												<li><a href="#">Lorem ipsum dolor</a></li>
+												<li><a href="#">Phasellus consequat</a></li>
+												<li><a href="#">Magna phasellus</a></li>
+												<li><a href="#">Etiam dolore nisl</a></li>
+												<li><a href="#">Veroeros feugiat</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Veroeros feugiat</a></li>
+									</ul>
+								</li>
+								<li><a href="left-sidebar.html">Left Sidebar</a></li>
+								<li><a href="right-sidebar.html">Right Sidebar</a></li>
+								<li><a href="no-sidebar.html">No Sidebar</a></li>
+							</ul>
+						</nav>
+
+
+					<!-- Banner -->
+						<div id="banner">
+							<div class="container">
+								<section>
+									<header class="major">
+										<h2>Welcome to Horizons!</h2>
+										<span class="byline">&hellip; a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit!</span>
+									</header>
+									<a href="#" class="button alt">Sign Up</a>
+								</section>			
+							</div>
+						</div>
+
+				</div>
 			</div>
 
+<<<<<<< HEAD
+		<!-- Featured -->
+			<div class="wrapper style2">
+				<section class="container">
+					<header class="major">
+						<h2>Nulla luctus eleifend</h2>
+						<span class="byline">Mauris vulputate dolor sit amet nibh</span>
+					</header>
+					<div class="row no-collapse-1">
+						<section class="4u">
+							<a href="#" class="image feature"><img src="images/pic02.jpg" alt=""></a>
+							<p>Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat.</p>
+						</section>
+						<section class="4u">
+							<a href="#" class="image feature"><img src="images/pic03.jpg" alt=""></a>
+							<p>Donec ornare neque ac sem. Mauris aliquet. Aliquam sem leo, vulputate sed, convallis. Donec magna.</p>
+						</section>
+						<section class="4u">
+							<a href="#" class="image feature"><img src="images/pic04.jpg" alt=""></a>
+							<p>Curabitur sem urna, consequat vel, suscipit convallis sem leo, mattis placerat, nulla. Sed ac leo.</p>
+						</section>
+	
+					</div>
+				</section>
+			</div>
+=======
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
@@ -43,21 +111,121 @@
 					<li><a href="<c:url value='/room/'/>">Room</a></li>
 					<li><a href="twocolumn1.html">Left Sidebar</a></li>
 					<li><a href="twocolumn2.html">Right Sidebar</a></li>
-					<li><a href="onecolumn.html">No Sidebar</a></li>
+					<li><a href="wedding/wedBrochure">WEDDING</a></li>
 				</ul>
 			</nav>
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 
-		</div>
-	</div>
-	<!-- Header -->
+		<!-- Main -->
+			<div id="main" class="wrapper style1">
+				<section class="container">
+					<header class="major">
+						<h2>Nulla luctus eleifend</h2>
+						<span class="byline">Mauris vulputate dolor sit amet nibh</span>
+					</header>
+					<div class="row">
+					
+						<!-- Content -->
+							<div class="6u">
+								<section>
+									<ul class="style">
+										<li>
+											<span class="fa fa-wrench"></span>
+											<h3>Integer ultrices</h3>
+											<span>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim.</span>
+										</li>
+										<li>
+											<span class="fa fa-cloud"></span>
+											<h3>Aliquam luctus</h3>
+											<span>Pellentesque viverra vulputate enim. Aliquam erat volutpat. Maecenas condimentum enim tincidunt risus accumsan.</span>
+										</li>
+									</ul>
+								</section>
+							</div>
+							<div class="6u">
+								<section>
+									<ul class="style">
+										<li>
+											<span class="fa fa-cogs"></span>
+											<h3>Integer ultrices</h3>
+											<span>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim.</span>
+										</li>
+										<li>
+											<span class="fa fa-leaf"></span>
+											<h3>Aliquam luctus</h3>
+											<span>Pellentesque viverra vulputate enim. Aliquam erat volutpat. Maecenas condimentum enim tincidunt risus accumsan.</span>
+										</li>
+									</ul>
+								</section>
+							</div>
 
-	<!-- Main -->
-	<div id="main">
-		<div class="container">
-			<header>
-				<h2></h2>
-			</header>
-			<div class="row">
+					</div>
+				</section>
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container">
+
+					<!-- Lists -->
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header class="major">
+										<h2>Donec dictum metus</h2>
+										<span class="byline">Quisque semper augue mattis wisi maecenas ligula</span>
+									</header>
+									<div class="row">
+										<section class="6u">
+											<ul class="default">
+												<li><a href="#">Pellentesque elit non gravida blandit.</a></li>
+												<li><a href="#">Lorem ipsum dolor consectetuer elit.</a></li>
+												<li><a href="#">Phasellus nibh pellentesque congue.</a></li>
+												<li><a href="#">Cras vitae metus aliquam  pharetra.</a></li>
+											</ul>
+										</section>
+										<section class="6u">
+											<ul class="default">
+												<li><a href="#">Pellentesque elit non gravida blandit.</a></li>
+												<li><a href="#">Lorem ipsum dolor consectetuer elit.</a></li>
+												<li><a href="#">Phasellus nibh pellentesque congue.</a></li>
+												<li><a href="#">Cras vitae metus aliquam  pharetra.</a></li>
+											</ul>
+										</section>
+									</div>
+								</section>
+							</div>
+							<div class="4u">
+								<section>
+									<header class="major">
+										<h2>Donec dictum metus</h2>
+										<span class="byline">Mattis wisi maecenas ligula</span>
+									</header>
+									<ul class="contact">
+										<li>
+											<span class="address">Address</span>
+											<span>1234 Somewhere Road #4285 <br />Nashville, TN 00000</span>
+										</li>
+										<li>
+											<span class="mail">Mail</span>
+											<span><a href="#">someone@untitled.tld</a></span>
+										</li>
+										<li>
+											<span class="phone">Phone</span>
+											<span>(000) 000-0000</span>
+										</li>
+									</ul>	
+								</section>
+							</div>
+						</div>
+
+					<!-- Copyright -->
+						<div class="copyright">
+							Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+						</div>
+
+				</div>
+			</div>
 				<a href="<c:url value='dept/deptList'/>">부서</a><br /> <a
 					href="<c:url value='emp/empList'/>">직원</a><br /> <a
 					href="<c:url value='mem/memRegist'/>">회원가입</a><br /> <a
@@ -73,141 +241,6 @@
 					href="<c:url value='osEmployees/osEmpList'/>">강사</a><br /> <a
 					href="<c:url value='res/resList'/>">레스토랑</a><br /> <a
 					href="<c:url value='schedule/main'/>">부가서비스</a><br />
-				<div class="3u">
-					<section>
-						<a href="#" class="image full"><img src="" alt="" /></a>
-						<p></p>
-					</section>
-				</div>
-				<div class="3u">
-					<section>
-						<a href="#" class="image full"><img src="" alt="" /></a>
-						<p></p>
-					</section>
-				</div>
-				<div class="3u">
-					<section>
-						<a href="#" class="image full"><img src="" alt="" /></a>
-						<p></p>
-					</section>
-				</div>
-				<div class="3u">
-					<section>
-						<a href="#" class="image full"><img src="" alt="" /></a>
-						<p></p>
-					</section>
-				</div>
-			</div>
-			<div class="divider"></div>
-			<div class="row">
 
-				<!-- Content -->
-				<div class="8u skel-cell-important">
-					<section id="content">
-						<header>
-							<h2></h2>
-							<span class="byline"></span>
-						</header>
-						<p>
-							<a href="#" class="image full"><img src="" alt=""></a>
-						</p>
-						<p>
-							<strong></strong>
-						</p>
-					</section>
-				</div>
-				<!-- /Content -->
-
-				<!-- Sidebar -->
-				<div id="sidebar" class="4u">
-					<section>
-						<header>
-							<h2></h2>
-							<span class="byline"></span>
-						</header>
-						<p></p>
-						<ul class="default">
-
-						</ul>
-					</section>
-				</div>
-				<!-- Sidebar -->
-
-			</div>
-
-		</div>
-	</div>
-	<!-- Main -->
-
-	<!-- Footer -->
-	<div id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="3u">
-					<section>
-						<ul class="style1">
-							<li><img src="" width="" height="" alt="">
-								<p></p>
-								<p class="posted"></p></li>
-							<li><img src="" width="" height="" alt="">
-								<p></p>
-								<p class="posted"></p></li>
-							<li><img src="" width="" height="" alt="">
-								<p></p>
-								<p class="posted"></p></li>
-						</ul>
-					</section>
-				</div>
-				<div class="3u">
-					<section>
-						<ul class="style1">
-							<li class="first"><img src="" width="" height="" alt="">
-								<p></p>
-								<p class="posted"></p></li>
-							<li><img src="" width="" height="" alt="">
-								<p></p>
-								<p class="posted"></p></li>
-							<li><img src="" width="" height="" alt="">
-								<p></p>
-								<p class="posted"></p></li>
-						</ul>
-					</section>
-				</div>
-				<div class="6u">
-					<section>
-						<header>
-							<h2></h2>
-						</header>
-						<p></p>
-						<ul class="default">
-						</ul>
-					</section>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Footer -->
-
-	<!-- Copyright -->
-	<div id="copyright">
-		<div class="container"></div>
-	</div>
-=======
-<body>
-	<a href="<c:url value='dept/deptList'/>">부서</a><br />
-	<a href="<c:url value='emp/empList'/>">직원</a><br />
-	<a href="<c:url value='mem/memRegist'/>">회원가입</a><br />
-	<a href="<c:url value='man/memList'/>">회원리스트</a><br />
-	<a href="<c:url value='login/login'/>">로그인</a><br>
-	<a href="<c:url value='ann/annList'/>">공지사항</a><br>
-	<a href="<c:url value='notice/notice'/>">공고</a><br>
-	<a href="<c:url value='question/question'/>">문의사항</a><br />
-	<a href="<c:url value='goodsPaySt/goodsPayStList'/>">대금지급서</a><br />
-	<a href="<c:url value='wedding/wedBrochure'/>">WEDDING</a><br />
-	<a href="<c:url value='outsourcing/osList'/>">협력업체</a><br />
-	<a href="<c:url value='osEmployees/osEmpList'/>">강사</a><br />
-	<a href="<c:url value='res/resList'/>">레스토랑</a><br />
-	<a href="<c:url value='schedule/main'/>">부가서비스</a><br />
->>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
-</body>
+	</body>
 </html>
