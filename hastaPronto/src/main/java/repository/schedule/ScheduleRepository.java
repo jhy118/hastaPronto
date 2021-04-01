@@ -19,6 +19,10 @@ public class ScheduleRepository {
 		statement = namespace + ".insertSch";
 		return sqlSession.update(statement,scheduleDTO);
 	}
+	public List<ScheduleDTO> getSchList(ScheduleDTO scheduleDTO) {
+		statement = namespace + ".getSchList";
+		return sqlSession.selectList(statement, scheduleDTO);
+	}
 
 
 }

@@ -35,14 +35,9 @@
 					<c:if test="${dto.nYear eq nYear 
 						&& dto.nMonth eq nMonth 
 						&& dto.nDay eq fn:replace(value1, ' ','')}">
-						<c:if test="${authInfo.grade == 'emp' }">
 							<a href='wedRvInfo?wedRvNo=${dto.wedRvNo}&nYear=${nYear}&nMonth=${nMonth}&nDay=${value1}';">
 								${dto.wedRvNo} / ${dto.wedRvTime} 예약완료
 							</a>
-						</c:if>
-						<c:if test="${authInfo.grade != 'emp' }">
-								${dto.wedRvNo} / ${dto.wedRvTime} 예약완료
-						</c:if>
 					</c:if>
 				</c:forEach>
 			</div>

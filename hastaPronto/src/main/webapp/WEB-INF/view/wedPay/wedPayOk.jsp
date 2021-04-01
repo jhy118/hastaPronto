@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>wedPayList.jsp</title>
+<title>wedPayOk.jsp</title>
 </head>
 <body>
-결제내역 리스트
+결제가 완료되었습니다~!
+
 </body>
 </html>

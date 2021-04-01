@@ -9,4 +9,5 @@
 	<bean class="service.schedule.TherapyListService"/>
 	<bean class="repository.schedule.ScheduleRepository" />
 	<bean class="service.schedule.TherapyCalendarListService" />
+	<bean class="service.schedule.TherapyListOkService"/>
 </beans>

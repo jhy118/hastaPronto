@@ -51,5 +51,6 @@
 </table>
 
 <a href="therapyRvForm">테라피 예약하기</a>
+<a href="therapyListOk">예약리스트 확인</a>
 </body>
 </html>
