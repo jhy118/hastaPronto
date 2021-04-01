@@ -2,8 +2,6 @@ package service.wedPay;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
@@ -23,8 +21,7 @@ public class WedPayOkService {
 		wedPayRepository.wedPayInsert(wedPayDTO);
 		
 		List<WedPayDTO> list = wedPayRepository.getWedPayList(wedPayDTO);
-		model.addAttribute("list", list);
-		
+		model.addAttribute("list", list.get(0));
 	}
 
 }

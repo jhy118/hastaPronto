@@ -15,6 +15,7 @@ public class ScheduleDTO {
 	String nYear;
 	String nMonth;
 	String nDay;
+	String schTime;
 	
 	public String getSchNo() {
 		return schNo;
@@ -22,7 +23,6 @@ public class ScheduleDTO {
 	public void setSchNo(String schNo) {
 		this.schNo = schNo;
 	}
-	
 	public String getSchDate() {
 		return schDate;
 	}
@@ -89,7 +89,14 @@ public class ScheduleDTO {
 	public void setnDay(String nDay) {
 		this.nDay = nDay;
 	}
-	
+	public String getSchTime() {
+		return schTime;
+	}
+	public void setSchTime(String schTime) {
+		this.schTime = schTime;
+	}
+
+
 	StartEndPageDTO startEndPageDTO;
 	public StartEndPageDTO getStartEndPageDTO() {
 		return startEndPageDTO;

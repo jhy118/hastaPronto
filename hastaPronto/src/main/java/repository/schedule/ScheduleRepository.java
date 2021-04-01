@@ -23,6 +23,17 @@ public class ScheduleRepository {
 		statement = namespace + ".getSchList";
 		return sqlSession.selectList(statement, scheduleDTO);
 	}
-
-
+	public Integer getCount() {
+		statement = namespace + ".getCount";
+		return sqlSession.selectOne(statement);
+	}
+	public Integer theUpdate(ScheduleDTO scheduleDTO) {
+		statement = namespace + ".theUpdate";
+		return sqlSession.update(statement, scheduleDTO);
+	}
+	public Integer therapyDelete(String schNo) {
+		statement = namespace + ".therapyDelete";
+		return sqlSession.update(statement, schNo);
+	}
+	
 }

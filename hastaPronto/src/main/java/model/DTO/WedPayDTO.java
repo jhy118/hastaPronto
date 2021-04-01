@@ -1,12 +1,21 @@
 package model.DTO;
 
+import java.sql.Timestamp;
+
 public class WedPayDTO {
 	String wedPmNo;
 	double wedPmChar;
 	String wedPmMethod;
 	String userId;
 	String wedRvNo;
-	String wedCosNo;
+	Timestamp wedPmDate;
+	
+	public Timestamp getWedPmDate() {
+		return wedPmDate;
+	}
+	public void setWedPmDate(Timestamp wedPmDate) {
+		this.wedPmDate = wedPmDate;
+	}
 	public String getWedPmNo() {
 		return wedPmNo;
 	}
@@ -36,12 +45,6 @@ public class WedPayDTO {
 	}
 	public void setWedRvNo(String wedRvNo) {
 		this.wedRvNo = wedRvNo;
-	}
-	public String getWedCosNo() {
-		return wedCosNo;
-	}
-	public void setWedCosNo(String wedCosNo) {
-		this.wedCosNo = wedCosNo;
 	}
 	
 }
