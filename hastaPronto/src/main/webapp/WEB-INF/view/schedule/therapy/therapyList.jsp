@@ -105,7 +105,7 @@
 					</header>
 					<div class="row no-collapse-1">
 						<section class="4u">
-							<a href="../schedule/therapy/therapyList" class="image feature"><img src="images/01.jpg" alt=""></a>
+							<img src="images/01.jpg" alt="">
 							<p>스파는 모든 공간에서 한강을 한눈에 내려다 볼 수 있는 호텔 특화 시설로 두 가지의 편백 스파와 습식 스파, <br >그리고 냉온탕과 열탕으로 구성됩니다.</p>
 						</section>
 						<section class="4u">
@@ -113,11 +113,11 @@
 							<p></p>
 						</section>
 						<section class="4u">
-							<a href="../schedule/therapy/therapyList" class="image feature"><img src="images/02.jpg" alt=""></a>
+							<img src="images/02.jpg" alt="">
 							<p>컬러테라피(1회당 200,000원)FDA 승인을 받은 스파장비가 갖춰진 최첨단 스파 시설을 자랑하며, 음악이 지닌 고유의 리듬과 파장으로 깨어진 심신의 발란스를 찾아줍니다.</p>
 						</section>
 						<section class="4u">
-							<a href="../schedule/therapy/therapyList" class="image feature"><img src="images/03.jpg" alt=""></a>
+							<img src="images/03.jpg" alt="">
 							<p>스위스에서 공수해온 유기농 천연 건초를 덮고 체내의 노폐물을 제거하는<br /> '헤이배스'(1회당 350,000원)는 도심에서 벗어나 스위스 알프스 언덕에 누워있는 듯한 순간을 경험하게 해줍니다.</p>
 						</section>
 						<section class="4u">
@@ -125,7 +125,7 @@
 							<p></p>
 						</section>
 						<section class="4u">
-							<a href="../schedule/therapy/therapyList" class="image feature"><img src="images/04.jpg" alt=""></a>
+							<img src="images/04.jpg" alt="">
 							<p>머리끝부터 발끝까지 최상의 컨디션을 되찾아주는 이곳 ‘스위스퍼펙션 스파’의 유럽식 스파 트리트먼트(1회당 520,000원)는 각종 스트레스에 시달리는 현대인의 오아시스라고 불리는 최상의 관리입니다.</p>
 						</section>
 					</div>
