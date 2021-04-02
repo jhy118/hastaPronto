@@ -43,6 +43,7 @@
 									</ul>
 								</li>
 								<li><a href="left-sidebar.html">RESTAURANT</a></li>
+<<<<<<< HEAD
 								<li><a href="<c:url value='/schedule/main'/>">PREMIUM LIFE</a>
 									<ul>
 										<li><a href="<c:url value='/schedule/therapyList'/>">THERAPY(SPA)</a></li>
@@ -51,15 +52,21 @@
 									</ul>
 								</li>
 								<li><a href="wedding/wedBrochure">WEDDING</a>
+=======
+								<li><a href="../hastaPronto/schedule/main">PREMIUM LIFE</a></li>
+								<li><a href="<c:url value='/wedding/wedBrochure'/>">WEDDING</a>
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 									<ul>
-										<li><a href="wedding/wedBrochure">WEDDING HALL</a></li>
-										<li><a href="wedRes/wedResList">WEDDING BUFFET</a></li>
-										<li><a href="wedCs/wedCsList">COLSULTING</a></li>
+										<li><a href="<c:url value='/wedding/wedBrochure'/>">WEDDING HALL</a></li>
+										<li><a href="<c:url value='/wedRes/wedResList'/>">WEDDING BUFFET</a></li>
+										<li><a href="<c:url value='/wedCs/wedCsList'/>">COLSULTING</a></li>
 										<li>
-											<a href="wedRv/wedRvList">RESERVATION</a>
-											<ul>
-												<li><a href="wedPay/wedPmList">PAYMENT</a></li>
-											</ul>
+											<a href="<c:url value='/wedRv/wedRvList'/>">RESERVATION</a>
+											<c:if test="${authInfo.grade == 'emp'}">
+												<ul>
+													<li><a href="<c:url value='/wedPay/wedPmList'/>">PAYMENT</a></li>
+												</ul>
+											</c:if>
 										</li>
 									</ul>
 								</li>
