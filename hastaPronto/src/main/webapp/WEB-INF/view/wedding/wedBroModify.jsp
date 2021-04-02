@@ -14,6 +14,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+<<<<<<< HEAD
 		<script src="<c:url value='/js/jquery.min.js'/>"></script>
 		<script src="<c:url value='/js/jquery.dropotron.min.js'/>"></script>
 		<script src="<c:url value='/js/skel.min.js'/>"></script>
@@ -23,6 +24,15 @@
 		</noscript>
 			<link rel="stylesheet" href="<c:url value='/css/skel.css'/>" />
 			<link rel="stylesheet" href="<c:url value='/css/style.css'/>" />
+=======
+<script src="<c:url value='/js/jquery.min.js'/>"></script>
+<script src="<c:url value='/js/jquery.dropotron.min.js'/>"></script>
+<script src="<c:url value='/js/skel.min.js'/>"></script>
+<script src="<c:url value='/js/skel-layers.min.js'/>"></script>
+<script src="<c:url value='/js/init.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/css/skel.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/style.css'/>" />
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body class="no-sidebar">

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file = "../include/include.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ include file="../include/include.jsp"%>
 <!DOCTYPE HTML>
 <!--
 	Horizons by TEMPLATED
