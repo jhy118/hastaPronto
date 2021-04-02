@@ -43,8 +43,19 @@
 									</ul>
 								</li>
 								<li><a href="left-sidebar.html">RESTAURANT</a></li>
+<<<<<<< HEAD
+								<li><a href="<c:url value='/schedule/main'/>">PREMIUM LIFE</a>
+									<ul>
+										<li><a href="<c:url value='/schedule/therapyList'/>">THERAPY(SPA)</a></li>
+										<li><a href="<c:url value='/schedule/fitnessMain'/>">FITNESS</a></li>
+										<li><a href="<c:url value='/schedule/swimmingMain'/>">SWIMMING POOL</a></li>
+									</ul>
+								</li>
+								<li><a href="wedding/wedBrochure">WEDDING</a>
+=======
 								<li><a href="../hastaPronto/schedule/main">PREMIUM LIFE</a></li>
 								<li><a href="<c:url value='/wedding/wedBrochure'/>">WEDDING</a>
+>>>>>>> branch 'main' of https://github.com/jhy118/hastaPronto.git
 									<ul>
 										<li><a href="<c:url value='/wedding/wedBrochure'/>">WEDDING HALL</a></li>
 										<li><a href="<c:url value='/wedRes/wedResList'/>">WEDDING BUFFET</a></li>
