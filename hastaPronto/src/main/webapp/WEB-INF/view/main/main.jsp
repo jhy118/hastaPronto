@@ -43,7 +43,13 @@
 									</ul>
 								</li>
 								<li><a href="left-sidebar.html">RESTAURANT</a></li>
-								<li><a href="../hastaPronto/schedule/main">PREMIUM LIFE</a></li>
+								<li><a href="<c:url value='/schedule/main'/>">PREMIUM LIFE</a>
+									<ul>
+										<li><a href="<c:url value='/schedule/therapyList'/>">THERAPY(SPA)</a></li>
+										<li><a href="<c:url value='/schedule/fitnessMain'/>">FITNESS</a></li>
+										<li><a href="<c:url value='/schedule/swimmingMain'/>">SWIMMING POOL</a></li>
+									</ul>
+								</li>
 								<li><a href="wedding/wedBrochure">WEDDING</a>
 									<ul>
 										<li><a href="wedding/wedBrochure">WEDDING HALL</a></li>
