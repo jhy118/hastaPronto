@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
+<style> 
 	@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@500&display=swap');
 	body{
 		margin:0;
@@ -75,7 +75,7 @@
 		</h2>
 		<div class="table-wrapper">
 	<table>
-		<c:if test="${authInfo.loginId == ann.empId}">
+		
 		<tr><td>메뉴 이름</td><td>${resmenu.rtMenu }</td></tr>
 		<tr><td>메뉴 가격</td><td>${resmenu.rtMenuChar }</td></tr>
 		<tr><td>메뉴 내용</td><td>${resmenu.rtMenuCon }</td></tr>
@@ -90,7 +90,7 @@
 				onclick="javascript:history.back();">
 							<input type="button" value="메뉴 삭제" 
 				onclick="javascript:location.href
-				='resmenuDelete?rtMenuNo=${resmenu.rtMenuNo}&rtNo=${resmenu.rtNo }'"/></td></tr></c:if>
+				='resmenuDelete?rtMenuNo=${resmenu.rtMenuNo}&rtNo=${resmenu.rtNo }'"/></td></tr>
 	</table>
 	</div>
 	</section>

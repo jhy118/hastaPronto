@@ -130,11 +130,6 @@
 				</select>
 			</td>
 			</tr>
-			<tr>
-			<!--  <td>고객 아이디</td>
-			<td><form:input path="userId"/>
-			<form:errors path="userId" /></td>
-			</tr>-->
 			<tr><td colspan="2"><input type="submit" value="예약 등록">
 				<input type="button" value="리스트로 가기" onclick="javascript:history.back();"></td>
 			</tr>

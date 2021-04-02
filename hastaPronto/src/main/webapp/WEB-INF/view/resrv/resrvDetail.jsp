@@ -67,7 +67,7 @@
 	}
 	
 </style>
-</head>
+</head> 
 <body>
 <section id="res-menu">
 	<h2>
@@ -75,7 +75,6 @@
 	</h2>
 	<div class="table-wrapper">
 		<table>
-			<tr><td>테이블 번호</td><td class="end">${resrv.rtRvTnum }</td></tr>
 			<tr><td>인원수</td><td class="end">${resrv.rtrvNum }</td></tr>
 			<tr><td>시간</td><td class="end">${resrv.rtRvTime }</td></tr>
 			<tr class="center"><td colspan="2"><input type="button" value="수정" 

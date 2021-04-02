@@ -42,7 +42,7 @@
 										</c:forEach>
 									</ul>
 								</li>
-								<li><a href="left-sidebar.html">RESTAURANT</a></li>
+								<li><a href="res/resList">RESTAURANT</a></li>
 								<li><a href="../hastaPronto/schedule/main">PREMIUM LIFE</a></li>
 								<li><a href="<c:url value='/wedding/wedBrochure'/>">WEDDING</a>
 									<ul>
