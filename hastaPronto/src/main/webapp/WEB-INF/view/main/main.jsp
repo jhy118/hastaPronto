@@ -42,8 +42,14 @@
 										</c:forEach>
 									</ul>
 								</li>
-								<li><a href="res/resList">RESTAURANT</a></li>
-								<li><a href="../hastaPronto/schedule/main">PREMIUM LIFE</a></li>
+								<li><a href="<c:url value='/res/resList'/>">RESTAURANT</a></li>
+								<li><a href="<c:url value='/schedule/main'/>">PREMIUM LIFE</a>
+									<ul>
+										<li><a href="<c:url value='/schedule/therapyList'/>">THERAPY(SPA)</a></li>
+										<li><a href="<c:url value='/schedule/fitnessMain'/>">FITNESS</a></li>
+										<li><a href="<c:url value='/schedule/swimmingMain'/>">SWIMMING POOL</a></li>
+									</ul>
+								</li>
 								<li><a href="<c:url value='/wedding/wedBrochure'/>">WEDDING</a>
 									<ul>
 										<li><a href="<c:url value='/wedding/wedBrochure'/>">WEDDING HALL</a></li>

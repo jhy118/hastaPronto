@@ -66,7 +66,7 @@
 				<div class="container">
 					<section>
 						<header>
-							<h2>Wedding List</h2>
+							<h2>Wedding Hall</h2>
 						</header>
 					
 						<c:if test="${authInfo.grade == 'emp' }">
@@ -76,12 +76,12 @@
 							<br />
 						</c:if>
 
-						<br />
+						<br /><br /><br />
 						<!-- 웨딩 예약 버튼 추가쓰 -->
-						<a href="<c:url value='../wedRes/wedResList'/>">WEDDING
-							RESTAURANT</a><br /> <a
-							href="<c:url value='../wedCs/wedCsList'/>">웨딩 예약 문의</a><br /> <a
-							href="<c:url value='../wedRv/wedRvList'/>">웨딩 최종 예약</a><br />
+<%-- 						<a href="<c:url value='../wedRes/wedResList'/>">WEDDING --%>
+<!-- 							RESTAURANT</a><br /> <a -->
+<%-- 							href="<c:url value='../wedCs/wedCsList'/>">웨딩 예약 문의</a><br /> <a --%>
+<%-- 							href="<c:url value='../wedRv/wedRvList'/>">웨딩 최종 예약</a><br /> --%>
 
 
 						<c:forEach items="${list}" var="dto" varStatus="status">
