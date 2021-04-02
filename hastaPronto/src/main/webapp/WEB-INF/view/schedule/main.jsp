@@ -17,10 +17,8 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
-		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
-		</noscript>
 	</head>
 <body class="homepage">
 
@@ -87,15 +85,15 @@
 					</header>
 					<div class="row no-collapse-1">
 						<section class="4u">
-							<a href="../schedule/therapy/therapyList" class="image feature"><img src="hasta/2.jpg" alt=""></a>
+							<a href="../schedule/therapy/therapyList" class="image feature"><img src="images/therapy.png" alt=""></a>
 							<p>온천수를 사용하는 스파는 물론이고, <br >컬러테라피, 헤이베스, 스위스퍼펙션 스파를 통해 최상의 관리를 받아보세요.</p>
 						</section>
 						<section class="4u">
-							<a href="../schedule/fitness/fitnessMain" class="image feature"><img src="hasta/3.jpg" alt=""></a>
+							<a href="../schedule/fitness/fitnessMain" class="image feature"><img src="images/swimmingPool.png" alt=""></a>
 							<p>저희 호텔 피트니스는 국내 최대 넓이의 피트니스 센터를 자랑합니다. 쾌적한 환경에서의 운동과 맞춤 PT까지 경험해보세요.</p>
 						</section>
 						<section class="4u">
-							<a href="../schedule/swimming/swimmingMain" class="image feature"><img src="hasta/4.jpg" alt=""></a>
+							<a href="../schedule/swimming/swimmingMain" class="image feature"><img src="images/fitness.png" alt=""></a>
 							<p>어린아이를 위한 물놀이 장소는 물론, 수영과 아쿠아로빅을 통한 신체관리도 제공합니다.
 								<br >(모든 수업은 선생님 한분당 최대 3인까지 신청가능)</p>
 						</section>
