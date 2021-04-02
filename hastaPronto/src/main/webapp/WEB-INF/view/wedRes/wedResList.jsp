@@ -66,7 +66,9 @@
 				<div class="container">
 					<section>
 					
-					
+					<header>
+							<h2>Wedding Buffet</h2>
+						</header><br /><br /><br />
 							
 <c:if test="${authInfo.grade == 'emp' }">
 	<a href="wedResWrite">웨딩홀 레스토랑 등록</a>

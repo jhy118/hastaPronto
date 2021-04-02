@@ -66,9 +66,12 @@
 				<div class="container">
 					<section>
 					
+							<header>
+							<h2>Reservation</h2>
+						</header><br /><br /><br />
 					
 						<table border="1">
-							<caption>웨딩 & 레스토랑 예약하기</caption>
+							<caption>웨딩 예약</caption>
 							<tr>
 								<td colspan="7" align="center"><a
 									href="wedRvList?nYear=${nYear}&nMonth=${nMonth}&action=previous">이전달</a>

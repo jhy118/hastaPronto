@@ -66,9 +66,13 @@
 				<div class="container">
 					<section>
 					
-					
+					<header>
+							<h2>Consulting</h2>
+						</header><br /><br /><br />
+						
+						
 					<table border="1">
-							<caption>웨딩 상담 일정 예약하기</caption>
+							<caption>웨딩 상담 일정 예약</caption>
 							<tr>
 								<td colspan="7" align="center"><a
 									href="wedCsList?nYear=${nYear}&nMonth=${nMonth}&action=previous">이전달</a>
