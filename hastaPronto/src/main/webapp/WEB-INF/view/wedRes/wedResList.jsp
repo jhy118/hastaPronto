@@ -14,15 +14,15 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="<c:url value='/js/jquery.min.js'/>"></script>
+		<script src="<c:url value='/js/jquery.dropotron.min.js'/>"></script>
+		<script src="<c:url value='/js/skel.min.js'/>"></script>
+		<script src="<c:url value='/js/skel-layers.min.js'/>"></script>
+		<script src="<c:url value='/js/init.js'/>"></script>
 		<noscript>
 		</noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="<c:url value='/css/skel.css'/>" />
+			<link rel="stylesheet" href="<c:url value='/css/style.css'/>" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body class="no-sidebar">
@@ -66,7 +66,9 @@
 				<div class="container">
 					<section>
 					
-					
+					<header>
+							<h2>Wedding Buffet</h2>
+						</header><br /><br /><br />
 							
 <c:if test="${authInfo.grade == 'emp' }">
 	<a href="wedResWrite">웨딩홀 레스토랑 등록</a>

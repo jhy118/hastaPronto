@@ -19,6 +19,7 @@ import service.reservation.ReservationRoomListService;
 import service.reservation.ReservedListService;
 import service.reservation.RoomResvOkService;
 import service.reservation.RoomResvService;
+import service.room.RoomListService;
 import validator.RoomReservationCommandValidator;
 
 @Controller
@@ -36,6 +37,8 @@ public class ReservationRoomController {
 	ReservationDetailService reservationDetailService;
 	@Autowired
 	CancleReservationService cancleReservationService;
+	@Autowired
+	RoomListService roomListService;
 
 	@RequestMapping(value = "roomList", method = RequestMethod.GET)
 	public String roomList(@RequestParam(value = "ckIn", defaultValue = "null") String ckIn, Model model,

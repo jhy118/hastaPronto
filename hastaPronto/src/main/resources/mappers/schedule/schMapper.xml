@@ -47,7 +47,7 @@
 	</select>
 	<update id="theUpdate" parameterType="sch">
 		update SCHEDULE
-		set SCH_DATE = #{schDate}, SCH_CONTENT = #{schContent}, OSE_NO = #{oseNo}, SCH_TYPE=#{"schType"}, SCH_NUM = #{schNum}, SCH_TIME = #{schTime}
+		set SCH_DATE = #{schDate}, SCH_CONTENT = #{schContent}, OSE_NO = #{oseNo}, SCH_TYPE=#{schType}, SCH_NUM = #{schNum}, SCH_TIME = #{schTime}
 		where SCH_NO = #{schNo}
 	</update>
 </mapper>

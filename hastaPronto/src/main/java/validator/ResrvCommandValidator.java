@@ -12,11 +12,9 @@ public class ResrvCommandValidator implements Validator{
 	}
 	@Override
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rtRvTnum", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rtrvNum", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rtRvDay", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "rtRvTime", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userId", "required");
 		
 	}
 }

@@ -130,8 +130,8 @@
 		<%@ include file = "../include/includePage.jsp" %>
 	</div>
 	<div class="box2">
-		<c:if test="${authInfo.loginId == ann.empId}">
-		<a href="resmenuForm?rtNo=${rtNo}">레스토랑 메뉴등록</a></c:if>
+		
+		<a href="resmenuForm?rtNo=${rtNo}">레스토랑 메뉴등록</a>
 	</div>
 	</div>
 </section>

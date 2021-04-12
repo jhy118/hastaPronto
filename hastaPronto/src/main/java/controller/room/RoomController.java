@@ -46,6 +46,7 @@ public class RoomController {
 	@RequestMapping(value = "roomRegist", method = RequestMethod.GET)
 	public String roomForm(Model model) {
 		model.addAttribute("room", new RoomCommand());
+		roomListService.execute(model);
 		return "room/roomRegist";
 	}
 
@@ -62,6 +63,7 @@ public class RoomController {
 
 	@RequestMapping(value = "roomInfo/{id}", method = RequestMethod.GET)
 	public String roomInfo(@PathVariable(value = "id") String rmNo, Model model) {
+		roomListService.execute(model);
 		roomInfoService.execute(rmNo, model);
 		return "room/roomInfo";
 	}

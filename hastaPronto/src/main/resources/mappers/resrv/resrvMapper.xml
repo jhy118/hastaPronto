@@ -3,15 +3,15 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.resrv.resrvMapper">
 	<sql id="baseColumn">
-		RT_RV_NO, RT_RV_TNUM, RT_RV_NUM, RT_RV_TIME, USER_ID, RT_NO 
+		RT_RV_NO, RT_RV_NUM, RT_RV_TIME, USER_ID, RT_NO 
 	</sql>
 	<sql id="baseColumn1">
-		RT_RV_NO rtRvNo, RT_RV_TNUM rtRvTnum, RT_RV_NUM rtrvNum, RT_RV_TIME rtRvTime,
+		RT_RV_NO rtRvNo, RT_RV_NUM rtrvNum, RT_RV_TIME rtRvTime,
 		USER_ID userId, RT_NO rtNo
 	</sql>
 	<insert id="insertResrv" parameterType="model.DTO.ResrvDTO">
 		insert into restaurant_reservation (<include refid="baseColumn" />)
-		values (board_seq.nextval, #{rtRvTnum}, #{rtrvNum}, #{rtRvTime}, #{userId}, #{rtNo})
+		values (board_seq.nextval, #{rtrvNum}, #{rtRvTime}, #{userId}, #{rtNo})
 	</insert>
 	<select id="selectResrv" parameterType="model.DTO.ResrvDTO" resultType="model.DTO.ResrvDTO">
 		select * from (select ROWNUM RN, <include refid="baseColumn1" />
