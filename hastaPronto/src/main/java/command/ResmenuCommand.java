@@ -8,6 +8,13 @@ public class ResmenuCommand {
 	String rtMenuChar;
 	String rtNo;
 	String rtMenuCon;
+	String rtRvNo;
+	public String getRtRvNo() {
+		return rtRvNo;
+	}
+	public void setRtRvNo(String rtRvNo) {
+		this.rtRvNo = rtRvNo;
+	}
 	MultipartFile [] rtMenuImage;
 	public String getRtMenuNo() {
 		return rtMenuNo;

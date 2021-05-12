@@ -43,7 +43,9 @@ public class ResmenuController {
 	}
 	@RequestMapping(value = "resmenuForm", method = RequestMethod.GET)
 	public String resmenuForm(Model model
-			,@RequestParam(value = "rtNo") String rtNo, ResmenuCommand resmenuCommand) {
+			, @RequestParam(value = "rtNo") String rtNo
+			, @RequestParam(value = "rtRvNo") String rtRvNo
+			, ResmenuCommand resmenuCommand) {
 		resmenuCommand.setRtNo(rtNo);
 		model.addAttribute("resmenuRegist", resmenuCommand);
 		

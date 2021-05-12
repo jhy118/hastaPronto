@@ -127,7 +127,7 @@
 	</h2>
 	<div class="table-wrapper">
 		<form action="resStRemove" method="post" name="frm">
-		
+		<input type="hidden" name="rtRvNo" value="${resSt.rtRvNo }">
 		주문서 리스트 페이지입니다.<br />
 			<c:set value="0" var="totalPrice"/>
 		<table>
@@ -135,7 +135,7 @@
 				<th>메뉴 이름</th>
 				<th>메뉴 수량</th>
 				<th>메뉴 금액</th>
-				<td align="center"><input type="submit" value="삭제"></td>   
+				<td align="center"><input type="submit" value="삭제" ></td>   
 			</tr>
 			<c:forEach items="${resStList}" var="resSt" varStatus="resStatus">
 			<tr>
@@ -147,7 +147,6 @@
 				</th>
 				
 				<th>${resSt.oderSchar }</th>
-		
 				<th>
 					<input type="checkbox" name="delete" value="${resSt.rtMenuNo }" />
 				</th>   

@@ -93,7 +93,7 @@
 									<input type="button" value="뒤로가기" 
 						onclick="javascript:history.back();">
 						
-									<input type="button" value="메뉴 삭제"
+									<input type="button" value="레스토랑 삭제"
 						onclick="javascript:location.href='resDelete?rtNo=${res.rtNo}'"/>
 									<input type="button" value="예약 하기"
 						onclick="javascript:location.href='../resrv/resrvList?rtNo=${res.rtNo}'">

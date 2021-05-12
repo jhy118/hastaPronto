@@ -111,6 +111,7 @@
 	<form:form action="resmenuRegistPro" method="post" 
 				modelAttribute="resmenuRegist" enctype="multipart/form-data">
 		<form:hidden path="rtNo"/>
+		<form:hidden path="rtRvNo"/>
 		<table>
 			<tr>
 			<th>메뉴 이름</th>

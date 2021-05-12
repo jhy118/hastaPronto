@@ -130,8 +130,7 @@
 		<%@ include file = "../include/includePage.jsp" %>
 	</div>
 	<div class="box2">
-		
-		<a href="resmenuForm?rtNo=${rtNo}">레스토랑 메뉴등록</a>
+		<a href="resmenuForm?rtNo=${rtNo}&rtRvNo=${rtRvNo}">레스토랑 메뉴등록</a>
 	</div>
 	</div>
 </section>

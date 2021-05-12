@@ -18,10 +18,10 @@
 					from(select <include refid="baseColumn" />
 				from restaurant_reservation
 				<trim prefix="where" prefixOverrides="and | or">
-					<if test="rtRvNo != null">
+					<if test="rtRvNo != null">   
 						RT_RV_NO = #{rtRvNo}
 					</if>
-					<if test="rtNo != null">
+					<if test="rtNo != null">   
 						RT_NO = #{rtNo}
 					</if>
 				</trim>

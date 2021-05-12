@@ -117,7 +117,7 @@
 	<div class="table-wrapper">
 		<table>
 			<tr>
-				<td colspan="4"><a>결제완료 페이지</a></td>
+				<td colspan="4" align="center"><a>결제완료 페이지</a></td>
 			</tr>
 			<tr class="head">
 				<th>메뉴 이름</th>
@@ -131,7 +131,7 @@
 					<td>${respay.resStDTO[idx].oderSchar}</td>
 				</tr>
 			</c:forEach>
-			<tr>
+			<tr class="head">
 					<th>총금액</th>
 					<th>결제방법</th>
 			</tr>

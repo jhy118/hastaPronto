@@ -17,7 +17,7 @@
 	<insert id="insertResSt" parameterType="model.DTO.ResStDTO">
 		merge into order_statement o
 	    using(select rt_menu_no, rt_menu_char from restaurant_menu where rt_menu_no = #{rtMenuNo}) r
-	    on(o.rt_menu_no = r.rt_menu_no)
+	    on(o.rt_menu_no = r.rt_menu_no and o.rt_rv_no = #{rtRvNo} and o.user_id = #{userId})
 		when matched then
 		    update set ODER_S_NUM = ODER_S_NUM + 1,
 		    ORER_S_CHAR = ORER_S_CHAR + rt_menu_char

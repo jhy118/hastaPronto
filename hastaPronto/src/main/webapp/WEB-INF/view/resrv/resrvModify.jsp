@@ -110,14 +110,13 @@
 		<form:hidden path="rtRvNo"/>
 		<form:hidden path="rtNo"/>
 			<table>
-				<tr><td>테이블 번호</td><td class="end"><input type="text" name="rtRvTnum" value="${resrv.rtRvTnum }"></td></tr>
+				<tr><td></td><td class="end"><input type="hidden" name="rtRvTnum" value="${resrv.rtRvTnum }"></td></tr>
 				<tr><td>인원수</td><td class="end"><input type="text" name="rtrvNum" value="${resrv.rtrvNum }"></td></tr>
 				
 				<tr><td>날짜</td>
 				<td class="end"><input type="date" name="rtRvDay" 
 				value="<fmt:formatDate value="${resrv.rtRvTime}" type="date" pattern="yyyy-MM-dd"/>">
 				</td></tr>
-				
 				
 				<tr><td>시간</td>
 				<td class="end"><input type="text" name="rtRvTime" 
