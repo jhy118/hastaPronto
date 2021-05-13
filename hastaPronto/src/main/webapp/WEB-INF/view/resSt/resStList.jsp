@@ -109,6 +109,19 @@
 		color:#fff;
 		transition:all ease 0.25s;
 	}
+	input[type="button"]{
+		background:#fff;
+		color:#333;
+		border-radius:5px;
+		border:none;
+		cursor:pointer;
+		padding:10px 15px;
+	}
+	input[type="button"]:hover{
+		background:#333;
+		color:#fff;
+		transition:all ease 0.25s;
+	}
 	#res-menu table .num:hover{
 		background:inherit;
 		transition:inherit;
@@ -117,6 +130,11 @@
 	#respay{
 		text-align:center;
 		margin:50px 0;1
+	}
+	#res-menu .btn-wrap{
+		width:100%;
+		text-align:center;
+		margin:50px 0;
 	}
 </style>
 </head>
@@ -167,8 +185,10 @@
 				<tr><th>결제 방법 : </th></tr>
 				<input type="radio" id="card" name="rtPmMethod" value="Card">카드결제
 				<input type="radio" id="account" name="rtPmMethod" value="Account">계좌이체
+				
 			<input type="submit" 
 					value="결제 하기">
+			<input type="button" value="메뉴리스트" onclick="javascript:history.back();">
 			<input type="hidden" name="rtPmChar" value="${totalPrice }">
 			<input type="hidden" name="rtRvNo" value="${resStList[0].rtRvNo }">
 		</form:form>

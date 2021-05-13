@@ -84,13 +84,24 @@
 		<img width="200" src="upload/${rm }">
 		</c:forTokens>
 		</td></tr>
-		<tr class="center"><td colspan="2"><input type="button" value="수정" 
+		<tr class="center">
+				
+				<td colspan="2">
+				<c:if test="${authInfo.grade == 'emp' }">
+				<input type="button" value="수정" 
 				onclick="javascript:location.href='resmenuModify?rtMenuNo=${resmenu.rtMenuNo}'">
-							<input type="button" value="뒤로가기" 
+				</c:if>
+				
+				<input type="button" value="뒤로가기" 
 				onclick="javascript:history.back();">
-							<input type="button" value="메뉴 삭제" 
+				
+				<c:if test="${authInfo.grade == 'emp' }">
+				<input type="button" value="메뉴 삭제" 
 				onclick="javascript:location.href
-				='resmenuDelete?rtMenuNo=${resmenu.rtMenuNo}&rtNo=${resmenu.rtNo }'"/></td></tr>
+				='resmenuDelete?rtMenuNo=${resmenu.rtMenuNo}&rtNo=${resmenu.rtNo }'"/>
+				</c:if>
+				
+				</td></tr>
 	</table>
 	</div>
 	</section>

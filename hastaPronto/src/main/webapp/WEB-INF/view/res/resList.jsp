@@ -115,7 +115,9 @@
 				<%@ include file = "../include/includePage.jsp" %>
 			</div>
 			<div class="box2">
+			<c:if test="${authInfo.grade == 'emp' }">
 				<a href="resForm">레스토랑 등록</a>
+			</c:if>
 			</div>
 		</div>
 	</section>  

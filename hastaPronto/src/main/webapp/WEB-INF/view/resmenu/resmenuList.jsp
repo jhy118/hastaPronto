@@ -111,26 +111,44 @@
 				<th>메뉴 이름</th>      
 				<th>메뉴 가격</th>  
 				<th>메뉴 내용</th>    
+				<th>메뉴 사진</th>
 			</tr>
 			<c:forEach items="${resmenuList }" var="resmenu" varStatus="resmenuList">
 			<tr>
 				<th onclick="javascript:location.href='resmenuDetail?rtMenuNo=${resmenu.rtMenuNo}'">${resmenu.rtMenu }</th>   
 				<th onclick="javascript:location.href='resmenuDetail?rtMenuNo=${resmenu.rtMenuNo}'">${resmenu.rtMenuChar }</th>
 				<th onclick="javascript:location.href='resmenuDetail?rtMenuNo=${resmenu.rtMenuNo}'">${resmenu.rtMenuCon }</th>
+				
+				<th>
+				<c:forTokens items="${resmenu.rtMenuImage}" delims="`" var="rt">
+				<img width="100" src="upload/${rt} ">
+				</c:forTokens>
+				</th>
+				
 				<td colspan="3" align="right">
+				
+				
+				 
+				<c:if test="${rtRvNo != 0 }">
+				<td>
 				<input type="button" 
 				onclick="javascript:location.href='../resSt/resStRegist?rtMenuNo=${resmenu.rtMenuNo}&rtRvNo=${rtRvNo }'"
-				value="주문서 등록"></td>
+				value="주문서 등록"></td> 
+				</c:if>
+				
 			</tr>
 			</c:forEach>
 		</table>
-	</div>
+	</div>   
 	<div class="enroll">
 	<div class="box1">
 		<%@ include file = "../include/includePage.jsp" %>
 	</div>
 	<div class="box2">
-		<a href="resmenuForm?rtNo=${rtNo}&rtRvNo=${rtRvNo}">레스토랑 메뉴등록</a>
+		<c:if test="${authInfo.grade == 'emp' }">
+		<a href="resmenuForm?rtNo=${rtNo}&rtRvNo=${rtRvNo}">
+		<br/>레스토랑 메뉴등록</a>
+		</c:if>
 	</div>
 	</div>
 </section>

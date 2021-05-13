@@ -87,16 +87,22 @@
 				<tr class="center">
 				
 				<td colspan="2">
-				
+				<c:if test="${authInfo.grade == 'emp' }">
 				<input type="button" value="수정" 
 						onclick="javascript:location.href='resModify?rtNo=${res.rtNo}'">
-									<input type="button" value="뒤로가기" 
+				</c:if>		
+				<input type="button" value="뒤로가기" 
 						onclick="javascript:history.back();">
-						
-									<input type="button" value="레스토랑 삭제"
+				<c:if test="${authInfo.grade == 'emp' }">		
+				<input type="button" value="레스토랑 삭제"
 						onclick="javascript:location.href='resDelete?rtNo=${res.rtNo}'"/>
-									<input type="button" value="예약 하기"
+				</c:if>		
+				<input type="button" value="예약 하기"
 						onclick="javascript:location.href='../resrv/resrvList?rtNo=${res.rtNo}'">
+						
+				<input type="button" value="메뉴보기"
+						onclick="javascript:location.href=
+						'../resmenu/resmenuList?rtNo=${res.rtNo}&rtRvNo=${res.rtRvNo = 0 }'">
 						</td></tr>
 			</table>
 		</div>

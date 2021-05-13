@@ -5,7 +5,14 @@ public class ResDTO {
 	String rtName;
 	String rtFile;
 	String rtContent;
+	String rtRvNo;
 	
+	public String getRtRvNo() {
+		return rtRvNo;
+	}
+	public void setRtRvNo(String rtRvNo) {
+		this.rtRvNo = rtRvNo;
+	}
 	StartEndPageDTO startEndPageDTO;
 	
 	public StartEndPageDTO getStartEndPageDTO() {

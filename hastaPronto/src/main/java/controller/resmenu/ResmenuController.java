@@ -60,7 +60,7 @@ public class ResmenuController {
 			return "resmenu/resmenuForm";
 		}  
 		resmenuRegistService.execute(resmenuCommand, session);
-		return "redirect:/resmenu/resmenuList?rtNo="+resmenuCommand.getRtNo();
+		return "redirect:/resmenu/resmenuList?rtNo="+resmenuCommand.getRtNo()+"&rtRvNo=0";
 	}
 	@RequestMapping(value = "resmenuDetail", method = RequestMethod.GET)
 	public String resmenuDetail(Model model, @RequestParam(value = "rtMenuNo") String rtMenuNo) {
@@ -79,7 +79,7 @@ public class ResmenuController {
 			@ModelAttribute(value="resmenu") ResmenuCommand resmenuCommand, HttpSession session) {
 		
 		resMenuModifyService.execute(resmenuCommand, session);
-		return "redirect:/resmenu/resmenuList?rtNo="+resmenuCommand.getRtNo();
+		return "redirect:/resmenu/resmenuList?rtNo="+resmenuCommand.getRtNo()+"&rtRvNo=0";
 	}
 	@RequestMapping(value = "resmenuDelete")
 	public String resmenuDelete(
@@ -87,7 +87,7 @@ public class ResmenuController {
 			@RequestParam(value = "rtNo") String rtNo , HttpSession session) {
 		   
 		resMenuDeleteService.execute(rtMenuNo, session);
-		return "redirect:/resmenu/resmenuList?rtNo="+rtNo;  
+		return "redirect:/resmenu/resmenuList?rtNo="+rtNo+"&rtRvNo=0";  
 	}
 	
 	
