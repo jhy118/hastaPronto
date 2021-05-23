@@ -143,6 +143,9 @@
 				<input type="button" value="결제 취소"
 				onclick="javascript:location.href
 				='respayDelete?rtRvNo=${respay.rtRvNo}'"/>
+				<input type="button" value="레스토랑 목록"
+						onclick="javascript:location.href='../res/resList'">
+				</td></tr>
 		</table>
 	</div>
 </section>

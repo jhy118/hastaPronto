@@ -135,7 +135,6 @@
 				onclick="javascript:location.href='../resSt/resStRegist?rtMenuNo=${resmenu.rtMenuNo}&rtRvNo=${rtRvNo }'"
 				value="주문서 등록"></td> 
 				</c:if>
-				
 			</tr>
 			</c:forEach>
 		</table>
@@ -149,6 +148,8 @@
 		<a href="resmenuForm?rtNo=${rtNo}&rtRvNo=${rtRvNo}">
 		<br/>레스토랑 메뉴등록</a>
 		</c:if>
+		<input type="button" value="메인페이지"
+						onclick="javascript:location.href='../res/resList'">
 	</div>
 	</div>
 </section>
